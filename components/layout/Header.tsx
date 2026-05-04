@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Logo } from '@/components/brand/Logo'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { cn } from '@/lib/utils'
 
 interface HeaderProps {
@@ -60,7 +61,7 @@ export function Header({ locale, nav }: HeaderProps) {
         className={cn(
           'fixed top-0 inset-x-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-[#080D18]/90 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20'
+            ? 'bg-white/90 dark:bg-[#080D18]/90 backdrop-blur-xl border-b border-[#080D18]/8 dark:border-white/5 shadow-lg shadow-black/10 dark:shadow-black/20'
             : 'bg-transparent'
         )}
       >
@@ -86,8 +87,8 @@ export function Header({ locale, nav }: HeaderProps) {
                   className={cn(
                     'px-4 py-2 text-sm font-medium rounded-lg transition-colors',
                     isActive(link.href)
-                      ? 'text-[#00D4FF]'
-                      : 'text-white/70 hover:text-white hover:bg-white/5'
+                      ? 'text-[#0099BB] dark:text-[#00D4FF]'
+                      : 'text-[#080D18]/70 dark:text-white/70 hover:text-[#080D18] dark:hover:text-white hover:bg-[#080D18]/5 dark:hover:bg-white/5'
                   )}
                 >
                   {link.label}
@@ -102,23 +103,27 @@ export function Header({ locale, nav }: HeaderProps) {
                 isRtl ? 'flex-row-reverse' : 'flex-row'
               )}
             >
+              <ThemeToggle />
               <Link
                 href={nav.locale_href}
-                className="text-sm font-medium text-white/60 hover:text-white/90 transition-colors px-2"
+                className="text-sm font-medium text-[#080D18]/50 dark:text-white/60 hover:text-[#080D18] dark:hover:text-white/90 transition-colors px-2"
               >
                 {nav.locale_label}
               </Link>
               <Link
                 href={`/${locale}/contact`}
-                className="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium bg-[#00D4FF] text-[#080D18] hover:bg-[#33DDFF] transition-colors"
+                className="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium bg-[#0099BB] dark:bg-[#00D4FF] text-white dark:text-[#080D18] hover:bg-[#007A96] dark:hover:bg-[#33DDFF] transition-colors"
               >
                 {nav.book_call}
               </Link>
             </div>
 
             {/* Mobile hamburger */}
+            <div className="md:hidden ms-auto flex items-center gap-1">
+              <ThemeToggle />
+            </div>
             <button
-              className="md:hidden ms-auto text-white/70 hover:text-white transition-colors p-2"
+              className="md:hidden text-[#080D18]/70 dark:text-white/70 hover:text-[#080D18] dark:hover:text-white transition-colors p-2"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
@@ -140,7 +145,7 @@ export function Header({ locale, nav }: HeaderProps) {
         {menuOpen && (
           <motion.div
             id="mobile-menu"
-            className="fixed inset-0 z-40 bg-[#080D18] flex flex-col pt-20 pb-8 px-6"
+            className="fixed inset-0 z-40 bg-white dark:bg-[#080D18] flex flex-col pt-20 pb-8 px-6"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
@@ -163,8 +168,8 @@ export function Header({ locale, nav }: HeaderProps) {
                       'block py-3 px-4 rounded-lg text-lg font-medium transition-colors',
                       isRtl ? 'text-right' : 'text-left',
                       isActive(link.href)
-                        ? 'text-[#00D4FF] bg-[#00D4FF]/10'
-                        : 'text-white/80 hover:text-white hover:bg-white/5'
+                        ? 'text-[#0099BB] dark:text-[#00D4FF] bg-[#0099BB]/10 dark:bg-[#00D4FF]/10'
+                        : 'text-[#080D18]/80 dark:text-white/80 hover:text-[#080D18] dark:hover:text-white hover:bg-[#080D18]/5 dark:hover:bg-white/5'
                     )}
                   >
                     {link.label}
@@ -175,13 +180,13 @@ export function Header({ locale, nav }: HeaderProps) {
             <div className="mt-auto flex flex-col gap-3">
               <Link
                 href={nav.locale_href}
-                className="py-3 px-4 text-center rounded-lg text-base font-medium text-white/60 border border-white/10 hover:border-white/20 hover:text-white/80 transition-colors"
+                className="py-3 px-4 text-center rounded-lg text-base font-medium text-[#080D18]/60 dark:text-white/60 border border-[#080D18]/10 dark:border-white/10 hover:border-[#080D18]/20 dark:hover:border-white/20 hover:text-[#080D18]/80 dark:hover:text-white/80 transition-colors"
               >
                 {nav.locale_label}
               </Link>
               <Link
                 href={`/${locale}/contact`}
-                className="py-3 px-4 rounded-lg text-base font-medium text-center bg-[#00D4FF] text-[#080D18] hover:bg-[#33DDFF] transition-colors"
+                className="py-3 px-4 rounded-lg text-base font-medium text-center bg-[#0099BB] dark:bg-[#00D4FF] text-white dark:text-[#080D18] hover:bg-[#007A96] dark:hover:bg-[#33DDFF] transition-colors"
               >
                 {nav.book_call}
               </Link>

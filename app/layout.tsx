@@ -4,6 +4,7 @@ import { headers } from 'next/headers'
 import Script from 'next/script'
 import './globals.css'
 import { defaultMetadata } from '@/lib/seo'
+import { ThemeProvider } from '@/components/providers/ThemeProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -47,7 +48,8 @@ export default async function RootLayout({
       dir={dir}
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${ibmPlexArabic.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-[#080D18]">
+      <body className="min-h-full flex flex-col bg-white dark:bg-[#080D18] text-[#080D18] dark:text-white transition-colors duration-300">
+        <ThemeProvider>
         {children}
         {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
           <Script
@@ -57,6 +59,7 @@ export default async function RootLayout({
             strategy="lazyOnload"
           />
         )}
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -26,7 +26,7 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-[#080D18] py-24" aria-labelledby="services-heading">
+    <section className="bg-[#F4F6FA] dark:bg-[#080D18] py-24" aria-labelledby="services-heading">
       <Container>
         <motion.div
           className={cn('mb-14', isRtl ? 'text-right' : 'text-left')}
@@ -35,12 +35,12 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-3">
             {title}
           </p>
           <h2
             id="services-heading"
-            className="text-3xl sm:text-4xl font-semibold text-white font-display leading-tight max-w-2xl"
+            className="text-3xl sm:text-4xl font-semibold text-[#080D18] dark:text-white font-display leading-tight max-w-2xl"
           >
             {subtitle}
           </h2>
@@ -59,10 +59,10 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
               >
                 <Link
                   href={`/${locale}/services/${service.slug}`}
-                  className="group relative flex flex-col gap-4 p-6 rounded-xl border border-[#00D4FF]/18 bg-[#080D18]/40 backdrop-blur-sm hover:border-[#00D4FF]/40 hover:bg-[#00D4FF]/5 transition-all duration-200 h-full"
+                  className="group relative flex flex-col gap-4 p-6 rounded-xl border border-[#0099BB]/15 dark:border-[#00D4FF]/18 bg-white dark:bg-[#080D18]/40 shadow-sm dark:shadow-none hover:border-[#0099BB]/40 dark:hover:border-[#00D4FF]/40 hover:shadow-md dark:hover:bg-[#00D4FF]/5 transition-all duration-200 h-full"
                 >
                   <div className="flex items-start justify-between">
-                    <div className="p-2.5 rounded-lg bg-[#00D4FF]/10 text-[#00D4FF] group-hover:bg-[#00D4FF]/20 transition-colors">
+                    <div className="p-2.5 rounded-lg bg-[#0099BB]/10 dark:bg-[#00D4FF]/10 text-[#0099BB] dark:text-[#00D4FF] group-hover:bg-[#0099BB]/20 dark:group-hover:bg-[#00D4FF]/20 transition-colors">
                       <Icon size={20} aria-hidden="true" />
                     </div>
                     <ArrowRight
@@ -75,8 +75,8 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
                     />
                   </div>
                   <div>
-                    <h3 className="text-base font-semibold text-white mb-2">{service.title}</h3>
-                    <p className="text-sm text-white/55 leading-relaxed">{service.description}</p>
+                    <h3 className="text-base font-semibold text-[#080D18] dark:text-white mb-2">{service.title}</h3>
+                    <p className="text-sm text-[#4A5878] dark:text-white/55 leading-relaxed">{service.description}</p>
                   </div>
                 </Link>
               </motion.div>

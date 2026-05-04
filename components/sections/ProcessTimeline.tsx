@@ -22,7 +22,7 @@ export function ProcessTimeline({ locale, title, subtitle, steps }: ProcessTimel
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-[#0A0E1A] py-24" aria-labelledby="process-heading">
+    <section className="bg-white dark:bg-[#0A0E1A] py-24" aria-labelledby="process-heading">
       <Container>
         <motion.div
           className={cn('mb-14', isRtl ? 'text-right' : 'text-left')}
@@ -31,12 +31,12 @@ export function ProcessTimeline({ locale, title, subtitle, steps }: ProcessTimel
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-3">
             {title}
           </p>
           <h2
             id="process-heading"
-            className="text-3xl sm:text-4xl font-semibold text-white font-display leading-tight max-w-2xl"
+            className="text-3xl sm:text-4xl font-semibold text-[#080D18] dark:text-white font-display leading-tight max-w-2xl"
           >
             {subtitle}
           </h2>
@@ -66,16 +66,16 @@ export function ProcessTimeline({ locale, title, subtitle, steps }: ProcessTimel
                 transition={{ duration: 0.5, delay: i * 0.12 }}
               >
                 {/* step number bubble */}
-                <div className="relative z-10 flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-full border border-[#00D4FF]/40 bg-[#0A0E1A]">
-                  <span className="font-mono text-[#00D4FF] text-sm sm:text-base font-semibold">
+                <div className="relative z-10 flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-full border border-[#0099BB]/40 dark:border-[#00D4FF]/40 bg-white dark:bg-[#0A0E1A] shadow-sm dark:shadow-none">
+                  <span className="font-mono text-[#0099BB] dark:text-[#00D4FF] text-sm sm:text-base font-semibold">
                     {step.number}
                   </span>
                 </div>
 
                 {/* content */}
                 <div className={cn('flex-1 pt-3', isRtl ? 'text-right' : '')}>
-                  <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-                  <p className="text-[#808890] leading-relaxed">{step.description}</p>
+                  <h3 className="text-xl font-semibold text-[#080D18] dark:text-white mb-2">{step.title}</h3>
+                  <p className="text-[#4A5878] dark:text-[#808890] leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             ))}
