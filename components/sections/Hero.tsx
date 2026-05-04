@@ -2,11 +2,131 @@
 
 import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
-import { SynthesisMark } from '@/components/brand/SynthesisMark'
 import { Container } from '@/components/layout/Container'
-import { ParticleCanvas } from '@/components/ui/ParticleCanvas'
-import { Typewriter } from '@/components/ui/Typewriter'
 import { cn } from '@/lib/utils'
+
+/* ── perspective grid drawn as SVG ── */
+function PerspectiveGrid() {
+  const W = 900
+  const H = 380
+  const vx = W / 2   // vanishing point x = centre
+  const vy = H * 0.3 // vanishing point y = 30% from top
+
+  // radial spokes from vanishing point to bottom edge
+  const spokes: string[] = []
+  const spokeCount = 22
+  for (let i = 0; i <= spokeCount; i++) {
+    const bx = (W / spokeCount) * i
+    spokes.push(`M${vx},${vy} L${bx},${H}`)
+  }
+
+  // horizontal cross-lines (perspective spacing – exponential)
+  const horizontals: string[] = []
+  const steps = 11
+  for (let i = 1; i <= steps; i++) {
+    const t = Math.pow(i / steps, 1.6)
+    const y = vy + (H - vy) * t
+    // interpolate x extents at this y
+    const ratio = (y - vy) / (H - vy)
+    const lx = vx - (vx - 0) * ratio
+    const rx = vx + (W - vx) * ratio
+    horizontals.push(`M${lx},${y} L${rx},${y}`)
+  }
+
+  return (
+    <svg
+      width="100%" height="100%"
+      viewBox={`0 0 ${W} ${H}`}
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+      className="absolute inset-0 w-full h-full"
+    >
+      <defs>
+        {/* vanishing-point glow */}
+        <radialGradient id="vpGlow" cx="50%" cy="30%" r="30%">
+          <stop offset="0%" stopColor="#00D4FF" stopOpacity="0.55" />
+          <stop offset="60%" stopColor="#3060FF" stopOpacity="0.12" />
+          <stop offset="100%" stopColor="#000" stopOpacity="0" />
+        </radialGradient>
+        {/* fade out at edges / top */}
+        <linearGradient id="fadeTop" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#000" stopOpacity="1" />
+          <stop offset="35%" stopColor="#000" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="fadeSides" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#000" stopOpacity="1" />
+          <stop offset="12%" stopColor="#000" stopOpacity="0" />
+          <stop offset="88%" stopColor="#000" stopOpacity="0" />
+          <stop offset="100%" stopColor="#000" stopOpacity="1" />
+        </linearGradient>
+        <mask id="gridMask">
+          <rect width={W} height={H} fill="white" />
+          <rect width={W} height={H} fill="url(#fadeTop)" />
+          <rect width={W} height={H} fill="url(#fadeSides)" />
+        </mask>
+      </defs>
+
+      {/* grid base bg */}
+      <rect width={W} height={H} fill="#03061a" />
+
+      {/* spokes */}
+      <g mask="url(#gridMask)" opacity="0.7">
+        {spokes.map((d, i) => (
+          <path key={`s${i}`} d={d} stroke="#1a4aaa" strokeWidth="0.7" fill="none" />
+        ))}
+        {/* gold accent spokes every ~4th */}
+        {spokes.filter((_, i) => i % 4 === 2).map((d, i) => (
+          <path key={`g${i}`} d={d} stroke="#c8920a" strokeWidth="0.5" fill="none" opacity="0.5" />
+        ))}
+      </g>
+
+      {/* horizontals */}
+      <g mask="url(#gridMask)" opacity="0.65">
+        {horizontals.map((d, i) => (
+          <path key={`h${i}`} d={d} stroke="#1a4aaa" strokeWidth="0.6" fill="none" />
+        ))}
+      </g>
+
+      {/* vanishing point glow */}
+      <rect width={W} height={H} fill="url(#vpGlow)" />
+
+      {/* bright spot at VP */}
+      <circle cx={vx} cy={vy} r="18" fill="#00D4FF" opacity="0.25" />
+      <circle cx={vx} cy={vy} r="6" fill="#ffffff" opacity="0.6" />
+    </svg>
+  )
+}
+
+/* ── spotlight rays from top centre ── */
+function SpotlightRays() {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      {/* central blue radial glow at very top */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px]"
+        style={{
+          background:
+            'radial-gradient(ellipse 55% 60% at 50% -5%, rgba(40,70,220,0.55) 0%, rgba(20,40,160,0.18) 45%, transparent 70%)',
+        }}
+      />
+      {/* individual light ray beams */}
+      {[-38, -26, -16, -8, 0, 8, 16, 26, 38].map((angle, i) => (
+        <div
+          key={i}
+          className="absolute top-0 left-1/2 origin-top"
+          style={{
+            width: '2px',
+            height: '60vh',
+            background:
+              'linear-gradient(to bottom, rgba(120,160,255,0.22) 0%, transparent 100%)',
+            transform: `translateX(-50%) rotate(${angle}deg)`,
+            opacity: 1 - Math.abs(angle) / 55,
+          }}
+        />
+      ))}
+    </div>
+  )
+}
 
 interface HeroProps {
   locale: string
@@ -22,88 +142,121 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaSecondary }: Hero
 
   return (
     <section
-      className="relative min-h-screen flex items-center bg-[#080D18] overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-start bg-[#050508] overflow-hidden"
       aria-labelledby="hero-heading"
     >
-      {/* particle network background */}
-      <ParticleCanvas />
+      {/* spotlight rays */}
+      <SpotlightRays />
 
-      {/* radial glow layers */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(0,212,255,0.07)_0%,transparent_70%)]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-[#00D4FF]/8 animate-[spin_40s_linear_infinite]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[1100px] rounded-full border border-[#00D4FF]/4 animate-[spin_80s_linear_infinite_reverse]" />
-      </div>
+      {/* ── NAV SPACER + HERO CARD ── */}
+      <Container className="relative z-10 w-full pt-28 pb-20 flex flex-col items-center gap-10">
 
-      <Container className="relative z-10 py-32">
-        <div className={cn('flex flex-col items-center text-center gap-10', isRtl ? 'items-center' : '')}>
+        {/* ── HERO CARD ── */}
+        <motion.div
+          className="relative w-full max-w-3xl rounded-2xl overflow-hidden"
+          style={{
+            border: '1px solid rgba(255,255,255,0.13)',
+            boxShadow: '0 0 80px rgba(30,60,220,0.18), 0 0 0 1px rgba(255,255,255,0.06)',
+          }}
+          initial={prefersReduced ? false : { opacity: 0, y: 32, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {/* perspective grid fills the card */}
+          <div className="relative h-[340px] sm:h-[400px]">
+            <PerspectiveGrid />
 
-          {/* Synthesis mark */}
-          <motion.div
-            initial={prefersReduced ? false : { scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            {/* card overlay content — centred vertically */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-8 text-center">
+              <motion.h1
+                id="hero-heading"
+                className={cn(
+                  'font-display font-semibold text-white leading-tight tracking-tight',
+                  'text-3xl sm:text-4xl lg:text-5xl max-w-xl',
+                  isRtl ? 'font-arabic' : ''
+                )}
+                initial={prefersReduced ? false : { opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.35 }}
+              >
+                {title}
+              </motion.h1>
+
+              <motion.div
+                initial={prefersReduced ? false : { opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.55 }}
+              >
+                <Link
+                  href={`/${locale}/contact`}
+                  className="inline-flex items-center px-7 py-3 rounded-full text-sm font-semibold bg-white text-[#080D18] hover:bg-white/90 active:scale-[0.97] transition-all shadow-lg"
+                >
+                  {ctaPrimary}
+                </Link>
+              </motion.div>
+
+              <motion.p
+                className="text-sm sm:text-base text-white/50 max-w-md leading-relaxed"
+                initial={prefersReduced ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.75 }}
+              >
+                {subtitle}
+              </motion.p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* secondary CTA below card */}
+        <motion.div
+          className="flex items-center gap-4"
+          initial={prefersReduced ? false : { opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+        >
+          <Link
+            href={`/${locale}/services`}
+            className="text-sm font-medium text-white/40 hover:text-white/80 transition-colors underline underline-offset-4 decoration-white/20"
           >
-            <SynthesisMark size={120} theme="dark" animated={!prefersReduced} />
-          </motion.div>
+            {ctaSecondary}
+          </Link>
+        </motion.div>
 
-          {/* Headline with typewriter */}
-          <motion.h1
-            id="hero-heading"
-            className="font-display font-medium text-white text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight max-w-4xl min-h-[1.2em]"
-            initial={prefersReduced ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.4 }}
-          >
-            <Typewriter text={title} delay={800} speed={isRtl ? 55 : 38} />
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            className="text-lg sm:text-xl text-white/60 max-w-2xl leading-relaxed"
-            initial={prefersReduced ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.2 }}
-          >
-            {subtitle}
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            className={cn('flex flex-wrap gap-4 justify-center', isRtl ? 'flex-row-reverse' : '')}
-            initial={prefersReduced ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 2.6 }}
-          >
-            <Link
-              href={`/${locale}/contact`}
-              className="relative inline-flex items-center px-7 py-3.5 rounded-lg text-base font-medium bg-[#00D4FF] text-[#080D18] hover:bg-[#33DDFF] active:scale-[0.97] transition-all shadow-[0_0_28px_rgba(0,212,255,0.45)] hover:shadow-[0_0_40px_rgba(0,212,255,0.65)]"
-            >
-              {ctaPrimary}
-            </Link>
-            <Link
-              href={`/${locale}/services`}
-              className="inline-flex items-center px-7 py-3.5 rounded-lg text-base font-medium border border-[#00D4FF]/50 text-[#00D4FF] hover:bg-[#00D4FF]/10 hover:border-[#00D4FF]/80 active:scale-[0.97] transition-all"
-            >
-              {ctaSecondary}
-            </Link>
-          </motion.div>
-
-          {/* scroll hint */}
-          <motion.div
-            className="flex flex-col items-center gap-2 mt-4"
-            initial={prefersReduced ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 3.2 }}
-            aria-hidden="true"
-          >
-            <div className="w-px h-10 bg-gradient-to-b from-[#00D4FF]/60 to-transparent animate-pulse" />
-          </motion.div>
-        </div>
+        {/* scroll pulse */}
+        <motion.div
+          className="flex flex-col items-center gap-1.5 mt-2"
+          initial={prefersReduced ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          aria-hidden="true"
+        >
+          <div className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent animate-pulse" />
+        </motion.div>
       </Container>
 
-      {/* bottom fade */}
-      <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#080D18] to-transparent pointer-events-none" />
+      {/* bottom section teaser — "AI Agents for Smarter Operations" */}
+      <div className="relative z-10 w-full border-t border-white/6 bg-[#050508] py-20 text-center px-4">
+        <motion.div
+          initial={prefersReduced ? false : { opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-4">
+            {locale === 'ar' ? 'وكلاء ذكاء اصطناعي' : 'AI Agents'}
+          </p>
+          <h2 className="font-display font-semibold text-white text-3xl sm:text-4xl lg:text-5xl max-w-3xl mx-auto leading-tight">
+            {locale === 'ar'
+              ? 'أتمتة أذكى للمؤسسات'
+              : 'AI Agents for Smarter Enterprise Operations'}
+          </h2>
+          <p className="mt-5 text-white/45 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            {locale === 'ar'
+              ? 'منصتنا المدعومة بالذكاء الاصطناعي تحوّل العمليات المؤسسية عبر التحليلات الفورية والأتمتة الذكية.'
+              : 'Our AI-driven platform transforms enterprise operations through real-time analytics, automation, and intelligent optimization.'}
+          </p>
+        </motion.div>
+      </div>
     </section>
   )
 }
