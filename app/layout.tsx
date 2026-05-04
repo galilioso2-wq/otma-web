@@ -47,18 +47,19 @@ export default async function RootLayout({
       lang={locale}
       dir={dir}
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${ibmPlexArabic.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-white dark:bg-[#080D18] text-[#080D18] dark:text-white transition-colors duration-300">
+      <body className="min-h-full flex flex-col bg-white dark:bg-[#080D18] text-[#080D18] dark:text-white">
         <ThemeProvider>
-        {children}
-        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
-          <Script
-            defer
-            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
-            src="https://plausible.io/js/plausible.js"
-            strategy="lazyOnload"
-          />
-        )}
+          {children}
+          {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
+            <Script
+              defer
+              data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
+              src="https://plausible.io/js/plausible.js"
+              strategy="lazyOnload"
+            />
+          )}
         </ThemeProvider>
       </body>
     </html>

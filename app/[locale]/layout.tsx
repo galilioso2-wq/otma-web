@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { Toaster } from 'sonner'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { NewsletterSection } from '@/components/sections/NewsletterSection'
 import { getDictionary, isValidLocale } from '@/lib/dictionaries'
 import { defaultMetadata } from '@/lib/seo'
 
@@ -49,6 +50,16 @@ export default async function LocaleLayout({
       <main id="main-content" className="flex-1">
         {children}
       </main>
+      <NewsletterSection
+        locale={locale}
+        title={dict.newsletter.title}
+        subtitle={dict.newsletter.subtitle}
+        placeholder={dict.newsletter.placeholder}
+        button={dict.newsletter.button}
+        success={dict.newsletter.success}
+        error={dict.newsletter.error}
+        privacy={dict.newsletter.privacy}
+      />
       <Footer locale={locale} dict={dict} />
       <Toaster
         position={locale === 'ar' ? 'bottom-left' : 'bottom-right'}

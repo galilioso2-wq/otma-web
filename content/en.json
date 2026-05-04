@@ -17,7 +17,14 @@
     },
     "trust": {
       "label": "Serving enterprises across",
-      "sectors": ["Manufacturing", "Banking", "Retail", "Healthcare", "Logistics", "Government"]
+      "sectors": [
+        "Manufacturing",
+        "Banking",
+        "Retail",
+        "Healthcare",
+        "Logistics",
+        "Government"
+      ]
     },
     "services": {
       "title": "What we build",
@@ -83,10 +90,22 @@
     },
     "stats": {
       "items": [
-        { "value": "8 weeks", "label": "to first agent in production" },
-        { "value": "40%", "label": "average reduction in manual workload" },
-        { "value": "3", "label": "languages supported natively" },
-        { "value": "100%", "label": "on customer-owned infrastructure" }
+        {
+          "value": "8 weeks",
+          "label": "to first agent in production"
+        },
+        {
+          "value": "40%",
+          "label": "average reduction in manual workload"
+        },
+        {
+          "value": "3",
+          "label": "languages supported natively"
+        },
+        {
+          "value": "100%",
+          "label": "on customer-owned infrastructure"
+        }
       ]
     },
     "why": {
@@ -132,7 +151,14 @@
           "Week 5–7: Build, test, and iterate",
           "Week 8: Production deployment and handover"
         ],
-        "tech": ["Azure OpenAI", "Python", "LangChain", "Azure Functions", "Cosmos DB", "Power BI"]
+        "tech": [
+          "Azure OpenAI",
+          "Python",
+          "LangChain",
+          "Azure Functions",
+          "Cosmos DB",
+          "Power BI"
+        ]
       },
       "crm-intelligence": {
         "title": "CRM intelligence",
@@ -150,7 +176,14 @@
           "Week 4: Integration with D365 and UAT",
           "Week 5: Go-live and sales team enablement"
         ],
-        "tech": ["Dynamics 365", "Azure ML", "Power BI", "Dataverse", "Python", "Azure Data Factory"]
+        "tech": [
+          "Dynamics 365",
+          "Azure ML",
+          "Power BI",
+          "Dataverse",
+          "Python",
+          "Azure Data Factory"
+        ]
       },
       "power-bi-ai": {
         "title": "Power BI + AI",
@@ -168,7 +201,13 @@
           "Week 3: Testing and stakeholder feedback",
           "Week 4: Rollout and user training"
         ],
-        "tech": ["Power BI Premium", "Azure OpenAI", "Azure Synapse", "Python", "Power Automate"]
+        "tech": [
+          "Power BI Premium",
+          "Azure OpenAI",
+          "Azure Synapse",
+          "Python",
+          "Power Automate"
+        ]
       },
       "conversational-ai": {
         "title": "Conversational AI",
@@ -186,7 +225,13 @@
           "Week 5–6: QA across Arabic and English",
           "Week 7–8: Production deployment and monitoring setup"
         ],
-        "tech": ["Azure OpenAI", "Bot Framework", "Azure AI Language", "Power Automate", "WhatsApp Business API"]
+        "tech": [
+          "Azure OpenAI",
+          "Bot Framework",
+          "Azure AI Language",
+          "Power Automate",
+          "WhatsApp Business API"
+        ]
       },
       "ai-strategy": {
         "title": "AI strategy",
@@ -204,7 +249,13 @@
           "Week 3: Architecture options and vendor analysis",
           "Week 4: Roadmap finalisation and executive presentation"
         ],
-        "tech": ["Azure", "Microsoft Fabric", "Power Platform", "OpenAI", "Industry benchmarks"]
+        "tech": [
+          "Azure",
+          "Microsoft Fabric",
+          "Power Platform",
+          "OpenAI",
+          "Industry benchmarks"
+        ]
       },
       "dynamics-365": {
         "title": "Dynamics 365 modernization",
@@ -222,7 +273,14 @@
           "Week 7–8: AI feature integration and testing",
           "Week 9–10: Go-live support and team training"
         ],
-        "tech": ["Dynamics 365", "Power Platform", "Azure Data Factory", "Dataverse", "Azure OpenAI", "Azure DevOps"]
+        "tech": [
+          "Dynamics 365",
+          "Power Platform",
+          "Azure Data Factory",
+          "Dataverse",
+          "Azure OpenAI",
+          "Azure DevOps"
+        ]
       }
     }
   },
@@ -268,21 +326,33 @@
         "result": "40% reduction in procurement cycle time",
         "title": "AI agent for supplier evaluation",
         "summary": "A large manufacturing group deployed an OTMA agent to automate supplier evaluation across 200+ vendors. The agent processes RFQs, scores suppliers against 30 criteria, and surfaces recommendations in Dynamics 365 — eliminating a 3-week manual process.",
-        "tags": ["Custom AI agents", "Dynamics 365", "Azure OpenAI"]
+        "tags": [
+          "Custom AI agents",
+          "Dynamics 365",
+          "Azure OpenAI"
+        ]
       },
       {
         "sector": "Banking",
         "result": "3× faster loan decisioning",
         "title": "CRM intelligence for credit risk",
         "summary": "A regional bank embedded OTMA's CRM intelligence layer inside their Dynamics 365 deployment. The system scores loan applications in real time using 18 months of historical decisioning data — reducing average approval time from 6 days to under 2.",
-        "tags": ["CRM intelligence", "Azure ML", "Dynamics 365"]
+        "tags": [
+          "CRM intelligence",
+          "Azure ML",
+          "Dynamics 365"
+        ]
       },
       {
         "sector": "Retail",
         "result": "22% lift in campaign ROI",
         "title": "Bilingual conversational AI for customer support",
         "summary": "A multi-brand retail group replaced their legacy chatbot with an OTMA bilingual assistant across Arabic and English. Integrated with their CRM and product catalogue, the assistant handles 78% of inbound queries without escalation.",
-        "tags": ["Conversational AI", "Arabic NLP", "WhatsApp"]
+        "tags": [
+          "Conversational AI",
+          "Arabic NLP",
+          "WhatsApp"
+        ]
       }
     ]
   },
@@ -326,11 +396,29 @@
     "company_title": "Company",
     "contact_title": "Contact",
     "company_links": [
-      { "label": "About", "href": "/about" },
-      { "label": "Case Studies", "href": "/case-studies" },
-      { "label": "Contact", "href": "/contact" }
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
     ],
     "copyright": "© 2026 OTMA. All rights reserved.",
     "built": "Born in Riyadh · Built for the world"
+  },
+  "newsletter": {
+    "title": "Stay ahead of the AI curve.",
+    "subtitle": "Practical insights on AI agents and enterprise automation delivered to your inbox. No noise — just signal.",
+    "placeholder": "your@email.com",
+    "button": "Subscribe",
+    "success": "You are subscribed. Check your inbox.",
+    "error": "Something went wrong. Please try again.",
+    "privacy": "No spam. Unsubscribe anytime."
   }
 }
