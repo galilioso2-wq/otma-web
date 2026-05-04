@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { Toaster } from 'sonner'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { getDictionary, isValidLocale } from '@/lib/dictionaries'
@@ -49,6 +50,16 @@ export default async function LocaleLayout({
         {children}
       </main>
       <Footer locale={locale} dict={dict} />
+      <Toaster
+        position={locale === 'ar' ? 'bottom-left' : 'bottom-right'}
+        toastOptions={{
+          style: { fontFamily: 'var(--font-inter)' },
+          classNames: {
+            success: 'border-[#0099BB]/30 bg-white',
+            error: 'border-[#C72C2C]/30 bg-white',
+          },
+        }}
+      />
     </>
   )
 }

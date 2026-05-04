@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Logo } from '@/components/brand/Logo'
 import { cn } from '@/lib/utils'
@@ -25,6 +26,7 @@ export function Header({ locale, nav }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
   const isRtl = locale === 'ar'
+  const prefersReduced = useReducedMotion()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80)
@@ -120,49 +122,73 @@ export function Header({ locale, nav }: HeaderProps) {
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
             >
-              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+              <motion.div
+                animate={{ rotate: menuOpen ? 90 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {menuOpen ? <X size={22} /> : <Menu size={22} />}
+              </motion.div>
             </button>
           </div>
         </div>
       </header>
 
       {/* Mobile overlay */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#080D18] flex flex-col pt-20 pb-8 px-6" role="dialog" aria-modal="true">
-          <nav className="flex flex-col gap-1 mt-4" aria-label="Mobile navigation">
-            {navLinks.map((link) => (
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            id="mobile-menu"
+            className="fixed inset-0 z-40 bg-[#080D18] flex flex-col pt-20 pb-8 px-6"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+            initial={prefersReduced ? false : { opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.2 }}
+          >
+            <nav className="flex flex-col gap-1 mt-4" aria-label="Mobile navigation">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={prefersReduced ? false : { opacity: 0, x: isRtl ? 16 : -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2, delay: i * 0.05 }}
+                >
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      'block py-3 px-4 rounded-lg text-lg font-medium transition-colors',
+                      isRtl ? 'text-right' : 'text-left',
+                      isActive(link.href)
+                        ? 'text-[#00D4FF] bg-[#00D4FF]/10'
+                        : 'text-white/80 hover:text-white hover:bg-white/5'
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+            <div className="mt-auto flex flex-col gap-3">
               <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  'py-3 px-4 rounded-lg text-lg font-medium transition-colors',
-                  isRtl ? 'text-right' : 'text-left',
-                  isActive(link.href)
-                    ? 'text-[#00D4FF] bg-[#00D4FF]/10'
-                    : 'text-white/80 hover:text-white hover:bg-white/5'
-                )}
+                href={nav.locale_href}
+                className="py-3 px-4 text-center rounded-lg text-base font-medium text-white/60 border border-white/10 hover:border-white/20 hover:text-white/80 transition-colors"
               >
-                {link.label}
+                {nav.locale_label}
               </Link>
-            ))}
-          </nav>
-          <div className="mt-auto flex flex-col gap-3">
-            <Link
-              href={nav.locale_href}
-              className="py-3 px-4 text-center rounded-lg text-base font-medium text-white/60 border border-white/10 hover:border-white/20 hover:text-white/80 transition-colors"
-            >
-              {nav.locale_label}
-            </Link>
-            <Link
-              href={`/${locale}/contact`}
-              className="py-3 px-4 rounded-lg text-base font-medium text-center bg-[#00D4FF] text-[#080D18] hover:bg-[#33DDFF] transition-colors"
-            >
-              {nav.book_call}
-            </Link>
-          </div>
-        </div>
-      )}
+              <Link
+                href={`/${locale}/contact`}
+                className="py-3 px-4 rounded-lg text-base font-medium text-center bg-[#00D4FF] text-[#080D18] hover:bg-[#33DDFF] transition-colors"
+              >
+                {nav.book_call}
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }
