@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" fill="none">
+  <rect width="200" height="220" rx="16" fill="#080D18"/>
+  <!-- synthesis mark centered -->
+  <g transform="translate(50, 20)">
+    <circle cx="50" cy="50" r="44" stroke="#00D4FF" stroke-width="0.6" stroke-opacity="0.3"/>
+    <circle cx="39" cy="50" r="22" stroke="#00D4FF" stroke-width="1.2"/>
+    <circle cx="61" cy="50" r="22" stroke="#00D4FF" stroke-width="1.2"/>
+    <circle cx="50" cy="6" r="2" fill="#00D4FF" fill-opacity="0.6"/>
+    <circle cx="50" cy="94" r="2" fill="#00D4FF" fill-opacity="0.6"/>
+    <circle cx="6" cy="50" r="2" fill="#00D4FF" fill-opacity="0.6"/>
+    <circle cx="94" cy="50" r="2" fill="#00D4FF" fill-opacity="0.6"/>
+    <circle cx="50" cy="50" r="5" fill="#00D4FF" fill-opacity="0.2"/>
+    <circle cx="50" cy="50" r="3" fill="#00D4FF"/>
+  </g>
+  <!-- wordmark centered -->
+  <text x="100" y="152" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="500" font-size="36" letter-spacing="6" fill="#FFFFFF" text-anchor="middle">OTMA</text>
+  <!-- tagline -->
+  <text x="100" y="170" font-family="'Inter', system-ui, sans-serif" font-weight="400" font-size="7.5" letter-spacing="2.5" fill="#4A5878" text-anchor="middle">INTELLIGENT · AI · AGENTS</text>
+  <!-- bottom line -->
+  <text x="100" y="196" font-family="'Inter', system-ui, sans-serif" font-weight="400" font-size="7" letter-spacing="2" fill="#4A5878" text-anchor="middle" fill-opacity="0.6">SYNTHESIS · INTELLIGENCE · GLOBAL</text>
+</svg>
