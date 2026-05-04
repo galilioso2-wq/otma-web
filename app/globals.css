@@ -168,6 +168,22 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ─── marquee animations ─── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* ─── glow pulse on CTA ─── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 28px rgba(0,212,255,0.4); }
+  50%       { box-shadow: 0 0 50px rgba(0,212,255,0.7); }
+}
+
 /* ─── selection ─── */
 ::selection {
   background-color: rgba(0, 212, 255, 0.25);
