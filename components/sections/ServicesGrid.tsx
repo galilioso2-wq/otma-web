@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowRight, Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw } from 'lucide-react'
+import { ArrowRight, Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw, Database, Cloud, Shield } from 'lucide-react'
 import { Container } from '@/components/layout/Container'
 import { cn } from '@/lib/utils'
 
@@ -19,7 +19,7 @@ interface ServicesGridProps {
   items: ServiceItem[]
 }
 
-const icons = [Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw]
+const icons = [Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw, Database, Cloud, Shield]
 
 export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridProps) {
   const isRtl = locale === 'ar'

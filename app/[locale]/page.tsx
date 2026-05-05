@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { Hero } from '@/components/sections/Hero'
 import { TrustStrip } from '@/components/sections/TrustStrip'
 import { ServicesGrid } from '@/components/sections/ServicesGrid'
+import { TechPartners } from '@/components/sections/TechPartners'
+import { DataFoundations } from '@/components/sections/DataFoundations'
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
 import { StatsGrid } from '@/components/sections/StatsGrid'
 import { WhyOTMA } from '@/components/sections/WhyOTMA'
@@ -63,6 +65,20 @@ export default async function HomePage({
         title={h.services.title}
         subtitle={h.services.subtitle}
         items={h.services.items}
+      />
+      <TechPartners
+        locale={locale}
+        label={h.tech_partners.label}
+        title={h.tech_partners.title}
+        subtitle={h.tech_partners.subtitle}
+        partners={h.tech_partners.partners}
+      />
+      <DataFoundations
+        locale={locale}
+        label={h.data_foundations.label}
+        title={h.data_foundations.title}
+        subtitle={h.data_foundations.subtitle}
+        tiers={h.data_foundations.tiers}
       />
       <ProcessTimeline
         locale={locale}

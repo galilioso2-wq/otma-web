@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowRight, Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw } from 'lucide-react'
+import { ArrowRight, Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw, Database, Cloud, Shield } from 'lucide-react'
 import { Container } from '@/components/layout/Container'
 import { CTABanner } from '@/components/sections/CTABanner'
 import { getDictionary, isValidLocale } from '@/lib/dictionaries'
 import { cn } from '@/lib/utils'
 
-const icons = [Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw]
+const icons = [Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw, Database, Cloud, Shield]
 
 export async function generateMetadata({
   params,

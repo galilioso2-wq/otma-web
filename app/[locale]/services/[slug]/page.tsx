@@ -14,6 +14,9 @@ const serviceSlugsList = [
   'conversational-ai',
   'ai-strategy',
   'dynamics-365',
+  'data-engineering',
+  'cloud-architecture',
+  'data-governance',
 ]
 
 export async function generateStaticParams() {

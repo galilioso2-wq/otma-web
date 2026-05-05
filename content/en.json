@@ -28,7 +28,7 @@
     },
     "services": {
       "title": "What we build",
-      "subtitle": "Six practice areas. Every one engineered for outcomes.",
+      "subtitle": "Nine practice areas. Every one engineered for outcomes.",
       "items": [
         {
           "slug": "custom-ai-agents",
@@ -59,6 +59,79 @@
           "slug": "dynamics-365",
           "title": "Dynamics 365 modernization",
           "description": "Migrate, optimise, and AI-enable your D365 deployment — with zero disruption to existing operations."
+        },
+        {
+          "slug": "data-engineering",
+          "title": "Data engineering",
+          "description": "Cloud-native pipelines, data lakes, and semantic models that give your AI a reliable, governed foundation to act on."
+        },
+        {
+          "slug": "cloud-architecture",
+          "title": "Cloud data architecture",
+          "description": "Multi-cloud infrastructure on Azure and Snowflake — scalable, maintainable by your in-house team, and built for AI workloads."
+        },
+        {
+          "slug": "data-governance",
+          "title": "Data governance",
+          "description": "Access policies, data catalogues, and lineage tracking — so the right people trust the right data when decisions are made."
+        }
+      ]
+    },
+    "tech_partners": {
+      "label": "Technology stack",
+      "title": "Built on platforms your enterprise already owns",
+      "subtitle": "OTMA agents integrate with your existing Microsoft, cloud, and data infrastructure — no new vendor lock-in required.",
+      "partners": [
+        { "name": "Microsoft Azure", "category": "Cloud" },
+        { "name": "OpenAI", "category": "AI Models" },
+        { "name": "Snowflake", "category": "Data Platform" },
+        { "name": "Databricks", "category": "Data & AI" },
+        { "name": "Power BI", "category": "Analytics" },
+        { "name": "Dynamics 365", "category": "CRM / ERP" },
+        { "name": "LangChain", "category": "Agent Framework" },
+        { "name": "WhatsApp Business", "category": "Messaging" }
+      ]
+    },
+    "data_foundations": {
+      "label": "How we structure every engagement",
+      "title": "From fragmented data to intelligent action",
+      "subtitle": "Three disciplined layers that turn raw enterprise data into decisions your teams can act on — and trust.",
+      "tiers": [
+        {
+          "number": "01",
+          "name": "Data Foundations",
+          "tag": "Infrastructure",
+          "description": "The reliable base every AI application needs. Governed, scalable, and built to last.",
+          "items": [
+            "Cloud-native data pipelines (Azure, Snowflake)",
+            "Semantic models & data catalogues",
+            "Access control & governance policies",
+            "Data quality monitoring & lineage tracking"
+          ]
+        },
+        {
+          "number": "02",
+          "name": "Data Products",
+          "tag": "Insight",
+          "description": "Analytics that surface the right signal at the right moment — automatically, without waiting to be asked.",
+          "items": [
+            "Power BI dashboards with AI anomaly detection",
+            "Executive KPI reporting & automated summaries",
+            "Natural language Q&A on live enterprise data",
+            "Scheduled insights delivered to Teams or email"
+          ]
+        },
+        {
+          "number": "03",
+          "name": "AI Applications",
+          "tag": "Intelligence",
+          "description": "Autonomous agents that act on what the data tells them — measurable, accountable, and always on.",
+          "items": [
+            "Custom AI agents across your full technology stack",
+            "Predictive models embedded in Dynamics 365",
+            "Bilingual Arabic & English conversational AI",
+            "Continuous model optimisation on real usage data"
+          ]
         }
       ]
     },
@@ -133,7 +206,7 @@
   },
   "services": {
     "page_title": "Services",
-    "page_subtitle": "Six practice areas. Every one engineered to deliver measurable outcomes — not theatre.",
+    "page_subtitle": "Nine practice areas. Every one engineered to deliver measurable outcomes — not theatre.",
     "items": {
       "custom-ai-agents": {
         "title": "Custom AI agents",
@@ -281,6 +354,81 @@
           "Azure OpenAI",
           "Azure DevOps"
         ]
+      },
+      "data-engineering": {
+        "title": "Data engineering",
+        "hero_sub": "Reliable, governed data pipelines that give your AI a foundation it can trust.",
+        "what_you_get": [
+          "End-to-end pipeline design from source systems to analytics layer",
+          "Cloud-native architecture on Azure Data Factory, Synapse, or Databricks",
+          "Snowflake data warehouse setup and semantic modelling",
+          "Automated data quality checks and alerting",
+          "Full documentation and handover to your in-house team"
+        ],
+        "how_it_works": [
+          "Week 1: Source system audit and data landscape mapping",
+          "Week 2–3: Pipeline architecture design and sign-off",
+          "Week 4–6: Build, test, and validate data flows",
+          "Week 7–8: Production deployment and knowledge transfer"
+        ],
+        "tech": [
+          "Azure Data Factory",
+          "Azure Synapse Analytics",
+          "Databricks",
+          "Snowflake",
+          "dbt",
+          "Azure DevOps"
+        ]
+      },
+      "cloud-architecture": {
+        "title": "Cloud data architecture",
+        "hero_sub": "Multi-cloud infrastructure designed to scale globally and stay maintainable by your team.",
+        "what_you_get": [
+          "Current-state cloud audit with cost and performance benchmarks",
+          "Target architecture blueprint approved before any build begins",
+          "Multi-cloud design across Azure, Snowflake, and Databricks",
+          "Infrastructure-as-code for repeatable, auditable deployments",
+          "Migration plan with zero-downtime cutover strategy"
+        ],
+        "how_it_works": [
+          "Week 1–2: Cloud estate audit and architecture assessment",
+          "Week 3: Target architecture design and stakeholder sign-off",
+          "Week 4–7: Infrastructure build and parallel run testing",
+          "Week 8: Cutover, monitoring setup, and documentation"
+        ],
+        "tech": [
+          "Microsoft Azure",
+          "Snowflake",
+          "Databricks",
+          "Terraform",
+          "Azure DevOps",
+          "Microsoft Fabric"
+        ]
+      },
+      "data-governance": {
+        "title": "Data governance",
+        "hero_sub": "The right people access trusted data — every time a decision is made.",
+        "what_you_get": [
+          "Data governance framework tailored to your regulatory environment",
+          "Data catalogue with ownership, classification, and lineage for all key assets",
+          "Role-based access control policies implemented across your data platform",
+          "Data quality scoring with automated monitoring dashboards",
+          "Governance playbook your team can operate without external support"
+        ],
+        "how_it_works": [
+          "Week 1: Data asset inventory and regulatory requirements mapping",
+          "Week 2: Governance framework design and stakeholder alignment",
+          "Week 3–4: Catalogue build, access policy implementation, and testing",
+          "Week 5: Training, handover, and ongoing monitoring setup"
+        ],
+        "tech": [
+          "Microsoft Purview",
+          "Azure Data Catalog",
+          "Snowflake",
+          "Power BI",
+          "Azure Policy",
+          "dbt"
+        ]
       }
     }
   },
@@ -383,6 +531,9 @@
         "Conversational AI",
         "AI strategy",
         "Dynamics 365",
+        "Data engineering",
+        "Cloud architecture",
+        "Data governance",
         "General inquiry"
       ],
       "submit": "Send message",
