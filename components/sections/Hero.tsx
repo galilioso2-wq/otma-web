@@ -101,12 +101,12 @@ function PerspectiveGrid() {
 function SpotlightRays() {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      {/* central blue radial glow at very top */}
+      {/* central blue radial glow */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px]"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[550px]"
         style={{
           background:
-            'radial-gradient(ellipse 55% 60% at 50% -5%, rgba(40,70,220,0.55) 0%, rgba(20,40,160,0.18) 45%, transparent 70%)',
+            'radial-gradient(ellipse 60% 65% at 50% -5%, rgba(40,70,220,0.60) 0%, rgba(20,40,160,0.20) 45%, transparent 70%)',
         }}
       />
       {/* individual light ray beams */}
@@ -116,14 +116,36 @@ function SpotlightRays() {
           className="absolute top-0 left-1/2 origin-top"
           style={{
             width: '2px',
-            height: '60vh',
-            background:
-              'linear-gradient(to bottom, rgba(120,160,255,0.22) 0%, transparent 100%)',
+            height: '65vh',
+            background: 'linear-gradient(to bottom, rgba(120,160,255,0.25) 0%, transparent 100%)',
             transform: `translateX(-50%) rotate(${angle}deg)`,
             opacity: 1 - Math.abs(angle) / 55,
           }}
         />
       ))}
+
+      {/* floating luminous orbs */}
+      <div
+        className="absolute top-[15%] left-[8%] w-72 h-72 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(0,212,255,0.10) 0%, transparent 65%)',
+          animation: 'orb-drift 16s ease-in-out infinite',
+        }}
+      />
+      <div
+        className="absolute top-[30%] right-[6%] w-56 h-56 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(48,128,255,0.10) 0%, transparent 65%)',
+          animation: 'orb-drift-b 20s ease-in-out infinite',
+        }}
+      />
+      <div
+        className="absolute bottom-[10%] left-[20%] w-40 h-40 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(200,146,10,0.08) 0%, transparent 65%)',
+          animation: 'orb-drift 24s ease-in-out infinite reverse',
+        }}
+      />
     </div>
   )
 }
@@ -163,15 +185,24 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaSecondary }: Hero
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* perspective grid fills the card */}
-          <div className="relative h-[340px] sm:h-[400px]">
+          <div className="relative h-[360px] sm:h-[420px]">
             <PerspectiveGrid />
 
+            {/* gradient vignette at card edges for depth */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'radial-gradient(ellipse 70% 55% at 50% 105%, rgba(5,5,8,0.7) 0%, transparent 70%)',
+              }}
+              aria-hidden="true"
+            />
+
             {/* card overlay content — centred vertically */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-8 text-center">
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-8 text-center">
               <motion.h1
                 id="hero-heading"
                 className={cn(
-                  'font-display font-semibold text-white leading-tight tracking-tight',
+                  'font-display font-semibold leading-tight tracking-tight',
                   'text-3xl sm:text-4xl lg:text-5xl max-w-xl',
                   isRtl ? 'font-arabic' : ''
                 )}
@@ -179,24 +210,43 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaSecondary }: Hero
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35 }}
               >
-                {title}
+                {/* split last word to gradient */}
+                {(() => {
+                  const words = title.split(' ')
+                  const last = words.pop()
+                  return (
+                    <>
+                      <span className="text-white">{words.join(' ')} </span>
+                      <span className="text-gradient-cyan">{last}</span>
+                    </>
+                  )
+                })()}
               </motion.h1>
 
               <motion.div
                 initial={prefersReduced ? false : { opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.55 }}
+                className="relative"
               >
+                {/* button glow */}
+                {!prefersReduced && (
+                  <div
+                    className="absolute -inset-2 rounded-full blur-xl opacity-30"
+                    style={{ background: 'rgba(255,255,255,0.4)' }}
+                    aria-hidden="true"
+                  />
+                )}
                 <Link
                   href={`/${locale}/contact`}
-                  className="inline-flex items-center px-7 py-3 rounded-full text-sm font-semibold bg-white text-[#080D18] hover:bg-white/90 active:scale-[0.97] transition-all shadow-lg"
+                  className="relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold bg-white text-[#080D18] hover:bg-white/92 active:scale-[0.97] transition-all shadow-[0_4px_24px_rgba(255,255,255,0.25)]"
                 >
                   {ctaPrimary}
                 </Link>
               </motion.div>
 
               <motion.p
-                className="text-sm sm:text-base text-white/50 max-w-md leading-relaxed"
+                className="text-sm sm:text-base text-white/45 max-w-md leading-relaxed"
                 initial={prefersReduced ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.75 }}

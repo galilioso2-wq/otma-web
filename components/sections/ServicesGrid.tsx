@@ -19,28 +19,42 @@ interface ServicesGridProps {
   items: ServiceItem[]
 }
 
-const icons = [Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw, Database, Cloud, Shield]
+const ICONS = [Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw, Database, Cloud, Shield]
+
+// Accent color per card for visual variety
+const CARD_ACCENTS = [
+  '#00D4FF', '#3080FF', '#7C3AED',
+  '#10A37F', '#F59E0B', '#EF4444',
+  '#00D4FF', '#3080FF', '#7C3AED',
+]
 
 export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridProps) {
   const isRtl = locale === 'ar'
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-[#F4F6FA] dark:bg-[#080D18] py-24" aria-labelledby="services-heading">
+    <section className="bg-[#080D18] py-28 relative" aria-labelledby="services-heading">
+      {/* subtle top border */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07) 40%, rgba(255,255,255,0.07) 60%, transparent)' }}
+        aria-hidden="true"
+      />
+
       <Container>
         <motion.div
-          className={cn('mb-14', isRtl ? 'text-right' : 'text-left')}
+          className={cn('mb-16', isRtl ? 'text-right' : 'text-left')}
           initial={prefersReduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-3">
             {title}
           </p>
           <h2
             id="services-heading"
-            className="text-3xl sm:text-4xl font-semibold text-[#080D18] dark:text-white font-display leading-tight max-w-2xl"
+            className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white font-display leading-tight max-w-2xl"
           >
             {subtitle}
           </h2>
@@ -48,35 +62,85 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((service, i) => {
-            const Icon = icons[i % icons.length]
+            const Icon = ICONS[i % ICONS.length]
+            const accent = CARD_ACCENTS[i % CARD_ACCENTS.length]
+
             return (
               <motion.div
                 key={service.slug}
                 initial={prefersReduced ? false : { opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
               >
                 <Link
                   href={`/${locale}/services/${service.slug}`}
-                  className="group relative flex flex-col gap-4 p-6 rounded-xl border border-[#0099BB]/15 dark:border-[#00D4FF]/18 bg-white dark:bg-[#080D18]/40 shadow-sm dark:shadow-none hover:border-[#0099BB]/40 dark:hover:border-[#00D4FF]/40 hover:shadow-md dark:hover:bg-[#00D4FF]/5 transition-all duration-200 h-full"
+                  className="group relative flex flex-col gap-5 p-6 rounded-2xl border border-white/8 bg-white/[0.03] hover:border-white/15 hover:bg-white/[0.06] transition-all duration-300 h-full overflow-hidden"
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="p-2.5 rounded-lg bg-[#0099BB]/10 dark:bg-[#00D4FF]/10 text-[#0099BB] dark:text-[#00D4FF] group-hover:bg-[#0099BB]/20 dark:group-hover:bg-[#00D4FF]/20 transition-colors">
-                      <Icon size={20} aria-hidden="true" />
+                  {/* gradient glow that reveals on hover */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(ellipse 70% 60% at ${isRtl ? '80%' : '20%'} 20%, ${accent}12 0%, transparent 70%)`,
+                    }}
+                    aria-hidden="true"
+                  />
+
+                  {/* top accent bar that slides in */}
+                  <div
+                    className="absolute top-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left"
+                    style={{ background: `linear-gradient(90deg, ${accent}, transparent)` }}
+                    aria-hidden="true"
+                  />
+
+                  {/* icon row */}
+                  <div className={cn('flex items-start justify-between', isRtl ? 'flex-row-reverse' : '')}>
+                    <div
+                      className="p-2.5 rounded-xl transition-all duration-300 group-hover:scale-110"
+                      style={{
+                        background: `${accent}15`,
+                        boxShadow: `0 0 0 0 ${accent}40`,
+                      }}
+                    >
+                      <Icon
+                        size={20}
+                        style={{ color: accent }}
+                        aria-hidden="true"
+                        className="transition-all duration-300"
+                      />
                     </div>
                     <ArrowRight
                       size={16}
                       className={cn(
-                        'text-white/20 group-hover:text-[#00D4FF] group-hover:translate-x-1 transition-all mt-1',
-                        isRtl ? 'rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0' : ''
+                        'text-white/15 group-hover:text-white/70 transition-all mt-1',
+                        isRtl
+                          ? 'rotate-180 group-hover:-translate-x-1'
+                          : 'group-hover:translate-x-1'
                       )}
                       aria-hidden="true"
                     />
                   </div>
-                  <div>
-                    <h3 className="text-base font-semibold text-[#080D18] dark:text-white mb-2">{service.title}</h3>
-                    <p className="text-sm text-[#4A5878] dark:text-white/55 leading-relaxed">{service.description}</p>
+
+                  {/* text */}
+                  <div className={cn('flex flex-col gap-2', isRtl ? 'text-right' : '')}>
+                    <h3 className="text-base font-semibold text-white/90 group-hover:text-white transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-white/45 leading-relaxed group-hover:text-white/60 transition-colors">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* "Learn more" label */}
+                  <div
+                    className={cn(
+                      'mt-auto flex items-center gap-1.5 text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-300',
+                      isRtl ? 'flex-row-reverse self-end' : 'self-start'
+                    )}
+                    style={{ color: accent }}
+                  >
+                    <span>{isRtl ? 'اعرف المزيد' : 'Learn more'}</span>
+                    <ArrowRight size={12} className={isRtl ? 'rotate-180' : ''} aria-hidden="true" />
                   </div>
                 </Link>
               </motion.div>
