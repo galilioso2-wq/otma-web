@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { Hero } from '@/components/sections/Hero'
 import { TrustStrip } from '@/components/sections/TrustStrip'
 import { ServicesGrid } from '@/components/sections/ServicesGrid'
+import { TechStackGrid } from '@/components/sections/TechStackGrid'
 import { TechPartners } from '@/components/sections/TechPartners'
 import { DataFoundations } from '@/components/sections/DataFoundations'
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
@@ -65,6 +66,14 @@ export default async function HomePage({
         title={h.services.title}
         subtitle={h.services.subtitle}
         items={h.services.items}
+      />
+      <TechStackGrid
+        locale={locale}
+        label={h.tech_stack.label}
+        title={h.tech_stack.title}
+        subtitle={h.tech_stack.subtitle}
+        cloudLabel={h.tech_stack.cloud_label}
+        cloudNote={h.tech_stack.cloud_note}
       />
       <TechPartners
         locale={locale}

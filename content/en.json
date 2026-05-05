@@ -77,6 +77,13 @@
         }
       ]
     },
+    "tech_stack": {
+      "label": "Technology ecosystem",
+      "title": "Works with your entire technology landscape",
+      "subtitle": "OTMA agents integrate across every layer — from databases and cloud to your BI and AI toolchain — without replacing what already works.",
+      "cloud_label": "Cloud platforms",
+      "cloud_note": "All solutions deploy on your cloud of choice or on-premise"
+    },
     "tech_partners": {
       "label": "Technology stack",
       "title": "Built on platforms your enterprise already owns",
