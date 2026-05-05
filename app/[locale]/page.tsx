@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+export const dynamic = 'force-static'
 import { Hero } from '@/components/sections/Hero'
 import { TrustStrip } from '@/components/sections/TrustStrip'
 import { ServicesGrid } from '@/components/sections/ServicesGrid'

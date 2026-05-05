@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+export const dynamic = 'force-static'
 import { Mail, MapPin, Phone } from 'lucide-react'
 
 function LinkedinIcon({ size = 18 }: { size?: number }) {

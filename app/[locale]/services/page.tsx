@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+
+export const dynamic = 'force-static'
 import { ArrowRight, Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw, Database, Cloud, Shield } from 'lucide-react'
 import { Container } from '@/components/layout/Container'
 import { CTABanner } from '@/components/sections/CTABanner'

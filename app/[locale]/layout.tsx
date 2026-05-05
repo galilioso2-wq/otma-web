@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+export const dynamic = 'force-static'
 import { Toaster } from 'sonner'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
