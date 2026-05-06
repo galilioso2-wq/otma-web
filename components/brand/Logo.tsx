@@ -11,9 +11,9 @@ interface LogoProps {
 }
 
 const sizes = {
-  horizontal: { sm: [160, 40], md: [208, 52], lg: [280, 70] },
-  vertical: { sm: [80, 88], md: [100, 110], lg: [140, 154] },
-  icon: { sm: [32, 32], md: [40, 40], lg: [56, 56] },
+  horizontal: { sm: [160, 35], md: [208, 46], lg: [280, 62] },
+  vertical: { sm: [80, 92], md: [100, 115], lg: [140, 162] },
+  icon: { sm: [32, 27], md: [40, 34], lg: [56, 47] },
 }
 
 export function Logo({

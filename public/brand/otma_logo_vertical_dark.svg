@@ -1,21 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" fill="none">
-  <rect width="200" height="220" rx="16" fill="#080D18"/>
-  <!-- synthesis mark centered -->
-  <g transform="translate(50, 20)">
-    <circle cx="50" cy="50" r="44" stroke="#00D4FF" stroke-width="0.6" stroke-opacity="0.3"/>
-    <circle cx="39" cy="50" r="22" stroke="#00D4FF" stroke-width="1.2"/>
-    <circle cx="61" cy="50" r="22" stroke="#00D4FF" stroke-width="1.2"/>
-    <circle cx="50" cy="6" r="2" fill="#00D4FF" fill-opacity="0.6"/>
-    <circle cx="50" cy="94" r="2" fill="#00D4FF" fill-opacity="0.6"/>
-    <circle cx="6" cy="50" r="2" fill="#00D4FF" fill-opacity="0.6"/>
-    <circle cx="94" cy="50" r="2" fill="#00D4FF" fill-opacity="0.6"/>
-    <circle cx="50" cy="50" r="5" fill="#00D4FF" fill-opacity="0.2"/>
-    <circle cx="50" cy="50" r="3" fill="#00D4FF"/>
-  </g>
-  <!-- wordmark centered -->
-  <text x="100" y="152" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="500" font-size="36" letter-spacing="6" fill="#FFFFFF" text-anchor="middle">OTMA</text>
-  <!-- tagline -->
-  <text x="100" y="170" font-family="'Inter', system-ui, sans-serif" font-weight="400" font-size="7.5" letter-spacing="2.5" fill="#4A5878" text-anchor="middle">INTELLIGENT · AI · AGENTS</text>
-  <!-- bottom line -->
-  <text x="100" y="196" font-family="'Inter', system-ui, sans-serif" font-weight="400" font-size="7" letter-spacing="2" fill="#4A5878" text-anchor="middle" fill-opacity="0.6">SYNTHESIS · INTELLIGENCE · GLOBAL</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 300" fill="none">
+  <defs>
+    <linearGradient id="g" x1="60" y1="0" x2="220" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#82F2FF"/>
+      <stop offset="48%" stop-color="#38AAFF"/>
+      <stop offset="100%" stop-color="#1230CC"/>
+    </linearGradient>
+    <linearGradient id="gt" x1="50" y1="230" x2="210" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#82F2FF"/>
+      <stop offset="55%" stop-color="#38AAFF"/>
+      <stop offset="100%" stop-color="#1230CC"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon — head + neural network -->
+  <path
+    d="M 118,18
+       C 100,15 78,30 64,52
+       C 52,70 44,90 45,108
+       C 46,118 50,124 52,132
+       C 54,142 53,150 51,160
+       C 49,170 53,180 62,187
+       L 72,196
+       L 106,196
+       C 124,184 140,166 146,144
+       C 155,118 153,88 144,64
+       C 135,40 130,22 118,18 Z"
+    stroke="url(#g)" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"
+  />
+  <circle cx="138" cy="88" r="4.5" stroke="url(#g)" stroke-width="2.2"/>
+  <line x1="136" y1="83" x2="120" y2="20" stroke="url(#g)" stroke-width="2"/>
+  <circle cx="120" cy="15" r="5.5" stroke="url(#g)" stroke-width="2.2"/>
+  <line x1="134" y1="84" x2="90" y2="44" stroke="url(#g)" stroke-width="2"/>
+  <circle cx="87" cy="41" r="5.5" stroke="url(#g)" stroke-width="2.2"/>
+  <line x1="142" y1="83" x2="196" y2="33" stroke="url(#g)" stroke-width="2"/>
+  <circle cx="169" cy="58" r="4" stroke="url(#g)" stroke-width="2"/>
+  <circle cx="199" cy="30" r="5.5" stroke="url(#g)" stroke-width="2.2"/>
+  <line x1="144" y1="92" x2="176" y2="95" stroke="url(#g)" stroke-width="2"/>
+  <circle cx="196" cy="96" r="21" stroke="url(#g)" stroke-width="2.2"/>
+  <circle cx="196" cy="96" r="12" stroke="url(#g)" stroke-width="2.2"/>
+  <circle cx="196" cy="96" r="4" fill="url(#g)"/>
+  <line x1="213" y1="108" x2="235" y2="142" stroke="url(#g)" stroke-width="2"/>
+  <circle cx="238" cy="146" r="5.5" stroke="url(#g)" stroke-width="2.2"/>
+
+  <!-- Wordmark centered below icon -->
+  <text
+    x="130"
+    y="248"
+    text-anchor="middle"
+    font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="600"
+    font-size="52"
+    letter-spacing="9"
+    fill="url(#gt)"
+  >OTMA</text>
+
+  <!-- Tagline -->
+  <text
+    x="130"
+    y="270"
+    text-anchor="middle"
+    font-family="'Inter', system-ui, sans-serif"
+    font-weight="400"
+    font-size="8.5"
+    letter-spacing="2.5"
+    fill="#4A5878"
+  >INTELLIGENT · AI · AGENTS</text>
 </svg>
