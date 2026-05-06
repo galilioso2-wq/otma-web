@@ -14,6 +14,7 @@ interface HeaderProps {
   nav: {
     services: string
     case_studies: string
+    how_we_work: string
     about: string
     contact: string
     book_call: string
@@ -41,6 +42,7 @@ export function Header({ locale, nav }: HeaderProps) {
 
   const navLinks = [
     { label: nav.services, href: `/${locale}/services` },
+    { label: nav.how_we_work, href: `/${locale}/how-we-work` },
     { label: nav.case_studies, href: `/${locale}/case-studies` },
     { label: nav.about, href: `/${locale}/about` },
     { label: nav.contact, href: `/${locale}/contact` },

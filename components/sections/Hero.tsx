@@ -155,10 +155,13 @@ interface HeroProps {
   title: string
   subtitle: string
   ctaPrimary: string
+  ctaPrimaryHref: string
   ctaSecondary: string
+  ctaSecondaryHref: string
+  socialProof?: string
 }
 
-export function Hero({ locale, title, subtitle, ctaPrimary, ctaSecondary }: HeroProps) {
+export function Hero({ locale, title, subtitle, ctaPrimary, ctaPrimaryHref, ctaSecondary, ctaSecondaryHref, socialProof }: HeroProps) {
   const prefersReduced = useReducedMotion()
   const isRtl = locale === 'ar'
 
@@ -227,21 +230,30 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaSecondary }: Hero
                 initial={prefersReduced ? false : { opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.55 }}
-                className="relative"
+                className="flex flex-col sm:flex-row items-center gap-3"
               >
-                {/* button glow */}
-                {!prefersReduced && (
-                  <div
-                    className="absolute -inset-2 rounded-full blur-xl opacity-30"
-                    style={{ background: 'rgba(255,255,255,0.4)' }}
-                    aria-hidden="true"
-                  />
-                )}
+                {/* Primary CTA */}
+                <div className="relative">
+                  {!prefersReduced && (
+                    <div
+                      className="absolute -inset-2 rounded-full blur-xl opacity-30"
+                      style={{ background: 'rgba(255,255,255,0.4)' }}
+                      aria-hidden="true"
+                    />
+                  )}
+                  <Link
+                    href={ctaPrimaryHref}
+                    className="relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold bg-white text-[#080D18] hover:bg-white/92 active:scale-[0.97] transition-all shadow-[0_4px_24px_rgba(255,255,255,0.25)]"
+                  >
+                    {ctaPrimary}
+                  </Link>
+                </div>
+                {/* Secondary CTA */}
                 <Link
-                  href={`/${locale}/contact`}
-                  className="relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold bg-white text-[#080D18] hover:bg-white/92 active:scale-[0.97] transition-all shadow-[0_4px_24px_rgba(255,255,255,0.25)]"
+                  href={ctaSecondaryHref}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-white/80 border border-white/20 hover:border-white/40 hover:text-white transition-all"
                 >
-                  {ctaPrimary}
+                  {ctaSecondary}
                 </Link>
               </motion.div>
 
@@ -253,23 +265,19 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaSecondary }: Hero
               >
                 {subtitle}
               </motion.p>
+
+              {socialProof && (
+                <motion.p
+                  className="text-xs text-white/30 mt-1"
+                  initial={prefersReduced ? false : { opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.9 }}
+                >
+                  {socialProof}
+                </motion.p>
+              )}
             </div>
           </div>
-        </motion.div>
-
-        {/* secondary CTA below card */}
-        <motion.div
-          className="flex items-center gap-4"
-          initial={prefersReduced ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-        >
-          <Link
-            href={`/${locale}/services`}
-            className="text-sm font-medium text-white/40 hover:text-white/80 transition-colors underline underline-offset-4 decoration-white/20"
-          >
-            {ctaSecondary}
-          </Link>
         </motion.div>
 
         {/* scroll pulse */}

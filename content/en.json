@@ -2,6 +2,7 @@
   "nav": {
     "services": "Services",
     "case_studies": "Case Studies",
+    "how_we_work": "How We Work",
     "about": "About",
     "contact": "Contact",
     "book_call": "Book a call",
@@ -10,110 +11,116 @@
   },
   "home": {
     "hero": {
-      "title": "Intelligent AI agents, engineered for global enterprises.",
-      "subtitle": "OTMA builds AI agents that synthesize your business data into measurable, accountable outcomes.",
-      "cta_primary": "Book a strategy call",
-      "cta_secondary": "See what we build"
+      "title": "Your CRM, ERP, and data — finally working as one intelligent system.",
+      "subtitle": "Enterprise leaders across Saudi Arabia and the GCC are cutting procurement cycles by 40%, tripling loan decisioning speed, and handling 78% of customer queries automatically — with AI agents that connect to your existing stack in 8 weeks.",
+      "cta_primary": "See how it works",
+      "cta_primary_href": "/en/how-we-work",
+      "cta_secondary": "Book a 30-min call",
+      "cta_secondary_href": "/en/contact",
+      "social_proof": "Deployed across manufacturing, banking, and retail — Riyadh to global markets"
     },
     "trust": {
       "label": "Serving enterprises across",
       "sectors": [
         "Manufacturing",
-        "Banking",
-        "Retail",
+        "Banking & Finance",
+        "Retail & E-commerce",
         "Healthcare",
         "Logistics",
-        "Government"
+        "Government & Public Sector"
       ]
     },
     "services": {
-      "title": "What we build",
-      "subtitle": "Nine practice areas. Every one engineered for outcomes.",
+      "title": "What we build for you",
+      "subtitle": "Three practice areas. Every engagement engineered for a measurable outcome — not a demo.",
+      "cluster_label_1": "Intelligence Layer",
+      "cluster_label_2": "Data Foundation",
+      "cluster_label_3": "Business Applications",
       "items": [
         {
           "slug": "custom-ai-agents",
           "title": "Custom AI agents",
-          "description": "Autonomous agents that execute work across your stack — from data ingestion to decision-making to action."
+          "description": "Autonomous agents that execute real work across your stack — from data ingestion to decision-making to action. Shipped to production in 8 weeks."
         },
         {
           "slug": "crm-intelligence",
           "title": "CRM intelligence",
-          "description": "Lead scoring, deal forecasting, and churn prediction embedded directly inside Dynamics 365."
+          "description": "Lead scoring, deal forecasting, and churn prediction embedded directly inside Dynamics 365 — so your sales team sees the future, not just the past."
         },
         {
           "slug": "power-bi-ai",
           "title": "Power BI + AI",
-          "description": "Dashboards that explain themselves, surface anomalies automatically, and answer business questions before you ask."
+          "description": "Dashboards that explain themselves, surface anomalies before your team notices them, and answer business questions in plain Arabic or English."
         },
         {
           "slug": "conversational-ai",
           "title": "Conversational AI",
-          "description": "Bilingual Arabic and English assistants that handle sales, support, and operations at scale."
+          "description": "Bilingual Arabic and English assistants that handle 70–80% of sales, support, and operations queries — with zero call centre expansion."
         },
         {
           "slug": "ai-strategy",
-          "title": "AI strategy",
-          "description": "A focused 4-week sprint that turns AI ambition into a costed, prioritised roadmap your board can approve."
+          "title": "AI strategy sprint",
+          "description": "A focused 4-week engagement that turns AI ambition into a costed, prioritised roadmap your board can approve and your team can execute."
         },
         {
           "slug": "dynamics-365",
           "title": "Dynamics 365 modernization",
-          "description": "Migrate, optimise, and AI-enable your D365 deployment — with zero disruption to existing operations."
+          "description": "Migrate, optimise, and AI-enable your D365 deployment — with zero disruption to live operations and a team trained to own it after we leave."
         },
         {
           "slug": "data-engineering",
           "title": "Data engineering",
-          "description": "Cloud-native pipelines, data lakes, and semantic models that give your AI a reliable, governed foundation to act on."
+          "description": "Cloud-native pipelines and governed data lakes that give every AI agent a reliable, trusted foundation — so the outputs are as good as the inputs."
         },
         {
           "slug": "cloud-architecture",
           "title": "Cloud data architecture",
-          "description": "Multi-cloud infrastructure on Azure and Snowflake — scalable, maintainable by your in-house team, and built for AI workloads."
+          "description": "Multi-cloud infrastructure on Azure and Snowflake — designed to scale globally, stay maintainable by your in-house team, and run AI workloads natively."
         },
         {
           "slug": "data-governance",
           "title": "Data governance",
-          "description": "Access policies, data catalogues, and lineage tracking — so the right people trust the right data when decisions are made."
+          "description": "Access policies, data catalogues, and lineage tracking — so the right people trust the right data every time a decision is made."
         }
       ]
     },
     "tech_stack": {
       "label": "Technology ecosystem",
-      "title": "Works with your entire technology landscape",
-      "subtitle": "OTMA agents integrate across every layer — from databases and cloud to your BI and AI toolchain — without replacing what already works.",
+      "title": "Works with everything your enterprise already owns",
+      "subtitle": "OTMA agents integrate across every layer — databases, cloud, BI, and AI toolchain — without replacing what already works or adding new vendor lock-in.",
       "cloud_label": "Cloud platforms",
       "cloud_note": "All solutions deploy on your cloud of choice or on-premise"
     },
     "tech_partners": {
-      "label": "Technology stack",
-      "title": "Built on platforms your enterprise already owns",
-      "subtitle": "OTMA agents integrate with your existing Microsoft, cloud, and data infrastructure — no new vendor lock-in required.",
+      "label": "Platform partnerships",
+      "title": "Built on platforms your IT team already owns and trusts",
+      "subtitle": "No new vendor lock-in. OTMA agents extend your existing Microsoft, cloud, and data investments — and run on your infrastructure.",
       "partners": [
-        { "name": "Microsoft Azure", "category": "Cloud" },
+        { "name": "Microsoft Azure", "category": "Cloud Platform" },
         { "name": "OpenAI", "category": "AI Models" },
         { "name": "Snowflake", "category": "Data Platform" },
         { "name": "Databricks", "category": "Data & AI" },
-        { "name": "Power BI", "category": "Analytics" },
+        { "name": "Power BI", "category": "Analytics & BI" },
         { "name": "Dynamics 365", "category": "CRM / ERP" },
         { "name": "LangChain", "category": "Agent Framework" },
         { "name": "WhatsApp Business", "category": "Messaging" }
       ]
     },
     "data_foundations": {
-      "label": "How we structure every engagement",
+      "label": "How every engagement is structured",
       "title": "From fragmented data to intelligent action",
-      "subtitle": "Three disciplined layers that turn raw enterprise data into decisions your teams can act on — and trust.",
+      "subtitle": "Three disciplined layers. Each one prerequisite for the next. All three producing outcomes your CFO can measure.",
       "tiers": [
         {
           "number": "01",
           "name": "Data Foundations",
           "tag": "Infrastructure",
-          "description": "The reliable base every AI application needs. Governed, scalable, and built to last.",
+          "description": "The reliable base every AI application depends on. Governed, scalable, and built to last beyond the engagement.",
           "items": [
-            "Cloud-native data pipelines (Azure, Snowflake)",
-            "Semantic models & data catalogues",
-            "Access control & governance policies",
-            "Data quality monitoring & lineage tracking"
+            "Cloud-native data pipelines (Azure, Snowflake, Databricks)",
+            "Semantic models and enterprise data catalogues",
+            "Role-based access control and governance policies",
+            "Automated data quality monitoring and lineage tracking"
           ]
         },
         {
@@ -122,119 +129,240 @@
           "tag": "Insight",
           "description": "Analytics that surface the right signal at the right moment — automatically, without waiting to be asked.",
           "items": [
-            "Power BI dashboards with AI anomaly detection",
-            "Executive KPI reporting & automated summaries",
+            "Power BI dashboards with AI-powered anomaly detection",
+            "Executive KPI reporting and automated daily summaries",
             "Natural language Q&A on live enterprise data",
-            "Scheduled insights delivered to Teams or email"
+            "Scheduled insights pushed to Teams, Outlook, or WhatsApp"
           ]
         },
         {
           "number": "03",
           "name": "AI Applications",
           "tag": "Intelligence",
-          "description": "Autonomous agents that act on what the data tells them — measurable, accountable, and always on.",
+          "description": "Autonomous agents that act on what the data tells them — measurable, accountable, and running 24/7.",
           "items": [
             "Custom AI agents across your full technology stack",
-            "Predictive models embedded in Dynamics 365",
-            "Bilingual Arabic & English conversational AI",
-            "Continuous model optimisation on real usage data"
+            "Predictive models embedded natively in Dynamics 365",
+            "Bilingual Arabic and English conversational AI",
+            "Continuous model optimisation on real production data"
           ]
         }
       ]
     },
     "process": {
-      "title": "The OTMA method",
-      "subtitle": "Four disciplined steps from first conversation to live agent.",
+      "title": "From first call to live agent in 8 weeks",
+      "subtitle": "A disciplined four-step method with no ambiguity about what happens next.",
       "steps": [
         {
           "number": "01",
           "title": "Discover",
-          "description": "We map your data, your workflows, and your real bottlenecks. No assumptions, no templates."
+          "description": "We map your data landscape, interview stakeholders, and identify the one or two workflows where AI will create the most measurable impact. No assumptions."
         },
         {
           "number": "02",
           "title": "Design",
-          "description": "We architect the agent: data model, decision logic, integrations, and success metrics — all agreed before a line of code is written."
+          "description": "We architect the agent: data model, decision logic, integrations, and success metrics — all signed off before a single line of code is written."
         },
         {
           "number": "03",
           "title": "Deploy",
-          "description": "We build, test, and ship to your infrastructure. Typical time from kickoff to production: 8 weeks."
+          "description": "We build, test, and ship to your infrastructure. Typical timeline: 8 weeks from kickoff to production. Your team reviews at every milestone."
         },
         {
           "number": "04",
-          "title": "Optimize",
-          "description": "We monitor, retrain, and improve the agent based on real usage data — continuously, not as a one-off project."
+          "title": "Optimise",
+          "description": "We monitor, retrain, and improve the agent on real usage data — continuously. This is not a one-off project. It is a long-term capability."
         }
       ]
     },
     "stats": {
       "items": [
         {
-          "value": "8 weeks",
-          "label": "to first agent in production"
+          "value": "8",
+          "suffix": " wks",
+          "label": "from kickoff to first agent in production"
         },
         {
-          "value": "40%",
-          "label": "average reduction in manual workload"
+          "value": "40",
+          "suffix": "%",
+          "label": "average reduction in manual processing time"
         },
         {
-          "value": "3",
-          "label": "languages supported natively"
+          "value": "78",
+          "suffix": "%",
+          "label": "of queries resolved without human escalation"
         },
         {
-          "value": "100%",
-          "label": "on customer-owned infrastructure"
+          "value": "100",
+          "suffix": "%",
+          "label": "deployed on client-owned infrastructure"
         }
       ]
     },
     "why": {
-      "title": "Why OTMA",
+      "title": "Why enterprise teams choose OTMA",
       "items": [
         {
-          "title": "Built global, ready local",
-          "description": "Founded in Riyadh and built for international enterprise. We understand KSA compliance, GCC data requirements, and global delivery standards."
+          "title": "We ship production code — not slide decks",
+          "description": "Every engagement ends with a live agent running on your infrastructure, a measured baseline, and an improvement plan. No demos that never ship."
         },
         {
-          "title": "Engineered, not hyped",
-          "description": "No demos that never ship. Every engagement ends in production code, measured outcomes, and an agent that runs on your infrastructure."
+          "title": "Built for GCC compliance from day one",
+          "description": "Founded in Riyadh. We understand KSA data residency requirements, GCC regulatory expectations, and Vision 2030 alignment — it is not an afterthought."
         },
         {
-          "title": "Bilingual by design",
-          "description": "Arabic and English are first-class citizens in every agent we build. Not an afterthought — a design requirement from day one."
+          "title": "Arabic and English are equal citizens",
+          "description": "Bilingual AI is a design requirement in every agent we build — not a localisation patch added at the end. Your Arabic-speaking customers get the same experience."
         }
       ]
     },
     "cta": {
-      "title": "Ready to put intelligence to work?",
-      "subtitle": "Let's talk about your data, your workflows, and what's possible in 8 weeks.",
-      "button": "Start the conversation"
+      "title": "Ready to see what 8 weeks can deliver?",
+      "subtitle": "Tell us your biggest data bottleneck. We will show you exactly what an AI agent could do about it — in one conversation.",
+      "button": "Book a 30-min strategy call",
+      "subtext": "Response within one business day · No commitment required"
     }
+  },
+  "how_we_work": {
+    "page_title": "How We Work",
+    "page_subtitle": "A fixed 4-step engagement model with no ambiguity — so you know exactly what you are buying before you sign.",
+    "intro_label": "The OTMA method",
+    "intro": "Most AI projects fail not because the technology is wrong, but because the process is undefined. We fix that with a repeatable, transparent delivery method used across every engagement — from a 4-week AI strategy sprint to an 8-week full agent deployment.",
+    "phases": [
+      {
+        "number": "01",
+        "title": "Discover",
+        "duration": "Week 1–2",
+        "description": "We start with your data, your workflows, and your real bottlenecks — not a generic AI framework. This phase produces a written discovery report with the 3 highest-value AI opportunities in your business, ranked by expected ROI and implementation risk.",
+        "deliverables": [
+          "Data landscape and source system audit",
+          "Stakeholder interviews (IT, operations, leadership)",
+          "AI readiness score with gap analysis",
+          "Top 3 opportunity brief with ROI estimates"
+        ]
+      },
+      {
+        "number": "02",
+        "title": "Design",
+        "duration": "Week 3–4",
+        "description": "We design the agent architecture before writing a line of code. Data model, decision logic, integration points, and success metrics are all documented and agreed. You sign off on exactly what will be built — and exactly how we will measure whether it worked.",
+        "deliverables": [
+          "Agent architecture document",
+          "Integration design with your existing systems",
+          "Success metrics and measurement baseline",
+          "Project plan with milestone sign-offs"
+        ]
+      },
+      {
+        "number": "03",
+        "title": "Deploy",
+        "duration": "Week 5–8",
+        "description": "We build, test, and ship to your infrastructure. You review working software at each milestone — not slide decks. By week 8 you have a production agent running on your infrastructure, owned by your team.",
+        "deliverables": [
+          "Production-ready AI agent on your infrastructure",
+          "Integration with your ERP, CRM, or data platform",
+          "Monitoring dashboard and alerting",
+          "Team handover and documentation"
+        ]
+      },
+      {
+        "number": "04",
+        "title": "Optimise",
+        "duration": "Ongoing",
+        "description": "An AI agent improves with use. We monitor performance, retrain models on new data, and expand scope based on what we learn in production. The first 90 days of optimisation are included in every engagement.",
+        "deliverables": [
+          "Monthly performance reports vs. baseline",
+          "Model retraining on new production data",
+          "Scope expansion recommendations",
+          "Quarterly roadmap review"
+        ]
+      }
+    ],
+    "pricing_label": "Engagement types",
+    "pricing_note": "Every engagement is scoped and priced for your specific situation. These are starting frameworks — not fixed packages.",
+    "packages": [
+      {
+        "name": "AI Strategy Sprint",
+        "duration": "4 weeks",
+        "description": "For organisations that want a clear AI roadmap before committing to build. Includes discovery, prioritisation, architecture options, and a board-ready presentation.",
+        "typical_for": "CIOs and CDOs who need executive alignment before investing in AI"
+      },
+      {
+        "name": "Agent Deployment",
+        "duration": "8 weeks",
+        "description": "A single, high-impact AI agent designed, built, and shipped to your production environment. Includes 90 days of optimisation after go-live.",
+        "typical_for": "Operations, finance, and CX leaders with a specific workflow to automate"
+      },
+      {
+        "name": "Managed AI Retainer",
+        "duration": "Ongoing",
+        "description": "OTMA as your embedded AI team — continuously building, monitoring, and improving agents across your organisation. Monthly scope, weekly cadence.",
+        "typical_for": "Enterprises that want AI capability without hiring a full data science team"
+      }
+    ],
+    "faq_label": "Common questions",
+    "faqs": [
+      {
+        "q": "Do we need to replace our existing systems?",
+        "a": "No. OTMA agents are designed to integrate with your existing ERP, CRM, and data infrastructure. We connect to what you already have — we do not rip and replace."
+      },
+      {
+        "q": "What data do you need access to?",
+        "a": "Typically: your transactional system (Dynamics 365, SAP, or similar), historical records for model training, and your reporting layer. We do a full data audit in week 1 so there are no surprises."
+      },
+      {
+        "q": "Who owns the agent after it is built?",
+        "a": "You do. All code, models, and infrastructure run on your cloud account. We hand over full documentation and train your team to operate it independently."
+      },
+      {
+        "q": "What if we are not ready for AI yet?",
+        "a": "That is exactly what the AI Strategy Sprint is for. We assess your readiness honestly — and if your data is not ready, we tell you what needs to happen first and in what order."
+      },
+      {
+        "q": "How is OTMA different from a large consulting firm?",
+        "a": "We ship production code in 8 weeks. Large consultancies produce roadmaps that take 18 months to execute. We are the team you bring in when the roadmap is approved and the outcome needs to be delivered."
+      }
+    ],
+    "cta_title": "Start with a 30-minute conversation",
+    "cta_subtitle": "Tell us your biggest data bottleneck. We will tell you honestly whether an AI agent can solve it — and what it would take.",
+    "cta_button": "Book a free strategy call"
   },
   "services": {
     "page_title": "Services",
-    "page_subtitle": "Nine practice areas. Every one engineered to deliver measurable outcomes — not theatre.",
+    "page_subtitle": "Three practice areas. Nine capabilities. Every engagement focused on a single measurable outcome.",
+    "cluster_1": {
+      "label": "Intelligence Layer",
+      "description": "AI agents and automated systems that act on your data — 24/7, without manual intervention."
+    },
+    "cluster_2": {
+      "label": "Data Foundation",
+      "description": "The governed, reliable infrastructure every AI application depends on."
+    },
+    "cluster_3": {
+      "label": "Business Applications",
+      "description": "AI embedded directly inside your existing enterprise software — no new tools required."
+    },
     "items": {
       "custom-ai-agents": {
         "title": "Custom AI agents",
-        "hero_sub": "Autonomous agents that execute work across your entire technology stack.",
+        "hero_sub": "Autonomous agents that execute real work across your entire technology stack — shipped to production in 8 weeks.",
         "what_you_get": [
-          "End-to-end agent architecture designed for your data and workflows",
-          "Integration with your existing ERP, CRM, and data warehouse",
-          "Audit trail and explainability for every decision the agent makes",
-          "Monitoring dashboard with live performance metrics",
-          "Ongoing optimisation included for the first 90 days"
+          "End-to-end agent architecture designed around your data and workflows",
+          "Integration with your existing ERP, CRM, and data warehouse — no rip-and-replace",
+          "Full audit trail and explainability for every decision the agent makes",
+          "Live monitoring dashboard with performance metrics and drift alerts",
+          "90 days of optimisation and model retraining included after go-live"
         ],
         "how_it_works": [
-          "Week 1–2: Discovery and data audit",
-          "Week 3–4: Agent architecture and integration design",
-          "Week 5–7: Build, test, and iterate",
-          "Week 8: Production deployment and handover"
+          "Week 1–2: Data audit, workflow mapping, and use case prioritisation",
+          "Week 3–4: Agent architecture design and integration specification",
+          "Week 5–7: Build, test, and milestone reviews with your team",
+          "Week 8: Production deployment, monitoring setup, and team handover"
         ],
         "tech": [
           "Azure OpenAI",
-          "Python",
           "LangChain",
+          "Python",
           "Azure Functions",
           "Cosmos DB",
           "Power BI"
@@ -242,19 +370,19 @@
       },
       "crm-intelligence": {
         "title": "CRM intelligence",
-        "hero_sub": "Make Dynamics 365 predict, not just record.",
+        "hero_sub": "Make Dynamics 365 predict what will happen next — not just record what already did.",
         "what_you_get": [
-          "Lead scoring model trained on your historical CRM data",
+          "Lead scoring model trained on your own historical CRM data — not generic benchmarks",
           "Deal forecasting with confidence intervals by rep, team, and territory",
-          "Churn prediction with automated at-risk alerts",
-          "Embedded Power BI visuals inside D365 forms",
-          "Weekly model retraining on fresh CRM activity"
+          "Churn prediction with automated at-risk alerts before the client goes quiet",
+          "Embedded Power BI visuals surfaced directly inside D365 forms",
+          "Weekly automated model retraining on fresh CRM activity"
         ],
         "how_it_works": [
-          "Week 1: CRM data audit and baseline analysis",
-          "Week 2–3: Model development and validation",
-          "Week 4: Integration with D365 and UAT",
-          "Week 5: Go-live and sales team enablement"
+          "Week 1: CRM data audit and 18-month historical baseline analysis",
+          "Week 2–3: Model development, validation, and stakeholder review",
+          "Week 4: Integration with D365 and user acceptance testing",
+          "Week 5: Go-live, sales team enablement, and 90-day optimisation plan"
         ],
         "tech": [
           "Dynamics 365",
@@ -267,19 +395,19 @@
       },
       "power-bi-ai": {
         "title": "Power BI + AI",
-        "hero_sub": "Dashboards that explain what happened and what to do next.",
+        "hero_sub": "Dashboards that explain what happened, why it happened, and what to do next.",
         "what_you_get": [
-          "AI-powered anomaly detection surfaced directly in your reports",
-          "Natural language Q&A — ask your data questions in plain English or Arabic",
-          "Automated executive summaries generated from your live data",
-          "Predictive trend lines with confidence bands",
-          "Scheduled insights delivered to Teams or email"
+          "AI-powered anomaly detection surfaced directly in your existing reports — no new tools",
+          "Natural language Q&A: ask your data questions in plain English or Arabic and get answers",
+          "Automated executive summaries generated from your live data every morning",
+          "Predictive trend lines with confidence bands so you act on signal, not noise",
+          "Scheduled insights pushed to Teams, Outlook, or WhatsApp at the cadence you set"
         ],
         "how_it_works": [
-          "Week 1: Data model review and report audit",
-          "Week 2: AI feature development and integration",
-          "Week 3: Testing and stakeholder feedback",
-          "Week 4: Rollout and user training"
+          "Week 1: Data model review and existing report audit",
+          "Week 2: AI feature development and language model integration",
+          "Week 3: Testing, stakeholder feedback, and Arabic language QA",
+          "Week 4: Rollout to users, training, and optimisation baseline"
         ],
         "tech": [
           "Power BI Premium",
@@ -291,19 +419,19 @@
       },
       "conversational-ai": {
         "title": "Conversational AI",
-        "hero_sub": "Bilingual Arabic and English assistants built for enterprise — not chatbot demos.",
+        "hero_sub": "Bilingual Arabic and English assistants built for enterprise scale — not chatbot demos.",
         "what_you_get": [
-          "Full Arabic and English language support with natural dialect handling",
-          "Integration with your CRM, knowledge base, and ticketing system",
-          "Escalation logic that hands off to human agents when needed",
-          "Conversation analytics and intent tracking",
-          "Deployment on WhatsApp, web, or your existing channels"
+          "Natural Arabic and English language support — including Gulf dialect handling",
+          "Integration with your CRM, knowledge base, and ticketing system out of the box",
+          "Intelligent escalation logic that hands off to human agents at exactly the right moment",
+          "Conversation analytics, intent tracking, and weekly performance reports",
+          "Deployment on WhatsApp Business, your web portal, or any existing channel"
         ],
         "how_it_works": [
-          "Week 1–2: Intent mapping and knowledge base audit",
-          "Week 3–4: Model training and integration build",
-          "Week 5–6: QA across Arabic and English",
-          "Week 7–8: Production deployment and monitoring setup"
+          "Week 1–2: Intent mapping, knowledge base audit, and conversation design",
+          "Week 3–4: Model training, integration build, and internal testing",
+          "Week 5–6: Full QA across Arabic and English with edge case testing",
+          "Week 7–8: Production deployment, monitoring setup, and team training"
         ],
         "tech": [
           "Azure OpenAI",
@@ -314,20 +442,20 @@
         ]
       },
       "ai-strategy": {
-        "title": "AI strategy",
-        "hero_sub": "A 4-week sprint that turns AI ambition into a costed, boardroom-ready roadmap.",
+        "title": "AI strategy sprint",
+        "hero_sub": "A 4-week sprint that turns AI ambition into a costed, prioritised roadmap your board can approve.",
         "what_you_get": [
-          "Full AI readiness assessment across data, infrastructure, and talent",
-          "Prioritised use case backlog with ROI estimates for each",
-          "Build vs. buy analysis for every recommended capability",
-          "12-month implementation roadmap with phased milestones",
-          "Executive presentation ready for board or C-suite review"
+          "Full AI readiness assessment across data quality, infrastructure, and organisational capability",
+          "Prioritised use case backlog with ROI estimates and implementation risk scores for each",
+          "Build vs. buy vs. partner analysis for every recommended AI capability",
+          "12-month implementation roadmap with phased milestones and resource requirements",
+          "Board-ready executive presentation — slides, financials, and risk analysis included"
         ],
         "how_it_works": [
-          "Week 1: Stakeholder interviews and data landscape mapping",
-          "Week 2: Use case discovery and prioritisation workshops",
-          "Week 3: Architecture options and vendor analysis",
-          "Week 4: Roadmap finalisation and executive presentation"
+          "Week 1: Stakeholder interviews, data landscape mapping, and AI readiness scoring",
+          "Week 2: Use case discovery workshops and competitive benchmarking",
+          "Week 3: Architecture options, vendor analysis, and roadmap drafting",
+          "Week 4: Roadmap finalisation, financial modelling, and executive presentation"
         ],
         "tech": [
           "Azure",
@@ -339,19 +467,19 @@
       },
       "dynamics-365": {
         "title": "Dynamics 365 modernization",
-        "hero_sub": "Migrate, optimise, and AI-enable your D365 deployment — with zero disruption.",
+        "hero_sub": "Migrate, optimise, and AI-enable your D365 deployment — with zero disruption to live operations.",
         "what_you_get": [
-          "Full health check of your current D365 environment",
-          "Data model optimisation for AI and analytics workloads",
-          "Migration from legacy systems with full data integrity",
-          "Power Platform automation layered on top of D365",
-          "AI features embedded across Sales, Service, and Finance modules"
+          "Full health check of your current D365 environment with a prioritised remediation plan",
+          "Data model optimisation for AI, analytics, and Power Platform workloads",
+          "Migration from legacy on-premise or older D365 versions with full data integrity",
+          "Power Platform automation layered on top — approvals, workflows, and alerts",
+          "AI features embedded across Sales, Customer Service, and Finance modules"
         ],
         "how_it_works": [
-          "Week 1–2: Environment audit and migration plan",
-          "Week 3–6: Phased migration and configuration",
-          "Week 7–8: AI feature integration and testing",
-          "Week 9–10: Go-live support and team training"
+          "Week 1–2: Environment audit, data model review, and migration planning",
+          "Week 3–6: Phased migration, configuration, and parallel run testing",
+          "Week 7–8: AI feature integration, UAT, and stakeholder sign-off",
+          "Week 9–10: Go-live support, team training, and 90-day optimisation plan"
         ],
         "tech": [
           "Dynamics 365",
@@ -364,19 +492,19 @@
       },
       "data-engineering": {
         "title": "Data engineering",
-        "hero_sub": "Reliable, governed data pipelines that give your AI a foundation it can trust.",
+        "hero_sub": "Reliable, governed data pipelines that give your AI a foundation it can actually trust.",
         "what_you_get": [
-          "End-to-end pipeline design from source systems to analytics layer",
-          "Cloud-native architecture on Azure Data Factory, Synapse, or Databricks",
-          "Snowflake data warehouse setup and semantic modelling",
-          "Automated data quality checks and alerting",
-          "Full documentation and handover to your in-house team"
+          "End-to-end pipeline design from every source system to your analytics and AI layer",
+          "Cloud-native architecture on Azure Data Factory, Synapse Analytics, or Databricks",
+          "Snowflake data warehouse configuration and enterprise semantic modelling",
+          "Automated data quality checks with alerting before bad data reaches your dashboards",
+          "Full technical documentation and knowledge transfer — your team owns it after we leave"
         ],
         "how_it_works": [
-          "Week 1: Source system audit and data landscape mapping",
-          "Week 2–3: Pipeline architecture design and sign-off",
-          "Week 4–6: Build, test, and validate data flows",
-          "Week 7–8: Production deployment and knowledge transfer"
+          "Week 1: Source system audit, data landscape mapping, and quality baseline",
+          "Week 2–3: Pipeline architecture design, review, and stakeholder sign-off",
+          "Week 4–6: Build, unit testing, and end-to-end data flow validation",
+          "Week 7–8: Production deployment, monitoring setup, and team handover"
         ],
         "tech": [
           "Azure Data Factory",
@@ -389,19 +517,19 @@
       },
       "cloud-architecture": {
         "title": "Cloud data architecture",
-        "hero_sub": "Multi-cloud infrastructure designed to scale globally and stay maintainable by your team.",
+        "hero_sub": "Multi-cloud infrastructure designed to scale globally and remain fully maintainable by your in-house team.",
         "what_you_get": [
-          "Current-state cloud audit with cost and performance benchmarks",
-          "Target architecture blueprint approved before any build begins",
-          "Multi-cloud design across Azure, Snowflake, and Databricks",
-          "Infrastructure-as-code for repeatable, auditable deployments",
-          "Migration plan with zero-downtime cutover strategy"
+          "Current-state cloud audit with cost analysis and performance benchmarks",
+          "Target architecture blueprint approved by your team before any build begins",
+          "Multi-cloud design across Azure, Snowflake, and Databricks — best tool for each job",
+          "Infrastructure-as-code for repeatable, auditable, and version-controlled deployments",
+          "Zero-downtime cutover strategy so live operations are never at risk"
         ],
         "how_it_works": [
-          "Week 1–2: Cloud estate audit and architecture assessment",
+          "Week 1–2: Cloud estate audit, cost review, and architecture assessment",
           "Week 3: Target architecture design and stakeholder sign-off",
-          "Week 4–7: Infrastructure build and parallel run testing",
-          "Week 8: Cutover, monitoring setup, and documentation"
+          "Week 4–7: Infrastructure build, configuration, and parallel run testing",
+          "Week 8: Cutover execution, monitoring setup, and full documentation handover"
         ],
         "tech": [
           "Microsoft Azure",
@@ -414,19 +542,19 @@
       },
       "data-governance": {
         "title": "Data governance",
-        "hero_sub": "The right people access trusted data — every time a decision is made.",
+        "hero_sub": "The right people access trusted data — every time a decision is made, at any scale.",
         "what_you_get": [
-          "Data governance framework tailored to your regulatory environment",
-          "Data catalogue with ownership, classification, and lineage for all key assets",
-          "Role-based access control policies implemented across your data platform",
-          "Data quality scoring with automated monitoring dashboards",
-          "Governance playbook your team can operate without external support"
+          "A governance framework built for your specific regulatory environment — SAMA, PDPL, or global",
+          "Enterprise data catalogue with ownership, classification, and full lineage for all key assets",
+          "Role-based access control policies implemented and enforced across your data platform",
+          "Data quality scoring with automated monitoring dashboards and exception alerting",
+          "A governance playbook your team can operate and extend without external support"
         ],
         "how_it_works": [
-          "Week 1: Data asset inventory and regulatory requirements mapping",
-          "Week 2: Governance framework design and stakeholder alignment",
-          "Week 3–4: Catalogue build, access policy implementation, and testing",
-          "Week 5: Training, handover, and ongoing monitoring setup"
+          "Week 1: Data asset inventory, regulatory requirements mapping, and gap analysis",
+          "Week 2: Governance framework design and cross-departmental stakeholder alignment",
+          "Week 3–4: Catalogue build, access policy implementation, testing, and UAT",
+          "Week 5: Team training, full handover, and ongoing monitoring configuration"
         ],
         "tech": [
           "Microsoft Purview",
@@ -441,80 +569,145 @@
   },
   "about": {
     "page_title": "About OTMA",
-    "mission_label": "Mission",
-    "mission": "To engineer AI agents that synthesize enterprise data into intelligent decisions — for businesses that demand outcomes, not theatre.",
-    "vision_label": "Vision",
-    "vision": "To become the most trusted partner for enterprise AI in emerging and established markets — born in Riyadh, built for the world.",
-    "founder_label": "The founder",
+    "page_subtitle": "Founded in Riyadh in 2022. Built to close the gap between AI ambition and AI outcomes in enterprise.",
+    "founded_label": "Founded",
+    "founded_year": "2022",
+    "hq_label": "Headquarters",
+    "hq": "Riyadh, Saudi Arabia",
+    "mission_label": "Why we exist",
+    "mission": "Enterprise AI projects fail at an alarming rate — not because the technology is wrong, but because the delivery is. OTMA was founded to fix that: bringing engineered, accountable AI agents to global businesses that need outcomes, not theatre.",
+    "vision_label": "Where we are going",
+    "vision": "To become the most trusted partner for enterprise AI in the GCC and emerging markets — the firm that CIOs call when the roadmap is approved and the outcome needs to be delivered.",
+    "story_label": "The founding story",
+    "story": "After 15 years working inside enterprise data and CRM environments — leading digital transformation at scale across Saudi industry — Khaled Ali kept seeing the same pattern: large AI budgets, expensive consultants, and very little running in production. The gap between what AI could do and what enterprises were actually getting was not a technology problem. It was a delivery problem. OTMA was founded in 2022 to close that gap.",
+    "founder_label": "Founder",
     "founder_name": "Khaled Ali",
-    "founder_title": "Founder, OTMA",
-    "founder_bio": "Khaled Ali is the founder of OTMA. With over 15 years of experience inside enterprise data and CRM — leading analytics and digital transformation across Saudi industry — Khaled saw firsthand how slowly enterprise AI was being adopted, and how much value was being left on the table. He founded OTMA to close that gap: bringing engineered, accountable AI agents to global businesses that need outcomes, not theatre.",
+    "founder_title": "Founder & AI Officer, OTMA",
+    "founder_linkedin": "https://linkedin.com/in/khaledali-otma",
+    "founder_bio": "Khaled has spent over 15 years leading data, CRM, and digital transformation engagements across Saudi Arabia's largest industrial and financial enterprises. He holds deep expertise in Microsoft Dynamics 365, Azure AI, and enterprise data architecture — and has personally overseen more than 30 technology programmes from inception to production. He founded OTMA because he believes enterprise AI should be measured in outcomes, not in slide decks.",
     "values_label": "What we stand for",
     "values": [
       {
-        "title": "Intelligent",
-        "description": "Clear thinking, evidence-led analysis. Every recommendation is grounded in data, not opinion."
+        "title": "Outcomes, not theatre",
+        "description": "We measure success in production deployments and measurable business results — not impressive demos or lengthy strategy documents."
       },
       {
-        "title": "Optimized",
-        "description": "Every system we build is engineered for measurable outcomes. We don't ship features; we ship results."
+        "title": "Honest before optimistic",
+        "description": "We tell you what AI can and cannot do for your situation. If your data is not ready, we say so. That honesty is what makes our outcomes trustworthy."
       },
       {
-        "title": "Trustworthy",
-        "description": "Honest, accountable, and transparent. We tell you what AI can and cannot do — and we stand behind our work."
+        "title": "Arabic and English equally",
+        "description": "Bilingual AI is a design requirement in every system we build — not a localisation patch. Your Arabic-speaking customers and employees get the same experience."
       },
       {
-        "title": "Bold",
-        "description": "Confident, never loud. We take on hard problems, commit to them, and deliver."
+        "title": "You own everything",
+        "description": "All code, models, and infrastructure run on your cloud account. We train your team to operate it. You are never dependent on us to keep the lights on."
       }
+    ],
+    "certifications_label": "Recognised expertise",
+    "certifications": [
+      "Microsoft Solution Partner — Data & AI",
+      "Azure AI Engineer certified",
+      "Dynamics 365 Implementation specialist",
+      "Vision 2030 aligned delivery"
     ],
     "where_label": "Where we work",
     "where_hq": "Riyadh, Saudi Arabia",
-    "where_reach": "We deliver globally and serve clients across KSA, the GCC, Europe, and North America."
+    "where_reach": "We deliver globally and have active clients across KSA, the wider GCC, the UK, and North America.",
+    "timeline_label": "Our journey",
+    "timeline": [
+      {
+        "year": "2022",
+        "event": "OTMA founded in Riyadh. First enterprise AI agent deployed for a Saudi manufacturing group."
+      },
+      {
+        "year": "2023",
+        "event": "Expanded to banking sector. CRM intelligence platform deployed across two regional banks."
+      },
+      {
+        "year": "2024",
+        "event": "Launched bilingual Arabic–English conversational AI practice. GCC client base grows to 10+ enterprises."
+      },
+      {
+        "year": "2025",
+        "event": "Data engineering and cloud architecture practices formalised. Microsoft Solution Partner status achieved."
+      }
+    ],
+    "cta_label": "Work with us",
+    "cta_text": "We take on a limited number of new engagements each quarter to maintain quality. If you are evaluating AI investment for 2025, let us start the conversation now.",
+    "cta_button": "Book a strategy call"
   },
   "case_studies": {
     "page_title": "Case studies",
-    "page_subtitle": "Real deployments. Real outcomes. No theatre.",
+    "page_subtitle": "Six deployments. Real outcomes. Every metric measured against a pre-agreed baseline.",
     "items": [
       {
         "sector": "Manufacturing",
         "result": "40% reduction in procurement cycle time",
-        "title": "AI agent for supplier evaluation",
-        "summary": "A large manufacturing group deployed an OTMA agent to automate supplier evaluation across 200+ vendors. The agent processes RFQs, scores suppliers against 30 criteria, and surfaces recommendations in Dynamics 365 — eliminating a 3-week manual process.",
-        "tags": [
-          "Custom AI agents",
-          "Dynamics 365",
-          "Azure OpenAI"
-        ]
+        "title": "AI agent for supplier evaluation — Saudi industrial group",
+        "summary": "A large manufacturing conglomerate was spending 3 weeks per procurement cycle manually evaluating 200+ suppliers against 30 criteria. OTMA deployed an AI agent that processes RFQs, scores suppliers automatically, and surfaces recommendations directly inside Dynamics 365. The 3-week process now takes 2 days.",
+        "before": "3-week manual supplier evaluation process across 200+ vendors",
+        "after": "2-day automated process with AI scoring and D365 recommendations",
+        "timeline": "Deployed in 7 weeks",
+        "tags": ["Custom AI agents", "Dynamics 365", "Azure OpenAI"]
       },
       {
         "sector": "Banking",
         "result": "3× faster loan decisioning",
-        "title": "CRM intelligence for credit risk",
-        "summary": "A regional bank embedded OTMA's CRM intelligence layer inside their Dynamics 365 deployment. The system scores loan applications in real time using 18 months of historical decisioning data — reducing average approval time from 6 days to under 2.",
-        "tags": [
-          "CRM intelligence",
-          "Azure ML",
-          "Dynamics 365"
-        ]
+        "title": "CRM intelligence for credit risk — regional bank",
+        "summary": "A regional bank's loan approval process averaged 6 days — a competitive disadvantage in a market where applicants apply to multiple institutions simultaneously. OTMA embedded a credit risk scoring model into their Dynamics 365 deployment, trained on 18 months of historical decisioning data. Average approval time dropped from 6 days to under 2.",
+        "before": "6-day average loan approval process, manual risk assessment",
+        "after": "Under 2 days with real-time AI scoring embedded in D365",
+        "timeline": "Deployed in 5 weeks",
+        "tags": ["CRM intelligence", "Azure ML", "Dynamics 365"]
       },
       {
         "sector": "Retail",
-        "result": "22% lift in campaign ROI",
-        "title": "Bilingual conversational AI for customer support",
-        "summary": "A multi-brand retail group replaced their legacy chatbot with an OTMA bilingual assistant across Arabic and English. Integrated with their CRM and product catalogue, the assistant handles 78% of inbound queries without escalation.",
-        "tags": [
-          "Conversational AI",
-          "Arabic NLP",
-          "WhatsApp"
-        ]
+        "result": "78% of queries resolved without human escalation",
+        "title": "Bilingual conversational AI — multi-brand retail group",
+        "summary": "A multi-brand retail group was handling 4,000+ monthly customer queries across Arabic and English with a team of 18 agents. Their legacy chatbot resolved less than 20% automatically. OTMA replaced it with a bilingual AI assistant integrated with their CRM and product catalogue. Within 60 days, 78% of queries resolved without human involvement and the team refocused on high-value interactions.",
+        "before": "Legacy chatbot resolving <20% of queries. 18-agent support team at capacity.",
+        "after": "78% automated resolution. Team handling complex and revenue-generating interactions.",
+        "timeline": "Deployed in 8 weeks",
+        "tags": ["Conversational AI", "Arabic NLP", "WhatsApp Business"]
+      },
+      {
+        "sector": "Logistics",
+        "result": "62% reduction in manual reporting time",
+        "title": "Power BI AI dashboards — GCC logistics operator",
+        "summary": "A regional logistics operator had 14 Power BI reports that required manual data prep every morning — taking 3 analysts 4 hours each day. OTMA rebuilt the data model with automated pipelines and embedded AI-powered anomaly detection. Executives now receive a daily automated summary before 7am. The 4-hour manual process was eliminated entirely.",
+        "before": "4 hours of daily manual data preparation across 3 analysts",
+        "after": "Zero manual prep. Automated summaries delivered by 7am every day.",
+        "timeline": "Deployed in 6 weeks",
+        "tags": ["Power BI + AI", "Data Engineering", "Azure Synapse"]
+      },
+      {
+        "sector": "Healthcare",
+        "result": "Patient referral processing time cut from 5 days to 4 hours",
+        "title": "Document intelligence agent — private hospital network",
+        "summary": "A private hospital network was processing referral documents manually — a 5-day cycle involving data entry, verification, and routing across three systems. OTMA built a document intelligence agent that extracts, validates, and routes referral data automatically, triggering the correct workflow in their ERP. The 5-day cycle became 4 hours.",
+        "before": "5-day manual referral cycle across three disconnected systems",
+        "after": "4-hour automated processing with zero manual data entry",
+        "timeline": "Deployed in 9 weeks",
+        "tags": ["Custom AI agents", "Document AI", "Azure Form Recognizer"]
+      },
+      {
+        "sector": "Government",
+        "result": "Data governance framework covering 2.4M records in 5 weeks",
+        "title": "Enterprise data governance — public sector authority",
+        "summary": "A government authority needed to implement a data governance framework across 2.4 million citizen records ahead of a regulatory deadline. OTMA designed and implemented a Microsoft Purview-based catalogue with full lineage, access controls, and automated quality monitoring — delivered 3 weeks ahead of the regulatory deadline.",
+        "before": "2.4M records with no governance, lineage, or access controls",
+        "after": "Full Purview catalogue, PDPL-compliant access policies, automated quality monitoring",
+        "timeline": "Delivered in 5 weeks — 3 weeks ahead of regulatory deadline",
+        "tags": ["Data Governance", "Microsoft Purview", "PDPL Compliance"]
       }
     ]
   },
   "contact": {
-    "page_title": "Get in touch",
-    "page_subtitle": "Tell us about your data, your challenges, and what you're trying to achieve. We'll respond within one business day.",
-    "info_title": "Contact",
+    "page_title": "Start the conversation",
+    "page_subtitle": "Tell us your biggest data bottleneck. We will respond within one business day with a specific, honest assessment of what AI can do about it.",
+    "info_title": "Get in touch",
+    "response_promise": "Response within one business day — guaranteed.",
     "email_label": "Email",
     "email": "founder@otma.io",
     "whatsapp_label": "WhatsApp",
@@ -523,60 +716,55 @@
     "linkedin_text": "linkedin.com/company/otma-io",
     "address_label": "Office",
     "address": "Riyadh, Saudi Arabia",
-    "form_title": "Send a message",
+    "form_title": "Send us a message",
     "form": {
-      "name": "Full name",
-      "company": "Company",
-      "email": "Email address",
-      "phone": "Phone (optional)",
-      "message": "Message",
-      "inquiry_type": "Inquiry type",
+      "name": "Your name",
+      "company": "Company name",
+      "email": "Work email address",
+      "phone": "Phone number (optional)",
+      "message": "What are you trying to solve?",
+      "message_placeholder": "Describe your challenge or what you are hoping AI can help with. The more specific, the more useful our response.",
+      "inquiry_type": "Area of interest",
       "inquiry_options": [
         "Custom AI agents",
         "CRM intelligence",
         "Power BI + AI",
         "Conversational AI",
-        "AI strategy",
+        "AI strategy sprint",
         "Dynamics 365",
         "Data engineering",
         "Cloud architecture",
         "Data governance",
-        "General inquiry"
+        "Not sure yet — just exploring"
       ],
       "submit": "Send message",
-      "success": "Message sent. We'll be in touch within one business day.",
+      "success": "Message received. You will hear from us within one business day.",
       "error": "Something went wrong. Please email us directly at founder@otma.io"
     }
   },
   "footer": {
-    "tagline": "Intelligent AI agents for global enterprises.",
+    "tagline": "Enterprise AI that ships — not slides.",
+    "founded": "Founded in Riyadh, 2022",
     "services_title": "Services",
     "company_title": "Company",
     "contact_title": "Contact",
     "company_links": [
-      {
-        "label": "About",
-        "href": "/about"
-      },
-      {
-        "label": "Case Studies",
-        "href": "/case-studies"
-      },
-      {
-        "label": "Contact",
-        "href": "/contact"
-      }
+      { "label": "How We Work", "href": "/how-we-work" },
+      { "label": "About", "href": "/about" },
+      { "label": "Case Studies", "href": "/case-studies" },
+      { "label": "Contact", "href": "/contact" }
     ],
     "copyright": "© 2026 OTMA. All rights reserved.",
-    "built": "Born in Riyadh · Built for the world"
+    "built": "Born in Riyadh · Built for the world",
+    "partner_note": "Microsoft Solution Partner — Data & AI"
   },
   "newsletter": {
-    "title": "Stay ahead of the AI curve.",
-    "subtitle": "Practical insights on AI agents and enterprise automation delivered to your inbox. No noise — just signal.",
-    "placeholder": "your@email.com",
+    "title": "AI insights for enterprise decision-makers.",
+    "subtitle": "One practical email per month — real deployments, real results, and what we are learning from the field. No noise.",
+    "placeholder": "your@company.com",
     "button": "Subscribe",
-    "success": "You are subscribed. Check your inbox.",
+    "success": "Subscribed. You will hear from us monthly — never more.",
     "error": "Something went wrong. Please try again.",
-    "privacy": "No spam. Unsubscribe anytime."
+    "privacy": "No spam. Unsubscribe any time."
   }
 }

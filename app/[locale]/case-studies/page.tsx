@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export const dynamic = 'force-static'
@@ -17,7 +16,7 @@ export async function generateMetadata({
   if (!isValidLocale(locale)) return {}
   const dict = await getDictionary(locale)
   return {
-    title: dict.case_studies.page_title,
+    title: `${dict.case_studies.page_title} — OTMA`,
     description: dict.case_studies.page_subtitle,
   }
 }
@@ -37,9 +36,12 @@ export default async function CaseStudiesPage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#080D18] pt-32 pb-20">
+      <section className="bg-[#080D18] pt-32 pb-16">
         <Container>
           <div className={cn(isRtl ? 'text-right' : '')}>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-4">
+              {locale === 'ar' ? 'نتائج حقيقية' : 'Real outcomes'}
+            </p>
             <h1 className="font-display font-medium text-4xl sm:text-5xl text-white leading-tight mb-6">
               {cs.page_title}
             </h1>
@@ -51,7 +53,7 @@ export default async function CaseStudiesPage({
       {/* Cases */}
       <section className="bg-[#080D18] pb-24">
         <Container>
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-2 gap-6">
             {cs.items.map((item, i) => (
               <article
                 key={i}
@@ -60,15 +62,47 @@ export default async function CaseStudiesPage({
                   isRtl ? 'text-right' : ''
                 )}
               >
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-4">
-                  {item.sector}
-                </span>
-                <p className="text-2xl font-display font-medium text-white leading-snug mb-4">
+                {/* Sector + timeline */}
+                <div className={cn('flex items-center justify-between gap-3 mb-4 flex-wrap', isRtl ? 'flex-row-reverse' : '')}>
+                  <span className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF]">
+                    {item.sector}
+                  </span>
+                  {'timeline' in item && (
+                    <span className="text-xs text-white/30 font-medium">{item.timeline}</span>
+                  )}
+                </div>
+
+                {/* Headline result */}
+                <p className="text-2xl font-display font-medium text-white leading-snug mb-3">
                   {item.result}
                 </p>
-                <h2 className="text-base font-semibold text-white/80 mb-3">{item.title}</h2>
-                <p className="text-sm text-white/55 leading-relaxed flex-1">{item.summary}</p>
-                <div className="mt-6 flex flex-wrap gap-2">
+
+                {/* Title */}
+                <h2 className="text-sm font-semibold text-white/60 mb-4">{item.title}</h2>
+
+                {/* Summary */}
+                <p className="text-sm text-white/55 leading-relaxed flex-1 mb-5">{item.summary}</p>
+
+                {/* Before / After */}
+                {'before' in item && 'after' in item && (
+                  <div className="grid grid-cols-2 gap-3 mb-5">
+                    <div className="p-3 rounded-lg bg-white/[0.03] border border-white/8">
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 mb-1">
+                        {locale === 'ar' ? 'قبل' : 'Before'}
+                      </p>
+                      <p className="text-xs text-white/55 leading-snug">{item.before}</p>
+                    </div>
+                    <div className="p-3 rounded-lg bg-[#00D4FF]/[0.05] border border-[#00D4FF]/15">
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-[#00D4FF]/60 mb-1">
+                        {locale === 'ar' ? 'بعد' : 'After'}
+                      </p>
+                      <p className="text-xs text-white/70 leading-snug">{item.after}</p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Tags */}
+                <div className={cn('flex flex-wrap gap-2', isRtl ? 'justify-end' : '')}>
                   {item.tags.map((tag) => (
                     <span
                       key={tag}

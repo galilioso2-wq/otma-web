@@ -60,7 +60,10 @@ export default async function HomePage({
         title={h.hero.title}
         subtitle={h.hero.subtitle}
         ctaPrimary={h.hero.cta_primary}
+        ctaPrimaryHref={h.hero.cta_primary_href}
         ctaSecondary={h.hero.cta_secondary}
+        ctaSecondaryHref={h.hero.cta_secondary_href}
+        socialProof={h.hero.social_proof}
       />
       <TrustStrip locale={locale} label={h.trust.label} sectors={h.trust.sectors} />
       <ServicesGrid

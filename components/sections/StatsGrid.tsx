@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 
 interface StatItem {
   value: string
+  suffix: string
   label: string
 }
 
@@ -15,34 +16,27 @@ interface StatsGridProps {
   items: StatItem[]
 }
 
-function parseValue(raw: string): { prefix: string; num: number; suffix: string } | null {
-  const match = raw.match(/^([^0-9]*)(\d+(?:\.\d+)?)(.*)$/)
-  if (!match) return null
-  return { prefix: match[1], num: parseFloat(match[2]), suffix: match[3] }
-}
-
-function AnimatedNumber({ value, inView }: { value: string; inView: boolean }) {
+function AnimatedNumber({ value, suffix, inView }: { value: string; suffix: string; inView: boolean }) {
   const prefersReduced = useReducedMotion()
-  const [display, setDisplay] = useState(value)
-  const parsed = parseValue(value)
+  const num = parseFloat(value)
+  const [display, setDisplay] = useState(`${value}${suffix}`)
   const rafRef = useRef<number | null>(null)
 
   useEffect(() => {
-    if (!inView || !parsed || prefersReduced) {
-      setDisplay(value)
+    if (!inView || isNaN(num) || prefersReduced) {
+      setDisplay(`${value}${suffix}`)
       return
     }
     const duration = 1600
     const start = performance.now()
-    const to = parsed.num
 
     function tick(now: number) {
       const elapsed = now - start
       const progress = Math.min(elapsed / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
-      const current = to * eased
-      const formatted = Number.isInteger(to) ? Math.round(current) : current.toFixed(1)
-      setDisplay(`${parsed!.prefix}${formatted}${parsed!.suffix}`)
+      const current = num * eased
+      const formatted = Number.isInteger(num) ? Math.round(current) : current.toFixed(1)
+      setDisplay(`${formatted}${suffix}`)
       if (progress < 1) rafRef.current = requestAnimationFrame(tick)
     }
 
@@ -117,7 +111,7 @@ export function StatsGrid({ locale, items }: StatsGridProps) {
                 <span
                   className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-none text-gradient-cyan"
                 >
-                  <AnimatedNumber value={stat.value} inView={inView} />
+                  <AnimatedNumber value={stat.value} suffix={stat.suffix} inView={inView} />
                 </span>
               </div>
 
