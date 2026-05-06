@@ -25,24 +25,24 @@ const CATEGORIES: TechCategory[] = [
     titleAr: 'قواعد البيانات والمنصات',
     accent: '#7C3AED',
     items: [
-      { name: 'Oracle',       slug: 'oracle' },
+      { name: 'Oracle',       slug: null },
       { name: 'Snowflake',    slug: 'snowflake' },
-      { name: 'SQL Server',   slug: 'microsoftsqlserver' },
-      { name: 'IBM DB2',      slug: 'ibm' },
+      { name: 'SQL Server',   slug: null },
+      { name: 'IBM DB2',      slug: null },
       { name: 'ClickHouse',   slug: 'clickhouse' },
       { name: 'PostgreSQL',   slug: 'postgresql' },
     ],
   },
   {
-    titleEn: 'Data Transformation & Integration',
+    titleEn: 'Data Transformation',
     titleAr: 'تحويل البيانات والتكامل',
     accent: '#00D4FF',
     items: [
       { name: 'Databricks',         slug: 'databricks' },
-      { name: 'Informatica',        slug: 'informatica' },
-      { name: 'Alteryx',            slug: 'alteryx' },
+      { name: 'Informatica',        slug: null },
+      { name: 'Alteryx',            slug: null },
       { name: 'Azure Data Factory', slug: 'microsoftazure' },
-      { name: 'Microsoft Fabric',   slug: 'microsoftfabric' },
+      { name: 'Microsoft Fabric',   slug: null },
       { name: 'Apache NiFi',        slug: 'apachenifi' },
       { name: 'Pentaho',            slug: null },
     ],
@@ -52,11 +52,11 @@ const CATEGORIES: TechCategory[] = [
     titleAr: 'التصور البصري والذكاء التحليلي',
     accent: '#F59E0B',
     items: [
-      { name: 'Power BI',        slug: 'powerbi' },
-      { name: 'Tableau',         slug: 'tableau' },
+      { name: 'Power BI',        slug: null },
+      { name: 'Tableau',         slug: null },
       { name: 'Grafana',         slug: 'grafana' },
       { name: 'Looker',          slug: 'looker' },
-      { name: 'QlikView',        slug: 'qlik' },
+      { name: 'Qlik',            slug: 'qlik' },
       { name: 'Apache Superset', slug: 'apachesuperset' },
       { name: 'MicroStrategy',   slug: null },
     ],
@@ -66,12 +66,12 @@ const CATEGORIES: TechCategory[] = [
     titleAr: 'هندسة الذكاء الاصطناعي',
     accent: '#EF4444',
     items: [
-      { name: 'OpenAI',       slug: 'openai' },
+      { name: 'OpenAI',       slug: null },
       { name: 'LangChain',    slug: 'langchain' },
       { name: 'Claude',       slug: 'anthropic' },
       { name: 'Gemini',       slug: 'googlegemini' },
       { name: 'Meta LLaMA',   slug: 'meta' },
-      { name: 'Mistral AI',   slug: 'mistral' },
+      { name: 'Mistral AI',   slug: 'mistralai' },
       { name: 'CrewAI',       slug: null },
       { name: 'Qdrant',       slug: 'qdrant' },
     ],
@@ -80,14 +80,22 @@ const CATEGORIES: TechCategory[] = [
 
 const CLOUD_PLATFORMS = [
   { name: 'Google Cloud Platform', slug: 'googlecloud',    color: '4285F4', label: 'Google Cloud' },
-  { name: 'Amazon Web Services',   slug: 'amazonaws',      color: 'FF9900', label: 'AWS' },
+  { name: 'Amazon Web Services',   slug: null,             color: 'FF9900', label: 'AWS' },
   { name: 'Microsoft Azure',       slug: 'microsoftazure', color: '0078D4', label: 'Azure' },
 ]
 
 /* ── Logo image with error handling ── */
-function LogoImg({ slug, name }: { slug: string; name: string }) {
+function LogoImg({ slug, name, accent }: { slug: string; name: string; accent: string }) {
   const [failed, setFailed] = useState(false)
-  if (failed) return null
+  if (failed) return (
+    <span
+      className="w-[22px] h-[22px] flex-shrink-0 rounded-md text-[9px] font-bold flex items-center justify-center"
+      style={{ background: `${accent}25`, color: accent }}
+      aria-hidden="true"
+    >
+      {name.slice(0, 2).toUpperCase()}
+    </span>
+  )
   return (
     <img
       src={`https://cdn.simpleicons.org/${slug}/ffffff`}
@@ -102,9 +110,16 @@ function LogoImg({ slug, name }: { slug: string; name: string }) {
   )
 }
 
-function CloudImg({ slug, color, name }: { slug: string; color: string; name: string }) {
+function CloudImg({ slug, color, name }: { slug: string | null; color: string; name: string }) {
   const [failed, setFailed] = useState(false)
-  if (failed) return null
+  if (!slug || failed) return (
+    <span
+      className="w-12 h-12 flex-shrink-0 rounded-xl text-sm font-bold flex items-center justify-center"
+      style={{ background: `#${color}20`, color: `#${color}` }}
+    >
+      {name.slice(0, 3).toUpperCase()}
+    </span>
+  )
   return (
     <img
       src={`https://cdn.simpleicons.org/${slug}/${color}`}
@@ -164,7 +179,7 @@ function CategoryCard({
               isRtl ? 'flex-row-reverse' : ''
             )}
           >
-            {item.slug && <LogoImg slug={item.slug} name={item.name} />}
+            {item.slug && <LogoImg slug={item.slug} name={item.name} accent={category.accent} />}
             {!item.slug && (
               <span
                 className="w-[22px] h-[22px] flex-shrink-0 rounded-md text-[9px] font-bold flex items-center justify-center"
