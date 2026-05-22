@@ -51,7 +51,7 @@ export function PpcHero() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-8 text-center pt-28 pb-24">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-8 text-center pt-36 pb-24">
         {/* Powered-by badge */}
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 12 }}
