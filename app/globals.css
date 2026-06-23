@@ -58,6 +58,7 @@
   --color-otma-gray: #808890;
 
   /* ─── OTMA font families ─── */
+  --font-sans: var(--font-plus-jakarta), system-ui, sans-serif;
   --font-display: var(--font-space-grotesk), system-ui, sans-serif;
   --font-arabic: var(--font-ibm-plex-arabic), "Tahoma", sans-serif;
 }
@@ -163,9 +164,23 @@
   outline-color: #00d4ff;
 }
 
-/* ─── smooth scrolling ─── */
+/* ─── smooth scrolling + global text rendering ─── */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+
+/* tighter tracking on large display headings */
+h1 { letter-spacing: -0.03em; }
+h2 { letter-spacing: -0.02em; }
+h3 { letter-spacing: -0.015em; }
+
+/* balanced line wrapping on headings */
+h1, h2, h3, h4 {
+  text-wrap: balance;
 }
 
 

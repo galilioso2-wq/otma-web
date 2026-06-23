@@ -68,8 +68,8 @@ export function PpcHero() {
           initial={reduced ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display font-bold text-white leading-[1.08] tracking-tight mb-6"
-          style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.5rem)' }}
+          className="font-display font-bold text-white leading-[1.05] mb-6"
+          style={{ fontSize: 'clamp(2.6rem, 6vw, 5rem)', letterSpacing: '-0.03em' }}
         >
           6 AI Agents.{' '}
           <span style={{ color: '#7ACBBA' }}>One Orchestrator.</span>
@@ -82,7 +82,7 @@ export function PpcHero() {
           initial={reduced ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-lg sm:text-xl text-white/65 max-w-2xl mx-auto mb-10 leading-relaxed font-normal"
         >
           Ask any business question in Arabic or English. The Orchestrator routes it
           to the right specialist automatically — or activates multiple agents in parallel

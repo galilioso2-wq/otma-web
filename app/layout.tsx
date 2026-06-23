@@ -1,19 +1,21 @@
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk, JetBrains_Mono, IBM_Plex_Sans_Arabic } from 'next/font/google'
+import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono, IBM_Plex_Sans_Arabic } from 'next/font/google'
 import { headers } from 'next/headers'
 import Script from 'next/script'
 import './globals.css'
 import { defaultMetadata } from '@/lib/seo'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-plus-jakarta',
   display: 'swap',
 })
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-space-grotesk',
   display: 'swap',
 })
@@ -46,7 +48,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={dir}
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${ibmPlexArabic.variable} h-full antialiased`}
+      className={`${plusJakarta.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${ibmPlexArabic.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-white dark:bg-[#080D18] text-[#080D18] dark:text-white">

@@ -54,7 +54,7 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
           </p>
           <h2
             id="services-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white font-display leading-tight max-w-2xl"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-display leading-[1.05] max-w-2xl"
           >
             {subtitle}
           </h2>
@@ -123,10 +123,10 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
 
                   {/* text */}
                   <div className={cn('flex flex-col gap-2', isRtl ? 'text-right' : '')}>
-                    <h3 className="text-base font-semibold text-white/90 group-hover:text-white transition-colors">
+                    <h3 className="text-base font-semibold text-white group-hover:text-white transition-colors tracking-tight">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-white/45 leading-relaxed group-hover:text-white/60 transition-colors">
+                    <p className="text-sm text-white/55 leading-relaxed group-hover:text-white/70 transition-colors">
                       {service.description}
                     </p>
                   </div>

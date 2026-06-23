@@ -18,13 +18,13 @@ export function PpcCta() {
           Deployed by OTMA · Replicable for your organization
         </div>
 
-        <h2 className="font-display font-bold text-white text-3xl sm:text-4xl leading-tight mb-5">
+        <h2 className="font-display font-bold text-white text-4xl sm:text-5xl leading-[1.05] mb-5" style={{ letterSpacing: '-0.025em' }}>
           What you just saw — OTMA can build
           <br className="hidden sm:block" />
           <span className="text-white/45">this for your enterprise.</span>
         </h2>
 
-        <p className="text-white/50 mb-4 max-w-xl mx-auto leading-relaxed text-base">
+        <p className="text-white/65 mb-4 max-w-xl mx-auto leading-relaxed text-base font-normal">
           This platform was designed and deployed by{' '}
           <a href="/en" className="text-white/70 hover:text-[#7ACBBA] transition-colors font-medium">
             OTMA

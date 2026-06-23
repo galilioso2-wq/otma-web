@@ -205,8 +205,8 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaPrimaryHref, ctaS
               <motion.h1
                 id="hero-heading"
                 className={cn(
-                  'font-display font-semibold leading-tight tracking-tight',
-                  'text-3xl sm:text-4xl lg:text-5xl max-w-xl',
+                  'font-display font-bold leading-[1.05] tracking-tight',
+                  'text-4xl sm:text-5xl lg:text-6xl max-w-2xl',
                   isRtl ? 'font-arabic' : ''
                 )}
                 initial={prefersReduced ? false : { opacity: 0, y: 16 }}
@@ -258,7 +258,7 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaPrimaryHref, ctaS
               </motion.div>
 
               <motion.p
-                className="text-sm sm:text-base text-white/45 max-w-md leading-relaxed"
+                className="text-base sm:text-lg text-white/60 max-w-lg leading-relaxed"
                 initial={prefersReduced ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.75 }}
@@ -303,12 +303,12 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaPrimaryHref, ctaS
           <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-4">
             {locale === 'ar' ? 'وكلاء ذكاء اصطناعي' : 'AI Agents'}
           </p>
-          <h2 className="font-display font-semibold text-white text-3xl sm:text-4xl lg:text-5xl max-w-3xl mx-auto leading-tight">
+          <h2 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl max-w-3xl mx-auto leading-[1.05]">
             {locale === 'ar'
               ? 'أتمتة أذكى للمؤسسات'
               : 'AI Agents for Smarter Enterprise Operations'}
           </h2>
-          <p className="mt-5 text-white/45 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-white/60 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-normal">
             {locale === 'ar'
               ? 'منصتنا المدعومة بالذكاء الاصطناعي تحوّل العمليات المؤسسية عبر التحليلات الفورية والأتمتة الذكية.'
               : 'Our AI-driven platform transforms enterprise operations through real-time analytics, automation, and intelligent optimization.'}

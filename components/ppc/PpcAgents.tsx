@@ -94,10 +94,10 @@ export function PpcAgents() {
           <p className="text-xs font-semibold uppercase tracking-widest text-[#7ACBBA] mb-3">
             Six Specialists
           </p>
-          <h2 className="font-display font-bold text-white text-3xl sm:text-4xl leading-tight mb-4">
+          <h2 className="font-display font-bold text-white text-4xl sm:text-5xl leading-[1.05] mb-4" style={{ letterSpacing: '-0.02em' }}>
             Each agent is an expert in its domain
           </h2>
-          <p className="text-white/45 text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-white/65 text-lg max-w-xl mx-auto leading-relaxed font-normal">
             Not a generic chatbot. Every agent carries domain-specific context — Saudi compliance rules,
             live KPIs, business workflows — so answers are accurate, specific, and immediately actionable.
           </p>
