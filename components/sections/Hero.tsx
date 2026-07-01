@@ -167,14 +167,14 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaPrimaryHref, ctaS
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-start bg-[#050508] overflow-hidden"
+      className="relative flex flex-col items-center justify-start bg-[#F7F9FC] dark:bg-[#050508] overflow-hidden"
       aria-labelledby="hero-heading"
     >
       {/* spotlight rays */}
       <SpotlightRays />
 
       {/* ── NAV SPACER + HERO CARD ── */}
-      <Container className="relative z-10 w-full pt-28 pb-20 flex flex-col items-center gap-10">
+      <Container className="relative z-10 w-full pt-24 pb-10 flex flex-col items-center gap-8">
 
         {/* ── HERO CARD ── */}
         <motion.div
@@ -293,22 +293,22 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaPrimaryHref, ctaS
       </Container>
 
       {/* bottom section teaser — "AI Agents for Smarter Operations" */}
-      <div className="relative z-10 w-full border-t border-white/6 bg-[#050508] py-20 text-center px-4">
+      <div className="relative z-10 w-full border-t border-[#0D1421]/6 dark:border-white/6 bg-[#F7F9FC] dark:bg-[#050508] py-12 text-center px-4">
         <motion.div
           initial={prefersReduced ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-4">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-4">
             {locale === 'ar' ? 'وكلاء ذكاء اصطناعي' : 'AI Agents'}
           </p>
-          <h2 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl max-w-3xl mx-auto leading-[1.05]">
+          <h2 className="font-display font-bold text-[#0D1421] dark:text-white text-4xl sm:text-5xl lg:text-6xl max-w-3xl mx-auto leading-[1.05]">
             {locale === 'ar'
               ? 'أتمتة أذكى للمؤسسات'
               : 'AI Agents for Smarter Enterprise Operations'}
           </h2>
-          <p className="mt-6 text-white/60 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="mt-6 text-[#0D1421]/60 dark:text-white/60 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-normal">
             {locale === 'ar'
               ? 'منصتنا المدعومة بالذكاء الاصطناعي تحوّل العمليات المؤسسية عبر التحليلات الفورية والأتمتة الذكية.'
               : 'Our AI-driven platform transforms enterprise operations through real-time analytics, automation, and intelligent optimization.'}

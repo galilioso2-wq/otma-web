@@ -25,7 +25,7 @@ export function ProcessTimeline({ locale, title, subtitle, steps }: ProcessTimel
   const inView = useInView(lineRef, { once: true, margin: '-60px' })
 
   return (
-    <section className="bg-[#080D18] py-28 relative overflow-hidden" aria-labelledby="process-heading">
+    <section className="bg-[#EDF0F9] dark:bg-[#080D18] py-16 relative overflow-hidden" aria-labelledby="process-heading">
       {/* subtle radial glow */}
       <div
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
@@ -36,18 +36,18 @@ export function ProcessTimeline({ locale, title, subtitle, steps }: ProcessTimel
       <Container>
         {/* section header */}
         <motion.div
-          className={cn('mb-20', isRtl ? 'text-right' : 'text-left')}
+          className={cn('mb-12', isRtl ? 'text-right' : 'text-left')}
           initial={prefersReduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-3">
             {title}
           </p>
           <h2
             id="process-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white font-display leading-tight max-w-2xl"
+            className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0D1421] dark:text-white font-display leading-tight max-w-2xl"
           >
             {subtitle}
           </h2>
@@ -64,7 +64,7 @@ export function ProcessTimeline({ locale, title, subtitle, steps }: ProcessTimel
             aria-hidden="true"
           >
             {/* static dim base */}
-            <div className="absolute inset-0 bg-white/[0.06]" />
+            <div className="absolute inset-0 bg-[#0D1421]/[0.06] dark:bg-white/[0.06]" />
             {/* animated fill */}
             <motion.div
               className="absolute top-0 left-0 right-0 origin-top"
@@ -87,7 +87,7 @@ export function ProcessTimeline({ locale, title, subtitle, steps }: ProcessTimel
               <motion.div
                 key={step.number}
                 className={cn(
-                  'relative flex gap-6 sm:gap-8 pb-14 last:pb-0',
+                  'relative flex gap-6 sm:gap-8 pb-10 last:pb-0',
                   isRtl ? 'flex-row-reverse' : ''
                 )}
                 initial={prefersReduced ? false : { opacity: 0, x: isRtl ? 24 : -24 }}
@@ -118,7 +118,7 @@ export function ProcessTimeline({ locale, title, subtitle, steps }: ProcessTimel
                         : 'linear-gradient(135deg, rgba(0,212,255,0.4) 0%, rgba(48,128,255,0.2) 100%)',
                     }}
                   >
-                    <div className="w-full h-full rounded-full bg-[#080D18] flex items-center justify-center">
+                    <div className="w-full h-full rounded-full bg-[#EDF0F9] dark:bg-[#080D18] flex items-center justify-center">
                       <span
                         className="font-mono font-bold text-sm sm:text-base"
                         style={{
@@ -133,10 +133,10 @@ export function ProcessTimeline({ locale, title, subtitle, steps }: ProcessTimel
 
                 {/* content */}
                 <div className={cn('flex-1 pt-3.5', isRtl ? 'text-right' : '')}>
-                  <h3 className="text-xl sm:text-2xl font-semibold text-white font-display mb-2">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-[#0D1421] dark:text-white font-display mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-white/50 leading-relaxed sm:text-lg">{step.description}</p>
+                  <p className="text-[#0D1421]/50 dark:text-white/50 leading-relaxed sm:text-lg">{step.description}</p>
                 </div>
               </motion.div>
             ))}

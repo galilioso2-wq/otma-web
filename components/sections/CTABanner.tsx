@@ -19,7 +19,7 @@ export function CTABanner({ locale, title, subtitle, button }: CTABannerProps) {
 
   return (
     <section
-      className="relative bg-[#050508] py-32 overflow-hidden"
+      className="relative bg-[#F7F9FC] dark:bg-[#050508] py-20 overflow-hidden"
       aria-labelledby="cta-heading"
     >
       {/* ── animated gradient blobs ── */}
@@ -94,13 +94,13 @@ export function CTABanner({ locale, title, subtitle, button }: CTABannerProps) {
               isRtl ? 'font-arabic' : ''
             )}
           >
-            <span className="text-white">{title.split('?')[0]}</span>
+            <span className="text-[#0D1421] dark:text-white">{title.split('?')[0]}</span>
             {title.includes('?') && (
               <span className="text-gradient-cyan">?</span>
             )}
           </h2>
 
-          <p className="text-lg sm:text-xl text-white/50 max-w-xl leading-relaxed">
+          <p className="text-lg sm:text-xl text-[#0D1421]/50 dark:text-white/50 max-w-xl leading-relaxed">
             {subtitle}
           </p>
 
@@ -147,7 +147,7 @@ export function CTABanner({ locale, title, subtitle, button }: CTABannerProps) {
           </div>
 
           {/* social proof micro-line */}
-          <p className="text-sm text-white/25">
+          <p className="text-sm text-[#0D1421]/30 dark:text-white/25">
             {locale === 'ar'
               ? 'رد خلال يوم عمل واحد · لا التزام مسبق'
               : 'Response within one business day · No commitment required'}

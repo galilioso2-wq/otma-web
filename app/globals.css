@@ -205,8 +205,28 @@ h1, h2, h3, h4 {
   background-color: rgba(0, 212, 255, 0.25);
 }
 
+/* ─── OTMA card/surface CSS variables for both modes ─── */
+:root {
+  --otma-card-bg: #FFFFFF;
+  --otma-surface-bg: #F2F5FC;
+  --otma-text: #0D1421;
+  --otma-accent: #0099BB;
+}
+.dark {
+  --otma-card-bg: #0A0D16;
+  --otma-surface-bg: #080D18;
+  --otma-text: #ffffff;
+  --otma-accent: #00D4FF;
+}
+
 /* ─── gradient text utilities ─── */
 .text-gradient-cyan {
+  background: linear-gradient(135deg, #0077AA 0%, #1060E0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dark .text-gradient-cyan {
   background: linear-gradient(135deg, #00D4FF 0%, #3080FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -271,14 +291,27 @@ h1, h2, h3, h4 {
   to   { opacity: 1; filter: blur(0px); }
 }
 
-/* ─── dot-grid pattern overlay (used in stats section) ─── */
+/* ─── dot-grid pattern overlay ─── */
 .dot-grid-bg {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px);
   background-size: 28px 28px;
+}
+.dark .dot-grid-bg {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
 }
 
 /* ─── custom scrollbar ─── */
+:root {
+  --scrollbar-track: #EEF1F8;
+  --scrollbar-thumb: rgba(0,153,187,0.30);
+  --scrollbar-thumb-hover: rgba(0,153,187,0.55);
+}
+.dark {
+  --scrollbar-track: #050508;
+  --scrollbar-thumb: rgba(0,212,255,0.25);
+  --scrollbar-thumb-hover: rgba(0,212,255,0.5);
+}
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #050508; }
-::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.25); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,0.5); }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }

@@ -28,7 +28,7 @@ export function WhyOTMA({ locale, title, items }: WhyOTMAProps) {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-[#050508] py-28 relative overflow-hidden" aria-labelledby="why-heading">
+    <section className="bg-[#EDF0F9] dark:bg-[#050508] py-16 relative overflow-hidden" aria-labelledby="why-heading">
       {/* subtle top border */}
       <div
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
@@ -38,18 +38,18 @@ export function WhyOTMA({ locale, title, items }: WhyOTMAProps) {
 
       <Container>
         <motion.div
-          className={cn('mb-16', isRtl ? 'text-right' : 'text-left')}
+          className={cn('mb-10', isRtl ? 'text-right' : 'text-left')}
           initial={prefersReduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-3">
             {locale === 'ar' ? 'ميزتنا' : 'Our edge'}
           </p>
           <h2
             id="why-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white font-display leading-tight max-w-xl"
+            className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0D1421] dark:text-white font-display leading-tight max-w-xl"
           >
             {title}
           </h2>
@@ -77,7 +77,7 @@ export function WhyOTMA({ locale, title, items }: WhyOTMAProps) {
                     'relative h-full flex flex-col gap-5 p-7 rounded-2xl overflow-hidden',
                     isRtl ? 'text-right items-end' : ''
                   )}
-                  style={{ background: '#0A0D16' }}
+                  style={{ background: 'var(--otma-card-bg)' }}
                 >
                   {/* inner glow on hover */}
                   <div
@@ -111,10 +111,10 @@ export function WhyOTMA({ locale, title, items }: WhyOTMAProps) {
 
                   {/* text */}
                   <div className="relative z-10 flex flex-col gap-2.5">
-                    <h3 className="text-lg font-semibold text-white/90 font-display leading-snug">
+                    <h3 className="text-lg font-semibold text-[#0D1421]/90 dark:text-white/90 font-display leading-snug">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-white/50 leading-relaxed">
+                    <p className="text-sm text-[#0D1421]/50 dark:text-white/50 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

@@ -30,28 +30,28 @@ export function DataFoundations({ locale, label, title, subtitle, tiers }: DataF
 
   return (
     <section
-      className="bg-[#080D18] py-24 border-t border-white/6"
+      className="bg-[#F7F9FC] dark:bg-[#080D18] py-14 border-t border-[#0D1421]/6 dark:border-white/6"
       aria-labelledby="data-foundations-heading"
     >
       <Container>
         {/* heading */}
         <motion.div
-          className={cn('mb-16 text-center')}
+          className={cn('mb-10 text-center')}
           initial={prefersReduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-3">
             {label}
           </p>
           <h2
             id="data-foundations-heading"
-            className="text-3xl sm:text-4xl font-semibold text-white font-display leading-tight max-w-3xl mx-auto"
+            className="text-3xl sm:text-4xl font-semibold text-[#0D1421] dark:text-white font-display leading-tight max-w-3xl mx-auto"
           >
             {title}
           </h2>
-          <p className="mt-4 text-white/50 text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-[#0D1421]/50 dark:text-white/50 text-base max-w-2xl mx-auto leading-relaxed">
             {subtitle}
           </p>
         </motion.div>
@@ -70,7 +70,7 @@ export function DataFoundations({ locale, label, title, subtitle, tiers }: DataF
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.55, delay: i * 0.12 }}
                 className={cn(
-                  'relative flex flex-col gap-6 p-8 rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden',
+                  'relative flex flex-col gap-6 p-8 rounded-2xl border border-[#0D1421]/10 dark:border-white/10 bg-white dark:bg-white/[0.03] overflow-hidden shadow-sm dark:shadow-none',
                   isRtl ? 'text-right' : 'text-left'
                 )}
               >
@@ -88,7 +88,7 @@ export function DataFoundations({ locale, label, title, subtitle, tiers }: DataF
                   >
                     {tier.number}
                   </span>
-                  <span className="text-xs text-white/30 uppercase tracking-widest font-medium">
+                  <span className="text-xs text-[#0D1421]/30 dark:text-white/30 uppercase tracking-widest font-medium">
                     {tier.tag}
                   </span>
                 </div>
@@ -102,8 +102,8 @@ export function DataFoundations({ locale, label, title, subtitle, tiers }: DataF
                     <Icon size={22} style={{ color: accent }} aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white font-display">{tier.name}</h3>
-                    <p className="mt-2 text-sm text-white/50 leading-relaxed">{tier.description}</p>
+                    <h3 className="text-xl font-semibold text-[#0D1421] dark:text-white font-display">{tier.name}</h3>
+                    <p className="mt-2 text-sm text-[#0D1421]/50 dark:text-white/50 leading-relaxed">{tier.description}</p>
                   </div>
                 </div>
 
@@ -112,7 +112,7 @@ export function DataFoundations({ locale, label, title, subtitle, tiers }: DataF
                   {tier.items.map((item, j) => (
                     <li
                       key={j}
-                      className={cn('flex items-start gap-2.5 text-sm text-white/65', isRtl ? 'flex-row-reverse' : '')}
+                      className={cn('flex items-start gap-2.5 text-sm text-[#0D1421]/65 dark:text-white/65', isRtl ? 'flex-row-reverse' : '')}
                     >
                       <Check
                         size={14}
@@ -128,10 +128,10 @@ export function DataFoundations({ locale, label, title, subtitle, tiers }: DataF
                 {/* connector arrow — shows between cards on large screens, hidden on last */}
                 {i < tiers.length - 1 && (
                   <div
-                    className="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-8 h-8 rounded-full bg-[#080D18] border border-white/12"
+                    className="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-8 h-8 rounded-full bg-[#F7F9FC] dark:bg-[#080D18] border border-[#0D1421]/12 dark:border-white/12"
                     aria-hidden="true"
                   >
-                    <ArrowRight size={14} className="text-white/40" />
+                    <ArrowRight size={14} className="text-[#0D1421]/40 dark:text-white/40" />
                   </div>
                 )}
               </motion.div>

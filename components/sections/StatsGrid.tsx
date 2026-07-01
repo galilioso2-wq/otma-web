@@ -56,7 +56,7 @@ export function StatsGrid({ locale, items }: StatsGridProps) {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#080D18] py-24 overflow-hidden"
+      className="relative bg-[#F7F9FC] dark:bg-[#080D18] py-16 overflow-hidden"
       aria-label="Key statistics"
     >
       {/* dot grid texture */}
@@ -83,7 +83,7 @@ export function StatsGrid({ locale, items }: StatsGridProps) {
       />
 
       <Container className="relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-white/[0.07]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-[#0D1421]/[0.07] dark:divide-white/[0.07]">
           {items.map((stat, i) => (
             <motion.div
               key={i}
@@ -116,7 +116,7 @@ export function StatsGrid({ locale, items }: StatsGridProps) {
               </div>
 
               {/* label */}
-              <p className="text-sm sm:text-base text-white/45 leading-snug max-w-[180px] font-medium">
+              <p className="text-sm sm:text-base text-[#0D1421]/55 dark:text-white/45 leading-snug max-w-[180px] font-medium">
                 {stat.label}
               </p>
 

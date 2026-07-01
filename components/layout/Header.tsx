@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { useTheme } from 'next-themes'
 import { Logo } from '@/components/brand/Logo'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { cn } from '@/lib/utils'
@@ -26,9 +27,14 @@ interface HeaderProps {
 export function Header({ locale, nav }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
   const isRtl = locale === 'ar'
   const prefersReduced = useReducedMotion()
+  const { resolvedTheme } = useTheme()
+
+  useEffect(() => setMounted(true), [])
+  const logoTheme = mounted && resolvedTheme === 'light' ? 'light' : 'dark'
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80)
@@ -75,7 +81,7 @@ export function Header({ locale, nav }: HeaderProps) {
             )}
           >
             {/* Logo */}
-            <Logo href={`/${locale}`} theme="dark" size="md" />
+            <Logo href={`/${locale}`} theme={logoTheme} size="md" />
 
             {/* Desktop nav */}
             <nav

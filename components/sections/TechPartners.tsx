@@ -51,19 +51,19 @@ function PartnerCard({
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.4, delay: index * 0.06 }}
-      className="group relative flex flex-col items-center justify-center gap-3 p-5 rounded-xl border border-white/8 bg-white/[0.03] hover:border-white/18 hover:bg-white/[0.06] transition-all duration-200 cursor-default overflow-hidden"
+      className="group relative flex flex-col items-center justify-center gap-3 p-5 rounded-xl border border-[#0D1421]/8 dark:border-white/8 bg-white dark:bg-white/[0.03] hover:border-[#0D1421]/15 dark:hover:border-white/18 hover:bg-[#F0F3FB] dark:hover:bg-white/[0.06] transition-all duration-200 cursor-default overflow-hidden shadow-sm dark:shadow-none"
     >
       {/* icon */}
-      <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/6 group-hover:bg-white/10 transition-colors duration-200">
-        <Icon size={22} className="text-white/40 group-hover:text-white transition-colors duration-200" aria-hidden="true" />
+      <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-[#0D1421]/6 dark:bg-white/6 group-hover:bg-[#0D1421]/10 dark:group-hover:bg-white/10 transition-colors duration-200">
+        <Icon size={22} className="text-[#0D1421]/40 dark:text-white/40 group-hover:text-[#0D1421] dark:group-hover:text-white transition-colors duration-200" aria-hidden="true" />
       </div>
 
       {/* text */}
       <div className={cn('text-center', isRtl ? 'rtl' : '')}>
-        <p className="text-sm font-semibold text-white/60 group-hover:text-white/90 transition-colors leading-snug">
+        <p className="text-sm font-semibold text-[#0D1421]/60 dark:text-white/60 group-hover:text-[#0D1421]/90 dark:group-hover:text-white/90 transition-colors leading-snug">
           {partner.name}
         </p>
-        <p className="text-xs text-white/25 mt-0.5">{partner.category}</p>
+        <p className="text-xs text-[#0D1421]/25 dark:text-white/25 mt-0.5">{partner.category}</p>
       </div>
 
       {/* brand-coloured underline slides in on hover */}
@@ -81,27 +81,27 @@ export function TechPartners({ locale, label, title, subtitle, partners }: TechP
 
   return (
     <section
-      className="bg-[#050508] py-24 border-t border-white/6"
+      className="bg-[#EDF0F9] dark:bg-[#050508] py-14 border-t border-[#0D1421]/6 dark:border-white/6"
       aria-labelledby="tech-partners-heading"
     >
       <Container>
         <motion.div
-          className="mb-14 text-center"
+          className="mb-10 text-center"
           initial={prefersReduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-3">
             {label}
           </p>
           <h2
             id="tech-partners-heading"
-            className="text-3xl sm:text-4xl font-semibold text-white font-display leading-tight max-w-2xl mx-auto"
+            className="text-3xl sm:text-4xl font-semibold text-[#0D1421] dark:text-white font-display leading-tight max-w-2xl mx-auto"
           >
             {title}
           </h2>
-          <p className="mt-4 text-white/50 text-base max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-[#0D1421]/50 dark:text-white/50 text-base max-w-xl mx-auto leading-relaxed">
             {subtitle}
           </p>
         </motion.div>

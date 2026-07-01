@@ -33,7 +33,7 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-[#080D18] py-28 relative" aria-labelledby="services-heading">
+    <section className="bg-[#EDF0F9] dark:bg-[#080D18] py-16 relative" aria-labelledby="services-heading">
       {/* subtle top border */}
       <div
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
@@ -43,18 +43,18 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
 
       <Container>
         <motion.div
-          className={cn('mb-16', isRtl ? 'text-right' : 'text-left')}
+          className={cn('mb-10', isRtl ? 'text-right' : 'text-left')}
           initial={prefersReduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-3">
             {title}
           </p>
           <h2
             id="services-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-display leading-[1.05] max-w-2xl"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0D1421] dark:text-white font-display leading-[1.05] max-w-2xl"
           >
             {subtitle}
           </h2>
@@ -75,7 +75,7 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
               >
                 <Link
                   href={`/${locale}/services/${service.slug}`}
-                  className="group relative flex flex-col gap-5 p-6 rounded-2xl border border-white/8 bg-white/[0.03] hover:border-white/15 hover:bg-white/[0.06] transition-all duration-300 h-full overflow-hidden"
+                  className="group relative flex flex-col gap-5 p-6 rounded-2xl border border-[#0D1421]/8 dark:border-white/8 bg-white dark:bg-white/[0.03] hover:border-[#0D1421]/15 dark:hover:border-white/15 hover:bg-[#F0F3FB] dark:hover:bg-white/[0.06] transition-all duration-300 h-full overflow-hidden shadow-sm dark:shadow-none"
                 >
                   {/* gradient glow that reveals on hover */}
                   <div
@@ -123,10 +123,10 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
 
                   {/* text */}
                   <div className={cn('flex flex-col gap-2', isRtl ? 'text-right' : '')}>
-                    <h3 className="text-base font-semibold text-white group-hover:text-white transition-colors tracking-tight">
+                    <h3 className="text-base font-semibold text-[#0D1421] dark:text-white group-hover:text-[#0D1421] dark:group-hover:text-white transition-colors tracking-tight">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-white/55 leading-relaxed group-hover:text-white/70 transition-colors">
+                    <p className="text-sm text-[#0D1421]/55 dark:text-white/55 leading-relaxed group-hover:text-[#0D1421]/70 dark:group-hover:text-white/70 transition-colors">
                       {service.description}
                     </p>
                   </div>
@@ -138,6 +138,7 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
                       isRtl ? 'flex-row-reverse self-end' : 'self-start'
                     )}
                     style={{ color: accent }}
+                  aria-hidden="true"
                   >
                     <span>{isRtl ? 'اعرف المزيد' : 'Learn more'}</span>
                     <ArrowRight size={12} className={isRtl ? 'rotate-180' : ''} aria-hidden="true" />

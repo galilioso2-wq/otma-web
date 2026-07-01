@@ -153,7 +153,7 @@ function CategoryCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="relative flex flex-col gap-5 p-6 rounded-2xl bg-white/[0.04] border border-white/10 overflow-hidden"
+      className="relative flex flex-col gap-5 p-6 rounded-2xl bg-white dark:bg-white/[0.04] border border-[#0D1421]/10 dark:border-white/10 overflow-hidden shadow-sm dark:shadow-none"
     >
       {/* coloured top border */}
       <div
@@ -175,7 +175,7 @@ function CategoryCard({
           <div
             key={item.name}
             className={cn(
-              'flex items-center gap-2 px-2.5 py-2 rounded-lg bg-white/[0.04] border border-white/8 hover:border-white/20 hover:bg-white/[0.08] transition-all duration-150',
+              'flex items-center gap-2 px-2.5 py-2 rounded-lg bg-[#F4F7FD] dark:bg-white/[0.04] border border-[#0D1421]/8 dark:border-white/8 hover:border-[#0D1421]/20 dark:hover:border-white/20 hover:bg-[#EAF0FA] dark:hover:bg-white/[0.08] transition-all duration-150',
               isRtl ? 'flex-row-reverse' : ''
             )}
           >
@@ -189,7 +189,7 @@ function CategoryCard({
                 {item.name.slice(0, 2).toUpperCase()}
               </span>
             )}
-            <span className={cn('text-xs font-medium text-white/70 leading-tight', isRtl ? 'text-right' : '')}>
+            <span className={cn('text-xs font-medium text-[#0D1421]/70 dark:text-white/70 leading-tight', isRtl ? 'text-right' : '')}>
               {item.name}
             </span>
           </div>
@@ -215,28 +215,28 @@ export function TechStackGrid({ locale, label, title, subtitle, cloudLabel, clou
 
   return (
     <section
-      className="bg-[#050508] py-24 border-t border-white/6"
+      className="bg-[#F7F9FC] dark:bg-[#050508] py-14 border-t border-[#0D1421]/6 dark:border-white/6"
       aria-labelledby="tech-stack-heading"
     >
       <Container>
         {/* heading */}
         <motion.div
-          className="mb-14 text-center"
+          className="mb-10 text-center"
           initial={prefersReduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-3">
             {label}
           </p>
           <h2
             id="tech-stack-heading"
-            className="text-3xl sm:text-4xl font-semibold text-white font-display leading-tight max-w-3xl mx-auto"
+            className="text-3xl sm:text-4xl font-semibold text-[#0D1421] dark:text-white font-display leading-tight max-w-3xl mx-auto"
           >
             {title}
           </h2>
-          <p className="mt-4 text-white/50 text-base max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-[#0D1421]/50 dark:text-white/50 text-base max-w-xl mx-auto leading-relaxed">
             {subtitle}
           </p>
         </motion.div>
@@ -256,7 +256,7 @@ export function TechStackGrid({ locale, label, title, subtitle, cloudLabel, clou
 
         {/* cloud platforms row */}
         <motion.div
-          className="mt-6 rounded-2xl bg-white/[0.04] border border-white/10 p-6"
+          className="mt-6 rounded-2xl bg-white dark:bg-white/[0.04] border border-[#0D1421]/10 dark:border-white/10 p-6 shadow-sm dark:shadow-none"
           initial={prefersReduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
@@ -265,12 +265,12 @@ export function TechStackGrid({ locale, label, title, subtitle, cloudLabel, clou
           <div className={cn('flex flex-col sm:flex-row sm:items-center gap-6', isRtl ? 'sm:flex-row-reverse' : '')}>
             {/* label block */}
             <div className={cn('sm:w-52 flex-shrink-0', isRtl ? 'text-right' : '')}>
-              <p className="text-sm font-semibold text-white/80">{cloudLabel}</p>
-              <p className="text-xs text-white/35 mt-1 leading-relaxed">{cloudNote}</p>
+              <p className="text-sm font-semibold text-[#0D1421]/80 dark:text-white/80">{cloudLabel}</p>
+              <p className="text-xs text-[#0D1421]/35 dark:text-white/35 mt-1 leading-relaxed">{cloudNote}</p>
             </div>
 
             {/* divider */}
-            <div className="hidden sm:block w-px h-12 bg-white/12 flex-shrink-0" aria-hidden="true" />
+            <div className="hidden sm:block w-px h-12 bg-[#0D1421]/12 dark:bg-white/12 flex-shrink-0" aria-hidden="true" />
 
             {/* cloud logos */}
             <div className={cn('flex flex-wrap gap-6 flex-1', isRtl ? 'justify-end' : 'justify-start sm:justify-around')}>
@@ -281,8 +281,8 @@ export function TechStackGrid({ locale, label, title, subtitle, cloudLabel, clou
                 >
                   <CloudImg slug={cloud.slug} color={cloud.color} name={cloud.name} />
                   <div className={isRtl ? 'text-right' : ''}>
-                    <p className="text-sm font-semibold text-white/80">{cloud.label}</p>
-                    <p className="text-xs text-white/35">{cloud.name}</p>
+                    <p className="text-sm font-semibold text-[#0D1421]/80 dark:text-white/80">{cloud.label}</p>
+                    <p className="text-xs text-[#0D1421]/35 dark:text-white/35">{cloud.name}</p>
                   </div>
                 </div>
               ))}
