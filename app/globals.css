@@ -58,8 +58,8 @@
   --color-otma-gray: #808890;
 
   /* ─── OTMA font families ─── */
-  --font-sans: var(--font-plus-jakarta), system-ui, sans-serif;
-  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-sans: var(--font-plus-jakarta), var(--font-ibm-plex-arabic), system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-ibm-plex-arabic), system-ui, sans-serif;
   --font-arabic: var(--font-ibm-plex-arabic), "Tahoma", sans-serif;
 }
 
@@ -155,7 +155,23 @@
 }
 
 /* ─── RTL font override ─── */
+/* Apply IBM Plex Sans Arabic to the root so it inherits down */
 [dir="rtl"] {
+  font-family: var(--font-ibm-plex-arabic), "Tahoma", sans-serif;
+}
+/* Override Tailwind font-family utilities inside RTL docs (higher specificity: attr + class) */
+[dir="rtl"] .font-display,
+[dir="rtl"] .font-sans,
+[dir="rtl"] .font-arabic,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] a,
+[dir="rtl"] button,
+[dir="rtl"] label {
   font-family: var(--font-ibm-plex-arabic), "Tahoma", sans-serif;
 }
 
@@ -173,10 +189,14 @@ html {
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
 }
 
-/* tighter tracking on large display headings */
+/* tighter tracking on large display headings — Latin only */
 h1 { letter-spacing: -0.03em; }
 h2 { letter-spacing: -0.02em; }
 h3 { letter-spacing: -0.015em; }
+/* Arabic script must not have negative letter-spacing */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3 { letter-spacing: 0; }
 
 /* balanced line wrapping on headings */
 h1, h2, h3, h4 {

@@ -28,7 +28,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 const ibmPlexArabic = IBM_Plex_Sans_Arabic({
   subsets: ['arabic'],
-  weight: ['400', '600'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-ibm-plex-arabic',
   display: 'swap',
 })
