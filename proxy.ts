@@ -11,8 +11,15 @@ function getLocale(request: NextRequest): string {
   return defaultLocale
 }
 
+// Routes that bypass locale redirection (standalone pages with their own routing)
+const bypassLocale = ['/ppc']
+
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
+
+  if (bypassLocale.some((p) => pathname === p || pathname.startsWith(`${p}/`))) {
+    return NextResponse.next()
+  }
 
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
