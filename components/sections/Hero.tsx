@@ -205,7 +205,7 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaPrimaryHref, ctaS
               <motion.h1
                 id="hero-heading"
                 className={cn(
-                  'font-display font-semibold leading-[1.05] tracking-tight',
+                  'font-display font-medium leading-[1.08] tracking-normal',
                   'text-4xl sm:text-5xl lg:text-6xl max-w-2xl',
                   isRtl ? 'font-arabic' : ''
                 )}
@@ -303,7 +303,7 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaPrimaryHref, ctaS
           <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-4">
             {locale === 'ar' ? 'وكلاء ذكاء اصطناعي' : 'AI Agents'}
           </p>
-          <h2 className="font-display font-semibold text-[#0D1421] dark:text-white text-4xl sm:text-5xl lg:text-6xl max-w-3xl mx-auto leading-[1.05]">
+          <h2 className="font-display font-medium text-[#0D1421] dark:text-white text-4xl sm:text-5xl lg:text-6xl max-w-3xl mx-auto leading-[1.08] tracking-normal">
             {locale === 'ar'
               ? 'أتمتة أذكى للمؤسسات'
               : 'AI Agents for Smarter Enterprise Operations'}

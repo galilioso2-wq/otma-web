@@ -189,15 +189,6 @@ html {
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
 }
 
-/* tighter tracking on large display headings — Latin only */
-h1 { letter-spacing: -0.03em; }
-h2 { letter-spacing: -0.02em; }
-h3 { letter-spacing: -0.015em; }
-/* Arabic script must not have negative letter-spacing */
-[dir="rtl"] h1,
-[dir="rtl"] h2,
-[dir="rtl"] h3 { letter-spacing: 0; }
-
 /* balanced line wrapping on headings */
 h1, h2, h3, h4 {
   text-wrap: balance;

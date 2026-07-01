@@ -54,7 +54,7 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
           </p>
           <h2
             id="services-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#0D1421] dark:text-white font-display leading-[1.05] max-w-2xl"
+            className="text-4xl sm:text-5xl lg:text-6xl font-medium text-[#0D1421] dark:text-white font-display leading-[1.08] tracking-normal max-w-2xl"
           >
             {subtitle}
           </h2>
