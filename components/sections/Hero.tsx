@@ -188,8 +188,11 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaPrimaryHref, ctaS
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* perspective grid fills the card */}
-          <div className="relative h-[360px] sm:h-[420px]">
-            <PerspectiveGrid />
+          <div className="relative">
+            {/* SVG background — fixed height so grid looks good */}
+            <div className="absolute inset-0 min-h-[460px] sm:min-h-[560px]" aria-hidden="true">
+              <PerspectiveGrid />
+            </div>
 
             {/* gradient vignette at card edges for depth */}
             <div
@@ -200,8 +203,8 @@ export function Hero({ locale, title, subtitle, ctaPrimary, ctaPrimaryHref, ctaS
               aria-hidden="true"
             />
 
-            {/* card overlay content — centred vertically */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-8 text-center">
+            {/* card content — flows naturally, sets card height */}
+            <div className="relative z-10 flex flex-col items-center justify-center gap-5 px-8 py-16 sm:py-20 text-center">
               <motion.h1
                 id="hero-heading"
                 className={cn(
