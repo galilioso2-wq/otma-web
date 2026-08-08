@@ -475,6 +475,28 @@ export function Hero({
                 </Link>
               </motion.div>
 
+              {/* ── Try platform link ── */}
+              <motion.div
+                initial={prefersReduced ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.65 }}
+              >
+                <a
+                  href="https://otma-enterprise-agents.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-white/55 hover:text-white/90 transition-colors group"
+                >
+                  <span
+                    className="w-2 h-2 rounded-full bg-green-400 shrink-0"
+                    style={{ animation: 'pulse 2s infinite' }}
+                    aria-hidden="true"
+                  />
+                  {isRtl ? 'جرّب وكلاء OTMA المؤسسية الآن' : 'Try OTMA Enterprise Agents live'}
+                  <span className="text-white/30 group-hover:text-white/70 transition-colors text-xs" aria-hidden="true">↗</span>
+                </a>
+              </motion.div>
+
               {/* ── Subtitle ── */}
               <motion.p
                 className="text-base sm:text-lg text-white/60 max-w-lg leading-relaxed"

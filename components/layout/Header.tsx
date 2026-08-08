@@ -118,6 +118,20 @@ export function Header({ locale, nav }: HeaderProps) {
               >
                 {nav.locale_label}
               </Link>
+              <a
+                href="https://otma-enterprise-agents.onrender.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium border border-[#0099BB]/50 dark:border-[#00D4FF]/40 text-[#0099BB] dark:text-[#00D4FF] hover:bg-[#0099BB]/8 dark:hover:bg-[#00D4FF]/8 transition-colors"
+              >
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-green-400 shrink-0"
+                  style={{ animation: 'pulse 2s infinite' }}
+                  aria-hidden="true"
+                />
+                {isRtl ? 'جرّب المنصة' : 'Try Platform'}
+                <span aria-hidden="true" className="text-xs opacity-60">↗</span>
+              </a>
               <Link
                 href={`/${locale}/contact`}
                 className="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium bg-[#0099BB] dark:bg-[#00D4FF] text-white dark:text-[#080D18] hover:bg-[#007A96] dark:hover:bg-[#33DDFF] transition-colors"
@@ -192,6 +206,16 @@ export function Header({ locale, nav }: HeaderProps) {
               >
                 {nav.locale_label}
               </Link>
+              <a
+                href="https://otma-enterprise-agents.onrender.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3 px-4 rounded-lg text-base font-medium text-center border border-[#0099BB]/50 dark:border-[#00D4FF]/40 text-[#0099BB] dark:text-[#00D4FF] hover:bg-[#0099BB]/8 dark:hover:bg-[#00D4FF]/8 transition-colors flex items-center justify-center gap-2"
+              >
+                <span className="w-2 h-2 rounded-full bg-green-400" aria-hidden="true" />
+                {isRtl ? 'جرّب المنصة الآن' : 'Try OTMA Platform'}
+                <span aria-hidden="true" className="opacity-60">↗</span>
+              </a>
               <Link
                 href={`/${locale}/contact`}
                 className="py-3 px-4 rounded-lg text-base font-medium text-center bg-[#0099BB] dark:bg-[#00D4FF] text-white dark:text-[#080D18] hover:bg-[#007A96] dark:hover:bg-[#33DDFF] transition-colors"
