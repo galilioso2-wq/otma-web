@@ -12,7 +12,7 @@ interface LogoProps {
   animated?: boolean
 }
 
-const markSize = { sm: 28, md: 36, lg: 52 }
+const markSize = { sm: 32, md: 44, lg: 60 }
 const wordmarkSize = { sm: 'text-lg', md: 'text-2xl', lg: 'text-4xl' }
 const wordmarkGap = { sm: 'gap-2', md: 'gap-2.5', lg: 'gap-4' }
 

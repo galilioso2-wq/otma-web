@@ -41,7 +41,7 @@ const CATEGORIES: TechCategory[] = [
       { name: 'Databricks',         slug: 'databricks' },
       { name: 'Informatica',        slug: null },
       { name: 'Alteryx',            slug: null },
-      { name: 'Azure Data Factory', slug: 'microsoftazure' },
+      { name: 'Azure Data Factory', slug: null },
       { name: 'Microsoft Fabric',   slug: null },
       { name: 'Apache NiFi',        slug: 'apachenifi' },
       { name: 'Pentaho',            slug: null },
@@ -79,9 +79,9 @@ const CATEGORIES: TechCategory[] = [
 ]
 
 const CLOUD_PLATFORMS = [
-  { name: 'Google Cloud Platform', slug: 'googlecloud',    color: '4285F4', label: 'Google Cloud' },
-  { name: 'Amazon Web Services',   slug: null,             color: 'FF9900', label: 'AWS' },
-  { name: 'Microsoft Azure',       slug: 'microsoftazure', color: '0078D4', label: 'Azure' },
+  { name: 'Google Cloud Platform', slug: 'googlecloud', color: '4285F4', label: 'Google Cloud', short: 'GC' },
+  { name: 'Amazon Web Services',   slug: null,          color: 'FF9900', label: 'AWS',          short: 'AWS' },
+  { name: 'Microsoft Azure',       slug: null,          color: '0078D4', label: 'Azure',        short: 'Az' },
 ]
 
 /* ── Logo image with error handling ── */
@@ -110,14 +110,14 @@ function LogoImg({ slug, name, accent }: { slug: string; name: string; accent: s
   )
 }
 
-function CloudImg({ slug, color, name }: { slug: string | null; color: string; name: string }) {
+function CloudImg({ slug, color, name, short }: { slug: string | null; color: string; name: string; short?: string }) {
   const [failed, setFailed] = useState(false)
   if (!slug || failed) return (
     <span
       className="w-12 h-12 flex-shrink-0 rounded-xl text-sm font-bold flex items-center justify-center"
       style={{ background: `#${color}20`, color: `#${color}` }}
     >
-      {name.slice(0, 3).toUpperCase()}
+      {short ?? name.slice(0, 3).toUpperCase()}
     </span>
   )
   return (
@@ -279,7 +279,7 @@ export function TechStackGrid({ locale, label, title, subtitle, cloudLabel, clou
                   key={cloud.name}
                   className={cn('flex items-center gap-3', isRtl ? 'flex-row-reverse' : '')}
                 >
-                  <CloudImg slug={cloud.slug} color={cloud.color} name={cloud.name} />
+                  <CloudImg slug={cloud.slug} color={cloud.color} name={cloud.name} short={cloud.short} />
                   <div className={isRtl ? 'text-right' : ''}>
                     <p className="text-sm font-semibold text-[#0D1421]/80 dark:text-white/80">{cloud.label}</p>
                     <p className="text-xs text-[#0D1421]/35 dark:text-white/35">{cloud.name}</p>

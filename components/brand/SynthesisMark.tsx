@@ -20,23 +20,26 @@ export function SynthesisMark({
 
   const teal1 = theme === 'dark' ? '#00D4FF' : '#0099BB'
   const teal2 = theme === 'dark' ? '#7ACBBA' : '#4A9A8A'
-  const dotColor = theme === 'dark' ? '#00C4B4' : '#008A7C'
   const gradId = `otma-grad-${size}-${theme}`
 
   // Viewbox 100×100. Center (50,50).
-  // Ghost ring: radius 44, full thin circle for the outer orbital halo.
-  // Outer arc: radius 38, ~300° clockwise — gap of 60° at right (2→4 o'clock).
-  //   Start: "2 o'clock" = (83, 31)  [38*sin60°≈32.9 right, 38*cos60°≈19 up from center]
-  //   End:   "4 o'clock" = (83, 69)  [38*sin120°≈32.9 right, 38*cos120°≈19 down] → 300° long arc
-  const outerArc = 'M 83 31 A 38 38 0 1 1 83 69'
+  //
+  // Ghost halo: radius 44 — thin full circle for outer orbital atmosphere.
+  //
+  // Main orbital arc: radius 36, 330° clockwise.
+  //   Gap (30°) centered at 2 o'clock (60°). Arc runs from 75° to 45°.
+  //   Start (75°):  x=50+36·sin75°≈85  y=50−36·cos75°≈41  → (85, 41)
+  //   End   (45°):  x=50+36·sin45°≈75  y=50−36·cos45°≈25  → (75, 25)
+  //   large-arc=1, sweep=1 (clockwise long way around = 330°)
+  const outerArc = 'M 85 41 A 36 36 0 1 1 75 25'
 
-  // Inner lens — upper swoosh (defines top of the "eye")
-  const innerTop = 'M 17 45 Q 50 14 83 45'
+  // Horizontal eye lens — both arcs share endpoints (18,50) and (82,50).
+  // Upper arc curves to apex at y=26 (24 units above center)
+  const innerTop = 'M 18 50 Q 50 26 82 50'
+  // Lower arc curves to apex at y=74 (24 units below center)
+  const innerBottom = 'M 18 50 Q 50 74 82 50'
 
-  // Inner lens — lower swoosh (defines bottom of the "eye")
-  const innerBottom = 'M 24 58 Q 50 76 76 58'
-
-  const sw = (n: number) => (size / 100) * n   // scale stroke to size
+  const sw = (n: number) => (size / 100) * n   // scale stroke to rendered size
 
   if (!shouldAnimate) {
     return (
@@ -52,24 +55,24 @@ export function SynthesisMark({
         <defs>
           <linearGradient id={gradId} x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor={teal1} stopOpacity="0.95" />
-            <stop offset="100%" stopColor={teal2} stopOpacity="0.85" />
+            <stop offset="100%" stopColor={teal2} stopOpacity="0.80" />
           </linearGradient>
         </defs>
 
-        {/* ghost outer orbital ring (halo) */}
-        <circle cx="50" cy="50" r="44" stroke={`url(#${gradId})`} strokeWidth={sw(0.6)} opacity="0.22" fill="none" />
+        {/* ghost outer halo ring */}
+        <circle cx="50" cy="50" r="44" stroke={`url(#${gradId})`} strokeWidth={sw(0.5)} opacity="0.18" fill="none" />
 
-        {/* outer orbital arc ~300° */}
-        <path d={outerArc} stroke={`url(#${gradId})`} strokeWidth={sw(2.8)} strokeLinecap="round" />
+        {/* main orbital arc 330° */}
+        <path d={outerArc} stroke={`url(#${gradId})`} strokeWidth={sw(3.2)} strokeLinecap="round" />
 
-        {/* inner upper lens arc */}
-        <path d={innerTop} stroke={`url(#${gradId})`} strokeWidth={sw(2.2)} strokeLinecap="round" opacity="0.85" />
+        {/* eye lens — upper arc */}
+        <path d={innerTop} stroke={`url(#${gradId})`} strokeWidth={sw(2.0)} strokeLinecap="round" opacity="0.80" />
 
-        {/* inner lower lens arc */}
-        <path d={innerBottom} stroke={dotColor} strokeWidth={sw(1.8)} strokeLinecap="round" opacity="0.70" />
+        {/* eye lens — lower arc */}
+        <path d={innerBottom} stroke={`url(#${gradId})`} strokeWidth={sw(1.6)} strokeLinecap="round" opacity="0.60" />
 
-        {/* center dot */}
-        <circle cx="50" cy="50" r="8" fill={dotColor} />
+        {/* center iris dot */}
+        <circle cx="50" cy="50" r="9" fill={teal1} />
       </svg>
     )
   }
@@ -87,63 +90,61 @@ export function SynthesisMark({
       <defs>
         <linearGradient id={gradId} x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
           <stop offset="0%" stopColor={teal1} stopOpacity="0.95" />
-          <stop offset="100%" stopColor={teal2} stopOpacity="0.85" />
+          <stop offset="100%" stopColor={teal2} stopOpacity="0.80" />
         </linearGradient>
       </defs>
 
-      {/* ghost outer orbital ring (halo) */}
+      {/* ghost outer halo ring */}
       <motion.circle
         cx="50" cy="50" r="44" fill="none"
-        stroke={`url(#${gradId})`} strokeWidth={sw(0.6)}
+        stroke={`url(#${gradId})`} strokeWidth={sw(0.5)}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.22 }}
-        transition={{ duration: 1.0, ease: 'easeOut' }}
+        animate={{ opacity: 0.18 }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
       />
 
-      {/* outer orbital arc ~300° */}
+      {/* main orbital arc 330° */}
       <motion.path
         d={outerArc}
         stroke={`url(#${gradId})`}
-        strokeWidth={sw(2.8)}
+        strokeWidth={sw(3.2)}
         strokeLinecap="round"
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       />
 
-      {/* inner upper lens */}
+      {/* eye lens — upper arc */}
       <motion.path
         d={innerTop}
         stroke={`url(#${gradId})`}
-        strokeWidth={sw(2.2)}
+        strokeWidth={sw(2.0)}
         strokeLinecap="round"
-        opacity="0.85"
         initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 0.85 }}
-        transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        animate={{ pathLength: 1, opacity: 0.80 }}
+        transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
       />
 
-      {/* inner lower lens */}
+      {/* eye lens — lower arc */}
       <motion.path
         d={innerBottom}
-        stroke={dotColor}
-        strokeWidth={sw(1.8)}
+        stroke={`url(#${gradId})`}
+        strokeWidth={sw(1.6)}
         strokeLinecap="round"
-        opacity="0.70"
         initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 0.7 }}
-        transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        animate={{ pathLength: 1, opacity: 0.60 }}
+        transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
       />
 
-      {/* center dot */}
+      {/* center iris dot */}
       <motion.circle
         cx="50"
         cy="50"
-        r="8"
-        fill={dotColor}
+        r="9"
+        fill={teal1}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7, ease: 'backOut' }}
+        transition={{ duration: 0.5, delay: 0.6, ease: 'backOut' }}
       />
     </svg>
   )
