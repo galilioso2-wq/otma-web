@@ -29,10 +29,10 @@ export default function PpcPage() {
             </a>
           </p>
           <a
-            href="mailto:founder@otma.io"
+            href="mailto:teamsupport@otma.io"
             className="text-xs text-white/35 hover:text-[#7ACBBA] transition-colors"
           >
-            founder@otma.io
+            teamsupport@otma.io
           </a>
         </div>
       </footer>

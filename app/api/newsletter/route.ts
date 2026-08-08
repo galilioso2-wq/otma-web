@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: 'OTMA AI <noreply@otma.io>',
       to: email,
-      bcc: 'founder@otma.io',
+      bcc: 'teamsupport@otma.io',
       subject: isAr ? 'مرحباً بك في نشرة OTMA' : 'Welcome to OTMA AI Insights',
       html: isAr ? `
         <div dir="rtl" style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;padding:32px;background:#080D18;color:#ffffff;border-radius:12px;">

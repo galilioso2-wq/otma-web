@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
   try {
     await resend.emails.send({
       from: 'OTMA Contact <contact@otma.io>',
-      to: 'founder@otma.io',
+      to: 'teamsupport@otma.io',
       replyTo: email,
       subject,
       html,

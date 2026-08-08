@@ -709,7 +709,7 @@
     "info_title": "Get in touch",
     "response_promise": "Response within one business day — guaranteed.",
     "email_label": "Email",
-    "email": "founder@otma.io",
+    "email": "teamsupport@otma.io",
     "whatsapp_label": "WhatsApp",
     "whatsapp": "+966 50 000 0000",
     "linkedin_label": "LinkedIn",
@@ -739,7 +739,7 @@
       ],
       "submit": "Send message",
       "success": "Message received. You will hear from us within one business day.",
-      "error": "Something went wrong. Please email us directly at founder@otma.io"
+      "error": "Something went wrong. Please email us directly at teamsupport@otma.io"
     }
   },
   "footer": {

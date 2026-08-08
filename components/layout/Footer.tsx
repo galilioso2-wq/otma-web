@@ -107,10 +107,10 @@ export function Footer({ locale, dict }: FooterProps) {
             <ul className="space-y-2.5">
               <li>
                 <a
-                  href="mailto:founder@otma.io"
+                  href="mailto:teamsupport@otma.io"
                   className="text-sm text-white/60 hover:text-[#00D4FF] transition-colors"
                 >
-                  founder@otma.io
+                  teamsupport@otma.io
                 </a>
               </li>
               <li>

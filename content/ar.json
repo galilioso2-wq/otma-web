@@ -709,7 +709,7 @@
     "info_title": "تواصل معنا",
     "response_promise": "رد مضمون خلال يوم عمل واحد.",
     "email_label": "البريد الإلكتروني",
-    "email": "founder@otma.io",
+    "email": "teamsupport@otma.io",
     "whatsapp_label": "واتساب",
     "whatsapp": "+966 50 000 0000",
     "linkedin_label": "لينكد إن",
@@ -739,7 +739,7 @@
       ],
       "submit": "إرسال الرسالة",
       "success": "تم استلام رسالتك. ستسمع منا خلال يوم عمل واحد.",
-      "error": "حدث خطأ ما. يُرجى مراسلتنا مباشرةً على founder@otma.io"
+      "error": "حدث خطأ ما. يُرجى مراسلتنا مباشرةً على teamsupport@otma.io"
     }
   },
   "footer": {
