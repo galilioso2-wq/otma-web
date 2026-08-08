@@ -297,6 +297,10 @@ h1, h2, h3, h4 {
   from { stroke-dashoffset: 800; }
   to   { stroke-dashoffset: 0; }
 }
+@keyframes typing-dot {
+  0%, 80%, 100% { transform: translateY(0);    opacity: 0.5; }
+  40%           { transform: translateY(-4px); opacity: 1;   }
+}
 @keyframes glow-fade-in {
   from { opacity: 0; filter: blur(24px); }
   to   { opacity: 1; filter: blur(0px); }
