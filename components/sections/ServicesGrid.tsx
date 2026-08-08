@@ -33,13 +33,7 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-[#EDF0F9] dark:bg-[#080D18] py-16 relative" aria-labelledby="services-heading">
-      {/* subtle top border */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07) 40%, rgba(255,255,255,0.07) 60%, transparent)' }}
-        aria-hidden="true"
-      />
+    <section className="bg-[#EDF0F9] dark:bg-[#080D18] py-16 relative border-t border-[#0D1421]/8 dark:border-white/8" aria-labelledby="services-heading">
 
       <Container>
         <motion.div
@@ -112,7 +106,7 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
                     <ArrowRight
                       size={16}
                       className={cn(
-                        'text-white/15 group-hover:text-white/70 transition-all mt-1',
+                        'text-[#0D1421]/20 dark:text-white/15 group-hover:text-[#0D1421]/55 dark:group-hover:text-white/70 transition-all mt-1',
                         isRtl
                           ? 'rotate-180 group-hover:-translate-x-1'
                           : 'group-hover:translate-x-1'

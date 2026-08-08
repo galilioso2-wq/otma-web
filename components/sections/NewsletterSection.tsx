@@ -57,7 +57,7 @@ export function NewsletterSection({
   }
 
   return (
-    <section className="bg-[#080D18] dark:bg-[#040810] border-t border-white/8 py-16 relative overflow-hidden">
+    <section className="bg-[#EDF0F9] dark:bg-[#080D18] border-t border-[#0D1421]/8 dark:border-white/8 py-16 relative overflow-hidden">
       {/* background glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -73,14 +73,14 @@ export function NewsletterSection({
           transition={{ duration: 0.6 }}
         >
           {/* label */}
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#00D4FF] mb-4">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-4">
             AI Insights
           </p>
 
-          <h2 className="font-display font-medium text-2xl sm:text-3xl text-white mb-3 leading-snug">
+          <h2 className="font-display font-medium text-2xl sm:text-3xl text-[#0D1421] dark:text-white mb-3 leading-snug">
             {title}
           </h2>
-          <p className="text-white/50 text-sm sm:text-base mb-8 max-w-md mx-auto">
+          <p className="text-[#0D1421]/55 dark:text-white/50 text-sm sm:text-base mb-8 max-w-md mx-auto">
             {subtitle}
           </p>
 
@@ -110,10 +110,10 @@ export function NewsletterSection({
                 placeholder={placeholder}
                 autoComplete="email"
                 className={cn(
-                  'w-full h-12 rounded-xl border bg-white/5 px-4 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 transition-colors',
+                  'w-full h-12 rounded-xl border bg-[#0D1421]/5 dark:bg-white/5 px-4 text-sm text-[#0D1421] dark:text-white placeholder:text-[#0D1421]/35 dark:placeholder:text-white/30 focus:outline-none focus:ring-2 transition-colors',
                   errors.email
                     ? 'border-[#C72C2C]/60 focus:ring-[#C72C2C]/40'
-                    : 'border-white/12 focus:ring-[#00D4FF]/40 focus:border-[#00D4FF]/50',
+                    : 'border-[#0D1421]/12 dark:border-white/12 focus:ring-[#0099BB]/40 dark:focus:ring-[#00D4FF]/40 focus:border-[#0099BB]/50 dark:focus:border-[#00D4FF]/50',
                   isRtl ? 'text-right' : ''
                 )}
                 aria-invalid={!!errors.email}
@@ -135,7 +135,7 @@ export function NewsletterSection({
             </button>
           </form>
 
-          <p className="mt-4 text-xs text-white/30">{privacy}</p>
+          <p className="mt-4 text-xs text-[#0D1421]/35 dark:text-white/30">{privacy}</p>
         </motion.div>
       </div>
     </section>

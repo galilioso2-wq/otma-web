@@ -23,12 +23,12 @@ export function SynthesisMark({
   const dotColor = theme === 'dark' ? '#00C4B4' : '#008A7C'
   const gradId = `otma-grad-${size}-${theme}`
 
-  // Viewbox 100×100. Center (50,50), outer arc radius 38.
-  // Outer arc: ~280° clockwise, gap in the lower-right.
-  //   Start: "2 o'clock" = (83, 31)  (38*sin60°≈32.9 right, 38*cos60°≈19 up from center)
-  //   End:   "5 o'clock" = (69, 83)  (38*sin150°≈19 right, 38*cos150°≈32.9 down)
-  //   large-arc-flag=1, sweep-flag=1 → clockwise long arc ≈ 280°
-  const outerArc = 'M 83 31 A 38 38 0 1 1 69 83'
+  // Viewbox 100×100. Center (50,50).
+  // Ghost ring: radius 44, full thin circle for the outer orbital halo.
+  // Outer arc: radius 38, ~300° clockwise — gap of 60° at right (2→4 o'clock).
+  //   Start: "2 o'clock" = (83, 31)  [38*sin60°≈32.9 right, 38*cos60°≈19 up from center]
+  //   End:   "4 o'clock" = (83, 69)  [38*sin120°≈32.9 right, 38*cos120°≈19 down] → 300° long arc
+  const outerArc = 'M 83 31 A 38 38 0 1 1 83 69'
 
   // Inner lens — upper swoosh (defines top of the "eye")
   const innerTop = 'M 17 45 Q 50 14 83 45'
@@ -56,7 +56,10 @@ export function SynthesisMark({
           </linearGradient>
         </defs>
 
-        {/* outer orbital arc ~280° */}
+        {/* ghost outer orbital ring (halo) */}
+        <circle cx="50" cy="50" r="44" stroke={`url(#${gradId})`} strokeWidth={sw(0.6)} opacity="0.22" fill="none" />
+
+        {/* outer orbital arc ~300° */}
         <path d={outerArc} stroke={`url(#${gradId})`} strokeWidth={sw(2.8)} strokeLinecap="round" />
 
         {/* inner upper lens arc */}
@@ -88,7 +91,16 @@ export function SynthesisMark({
         </linearGradient>
       </defs>
 
-      {/* outer orbital arc */}
+      {/* ghost outer orbital ring (halo) */}
+      <motion.circle
+        cx="50" cy="50" r="44" fill="none"
+        stroke={`url(#${gradId})`} strokeWidth={sw(0.6)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.22 }}
+        transition={{ duration: 1.0, ease: 'easeOut' }}
+      />
+
+      {/* outer orbital arc ~300° */}
       <motion.path
         d={outerArc}
         stroke={`url(#${gradId})`}
