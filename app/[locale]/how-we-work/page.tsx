@@ -97,14 +97,11 @@ export default async function HowWeWorkPage({
                   </p>
 
                   {/* Deliverables */}
-                  <div className={cn('grid sm:grid-cols-2 gap-2', isRtl ? '' : '')}>
+                  <div className="grid md:grid-cols-2 gap-2">
                     {phase.deliverables.map((d, j) => (
                       <div
                         key={j}
-                        className={cn(
-                          'flex items-start gap-2.5 px-4 py-3 rounded-lg bg-white/[0.03] border border-white/8',
-                          isRtl ? 'flex-row-reverse' : ''
-                        )}
+                        className="flex items-start gap-2.5 px-4 py-3 rounded-lg bg-white/[0.03] border border-white/8"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] mt-2 flex-shrink-0" aria-hidden="true" />
                         <span className="text-sm text-white/65 leading-snug">{d}</span>
