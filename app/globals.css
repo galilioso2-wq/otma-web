@@ -49,10 +49,12 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 
   /* ─── OTMA brand colors ─── */
-  --color-otma-navy: #080d18;
-  --color-otma-midnight: #0a0e1a;
-  --color-otma-cyan: #00d4ff;
-  --color-otma-cyan-deep: #0099bb;
+  --color-otma-navy: #0c1216;
+  --color-otma-midnight: #101921;
+  --color-otma-cyan: #46cddb;
+  --color-otma-cyan-deep: #2b9cae;
+  --color-otma-teal-deep: #147587;
+  --color-otma-core: #2b9cae;
   --color-otma-steel: #4a5878;
   --color-otma-soft: #e6f3ff;
   --color-otma-gray: #808890;
@@ -65,10 +67,11 @@
 
 :root {
   /* ─── OTMA semantic CSS variables ─── */
-  --otma-navy: #080d18;
-  --otma-midnight: #0a0e1a;
-  --otma-cyan: #00d4ff;
-  --otma-cyan-deep: #0099bb;
+  --otma-navy: #0c1216;
+  --otma-midnight: #101921;
+  --otma-cyan: #46cddb;
+  --otma-cyan-deep: #2b9cae;
+  --otma-teal-deep: #147587;
   --otma-steel: #4a5878;
   --otma-soft: #e6f3ff;
   --otma-gray: #808890;
@@ -175,9 +178,9 @@
   font-family: var(--font-ibm-plex-arabic), "Tahoma", sans-serif;
 }
 
-/* ─── cyan focus rings ─── */
+/* ─── teal focus rings ─── */
 *:focus-visible {
-  outline-color: #00d4ff;
+  outline-color: #46cddb;
 }
 
 /* ─── smooth scrolling + global text rendering ─── */
@@ -207,38 +210,51 @@ h1, h2, h3, h4 {
 
 /* ─── glow pulse on CTA ─── */
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 28px rgba(0,212,255,0.4); }
-  50%       { box-shadow: 0 0 50px rgba(0,212,255,0.7); }
+  0%, 100% { box-shadow: 0 0 28px rgba(70,205,219,0.4); }
+  50%       { box-shadow: 0 0 50px rgba(70,205,219,0.7); }
 }
 
 /* ─── selection ─── */
 ::selection {
-  background-color: rgba(0, 212, 255, 0.25);
+  background-color: rgba(70, 205, 219, 0.22);
 }
+
+/* ─── icon micro-animations (triggered by .group:hover on card) ─── */
+@keyframes otma-spin    { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes otma-bounce  { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes otma-pulse   { 0%,100% { transform: scale(1); }      50% { transform: scale(1.22); } }
+@keyframes otma-waggle  { 0%,100% { transform: rotate(0); }  25% { transform: rotate(-12deg); } 75% { transform: rotate(12deg); } }
+@keyframes otma-float   { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-4px) scale(1.06); } }
+
+.group:hover .icon-spin    { animation: otma-spin   0.65s linear; }
+.group:hover .icon-bounce  { animation: otma-bounce 0.50s ease-in-out; }
+.group:hover .icon-pulse   { animation: otma-pulse  0.55s ease-in-out; }
+.group:hover .icon-waggle  { animation: otma-waggle 0.45s ease-in-out; }
+.group:hover .icon-float   { animation: otma-float  0.70s ease-in-out infinite; }
 
 /* ─── OTMA card/surface CSS variables for both modes ─── */
 :root {
   --otma-card-bg: #FFFFFF;
   --otma-surface-bg: #F2F5FC;
   --otma-text: #0D1421;
-  --otma-accent: #0099BB;
+  --otma-accent: #2B9CAE;
 }
 .dark {
-  --otma-card-bg: #0A0D16;
-  --otma-surface-bg: #080D18;
-  --otma-text: #ffffff;
-  --otma-accent: #00D4FF;
+  --otma-card-bg: #0d1a22;
+  --otma-surface-bg: #0c1216;
+  --otma-text: #f0f4f8;
+  --otma-accent: #46CDDB;
 }
 
 /* ─── gradient text utilities ─── */
 .text-gradient-cyan {
-  background: linear-gradient(135deg, #0077AA 0%, #1060E0 100%);
+  background: linear-gradient(135deg, #1A7A90 0%, #0F5F72 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .dark .text-gradient-cyan {
-  background: linear-gradient(135deg, #00D4FF 0%, #3080FF 100%);
+  background: linear-gradient(135deg, #46CDDB 0%, #2B9CAE 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -258,10 +274,10 @@ h1, h2, h3, h4 {
 
 /* ─── animated gradient border (wrap a card with this, inner div gets solid bg) ─── */
 .card-gradient-border {
-  background: linear-gradient(135deg, rgba(0,212,255,0.25) 0%, rgba(48,128,255,0.12) 50%, rgba(255,255,255,0.06) 100%);
+  background: linear-gradient(135deg, rgba(70,205,219,0.22) 0%, rgba(43,156,174,0.10) 50%, rgba(255,255,255,0.05) 100%);
 }
 .card-gradient-border-hover:hover {
-  background: linear-gradient(135deg, rgba(0,212,255,0.45) 0%, rgba(48,128,255,0.25) 50%, rgba(255,255,255,0.12) 100%);
+  background: linear-gradient(135deg, rgba(70,205,219,0.40) 0%, rgba(43,156,174,0.22) 50%, rgba(255,255,255,0.10) 100%);
 }
 
 /* ─── keyframes ─── */
@@ -318,13 +334,13 @@ h1, h2, h3, h4 {
 /* ─── custom scrollbar ─── */
 :root {
   --scrollbar-track: #EEF1F8;
-  --scrollbar-thumb: rgba(0,153,187,0.30);
-  --scrollbar-thumb-hover: rgba(0,153,187,0.55);
+  --scrollbar-thumb: rgba(43,156,174,0.30);
+  --scrollbar-thumb-hover: rgba(43,156,174,0.55);
 }
 .dark {
-  --scrollbar-track: #050508;
-  --scrollbar-thumb: rgba(0,212,255,0.25);
-  --scrollbar-thumb-hover: rgba(0,212,255,0.5);
+  --scrollbar-track: #080e12;
+  --scrollbar-thumb: rgba(70,205,219,0.22);
+  --scrollbar-thumb-hover: rgba(70,205,219,0.45);
 }
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--scrollbar-track); }

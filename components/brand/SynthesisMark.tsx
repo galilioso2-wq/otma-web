@@ -18,133 +18,108 @@ export function SynthesisMark({
   const prefersReduced = useReducedMotion()
   const shouldAnimate = animated && !prefersReduced
 
-  const teal1 = theme === 'dark' ? '#00D4FF' : '#0099BB'
-  const teal2 = theme === 'dark' ? '#7ACBBA' : '#4A9A8A'
+  // New brand palette — warmer teal from identity SVG
+  const teal1 = theme === 'dark' ? '#46CDDB' : '#2B9CAE'
+  const teal2 = theme === 'dark' ? '#147587' : '#0F5F72'
+  const core  = theme === 'dark' ? '#2B9CAE' : '#1A7080'
   const gradId = `otma-grad-${size}-${theme}`
 
   // Viewbox 100×100. Center (50,50).
+  // 4-path orbital eye — cubic beziers derived from brand SVG, scaled ×0.6.
   //
-  // Ghost halo: radius 44 — thin full circle for outer orbital atmosphere.
-  //
-  // Main orbital arc: radius 36, 330° clockwise.
-  //   Gap (30°) centered at 2 o'clock (60°). Arc runs from 75° to 45°.
-  //   Start (75°):  x=50+36·sin75°≈85  y=50−36·cos75°≈41  → (85, 41)
-  //   End   (45°):  x=50+36·sin45°≈75  y=50−36·cos45°≈25  → (75, 25)
-  //   large-arc=1, sweep=1 (clockwise long way around = 330°)
-  const outerArc = 'M 85 41 A 36 36 0 1 1 75 25'
+  // path1 — inner upper sweep (left→right, curving up)
+  // path2 — inner lower sweep (right→left, curving down) — closes the inner lens
+  // path3 — outer left orbital arc
+  // path4 — outer right orbital arc
+  const path1 = 'M 20 53 C 35 26 65 26 80 47 C 89 59 80 77 65 83'
+  const path2 = 'M 80 47 C 65 74 35 74 20 53 C 11 41 20 23 35 17'
+  const path3 = 'M 71 80 C 50 95 14 86 8 56 C 5 38 20 20 35 14'
+  const path4 = 'M 29 20 C 50 5 86 14 92 44 C 95 62 80 80 65 86'
 
-  // Horizontal eye lens — both arcs share endpoints (18,50) and (82,50).
-  // Upper arc curves to apex at y=26 (24 units above center)
-  const innerTop = 'M 18 50 Q 50 26 82 50'
-  // Lower arc curves to apex at y=74 (24 units below center)
-  const innerBottom = 'M 18 50 Q 50 74 82 50'
+  const sw = (n: number) => (size / 100) * n
 
-  const sw = (n: number) => (size / 100) * n   // scale stroke to rendered size
+  const sharedProps = {
+    stroke: `url(#${gradId})`,
+    strokeLinecap: 'round' as const,
+    fill: 'none',
+  }
 
   if (!shouldAnimate) {
     return (
       <svg
-        width={size}
-        height={size}
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className={className}
-        aria-hidden="true"
+        width={size} height={size} viewBox="0 0 100 100"
+        fill="none" xmlns="http://www.w3.org/2000/svg"
+        className={className} aria-hidden="true"
       >
         <defs>
           <linearGradient id={gradId} x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor={teal1} stopOpacity="0.95" />
-            <stop offset="100%" stopColor={teal2} stopOpacity="0.80" />
+            <stop offset="100%" stopColor={teal2} stopOpacity="0.90" />
           </linearGradient>
         </defs>
 
-        {/* ghost outer halo ring */}
-        <circle cx="50" cy="50" r="44" stroke={`url(#${gradId})`} strokeWidth={sw(0.5)} opacity="0.18" fill="none" />
+        {/* outer orbital arcs */}
+        <path d={path4} {...sharedProps} strokeWidth={sw(2.6)} opacity="0.90" />
+        <path d={path3} {...sharedProps} strokeWidth={sw(2.6)} opacity="0.90" />
 
-        {/* main orbital arc 330° */}
-        <path d={outerArc} stroke={`url(#${gradId})`} strokeWidth={sw(3.2)} strokeLinecap="round" />
+        {/* inner lens arcs */}
+        <path d={path1} {...sharedProps} strokeWidth={sw(2.2)} opacity="0.80" />
+        <path d={path2} {...sharedProps} strokeWidth={sw(2.2)} opacity="0.80" />
 
-        {/* eye lens — upper arc */}
-        <path d={innerTop} stroke={`url(#${gradId})`} strokeWidth={sw(2.0)} strokeLinecap="round" opacity="0.80" />
-
-        {/* eye lens — lower arc */}
-        <path d={innerBottom} stroke={`url(#${gradId})`} strokeWidth={sw(1.6)} strokeLinecap="round" opacity="0.60" />
-
-        {/* center iris dot */}
-        <circle cx="50" cy="50" r="9" fill={teal1} />
+        {/* core iris dot */}
+        <circle cx="50" cy="50" r="8.5" fill={core} />
       </svg>
     )
   }
 
+  const pathTransition = (delay: number) => ({
+    duration: 1.0,
+    delay,
+    ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+  })
+
   return (
     <svg
-      width={size}
-      height={size}
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
+      width={size} height={size} viewBox="0 0 100 100"
+      fill="none" xmlns="http://www.w3.org/2000/svg"
+      className={className} aria-hidden="true"
     >
       <defs>
         <linearGradient id={gradId} x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
           <stop offset="0%" stopColor={teal1} stopOpacity="0.95" />
-          <stop offset="100%" stopColor={teal2} stopOpacity="0.80" />
+          <stop offset="100%" stopColor={teal2} stopOpacity="0.90" />
         </linearGradient>
       </defs>
 
-      {/* ghost outer halo ring */}
-      <motion.circle
-        cx="50" cy="50" r="44" fill="none"
-        stroke={`url(#${gradId})`} strokeWidth={sw(0.5)}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.18 }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
-      />
-
-      {/* main orbital arc 330° */}
-      <motion.path
-        d={outerArc}
-        stroke={`url(#${gradId})`}
-        strokeWidth={sw(3.2)}
-        strokeLinecap="round"
+      {/* outer right arc first */}
+      <motion.path d={path4} {...sharedProps} strokeWidth={sw(2.6)}
         initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        animate={{ pathLength: 1, opacity: 0.90 }}
+        transition={pathTransition(0)}
       />
-
-      {/* eye lens — upper arc */}
-      <motion.path
-        d={innerTop}
-        stroke={`url(#${gradId})`}
-        strokeWidth={sw(2.0)}
-        strokeLinecap="round"
+      {/* outer left arc */}
+      <motion.path d={path3} {...sharedProps} strokeWidth={sw(2.6)}
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 0.90 }}
+        transition={pathTransition(0.18)}
+      />
+      {/* inner upper lens */}
+      <motion.path d={path1} {...sharedProps} strokeWidth={sw(2.2)}
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: 1, opacity: 0.80 }}
-        transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+        transition={pathTransition(0.36)}
       />
-
-      {/* eye lens — lower arc */}
-      <motion.path
-        d={innerBottom}
-        stroke={`url(#${gradId})`}
-        strokeWidth={sw(1.6)}
-        strokeLinecap="round"
+      {/* inner lower lens */}
+      <motion.path d={path2} {...sharedProps} strokeWidth={sw(2.2)}
         initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 0.60 }}
-        transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        animate={{ pathLength: 1, opacity: 0.80 }}
+        transition={pathTransition(0.50)}
       />
-
-      {/* center iris dot */}
-      <motion.circle
-        cx="50"
-        cy="50"
-        r="9"
-        fill={teal1}
+      {/* core iris dot */}
+      <motion.circle cx="50" cy="50" r="8.5" fill={core}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6, ease: 'backOut' }}
+        transition={{ duration: 0.45, delay: 0.72, ease: 'backOut' }}
       />
     </svg>
   )

@@ -40,8 +40,8 @@ function PerspectiveGrid() {
     >
       <defs>
         <radialGradient id="vpGlow" cx="50%" cy="20%" r="28%">
-          <stop offset="0%" stopColor="#00D4FF" stopOpacity="0.55" />
-          <stop offset="60%" stopColor="#3060FF" stopOpacity="0.12" />
+          <stop offset="0%" stopColor="#46CDDB" stopOpacity="0.45" />
+          <stop offset="60%" stopColor="#147587" stopOpacity="0.10" />
           <stop offset="100%" stopColor="#000" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="fadeTop" x1="0" y1="0" x2="0" y2="1">
@@ -66,26 +66,26 @@ function PerspectiveGrid() {
         </mask>
       </defs>
 
-      <rect width={W} height={H} fill="#03061a" />
+      <rect width={W} height={H} fill="#060e14" />
 
-      <g mask="url(#gridMask)" opacity="0.65">
+      <g mask="url(#gridMask)" opacity="0.60">
         {spokes.map((d, i) => (
-          <path key={`s${i}`} d={d} stroke="#1a4aaa" strokeWidth="0.7" fill="none" />
+          <path key={`s${i}`} d={d} stroke="#0d3a4c" strokeWidth="0.7" fill="none" />
         ))}
         {spokes.filter((_, i) => i % 4 === 2).map((d, i) => (
-          <path key={`g${i}`} d={d} stroke="#c8920a" strokeWidth="0.5" fill="none" opacity="0.4" />
+          <path key={`g${i}`} d={d} stroke="#2b9cae" strokeWidth="0.5" fill="none" opacity="0.35" />
         ))}
       </g>
 
-      <g mask="url(#gridMask)" opacity="0.6">
+      <g mask="url(#gridMask)" opacity="0.55">
         {horizontals.map((d, i) => (
-          <path key={`h${i}`} d={d} stroke="#1a4aaa" strokeWidth="0.6" fill="none" />
+          <path key={`h${i}`} d={d} stroke="#0d3a4c" strokeWidth="0.6" fill="none" />
         ))}
       </g>
 
       <rect width={W} height={H} fill="url(#vpGlow)" />
-      <circle cx={vx} cy={vy} r="18" fill="#00D4FF" opacity="0.22" />
-      <circle cx={vx} cy={vy} r="6" fill="#ffffff" opacity="0.55" />
+      <circle cx={vx} cy={vy} r="18" fill="#46CDDB" opacity="0.20" />
+      <circle cx={vx} cy={vy} r="6" fill="#ffffff" opacity="0.50" />
     </svg>
   )
 }
@@ -98,7 +98,7 @@ function SpotlightRays() {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[550px]"
         style={{
           background:
-            'radial-gradient(ellipse 60% 65% at 50% -5%, rgba(40,70,220,0.60) 0%, rgba(20,40,160,0.20) 45%, transparent 70%)',
+            'radial-gradient(ellipse 60% 65% at 50% -5%, rgba(14,60,80,0.55) 0%, rgba(8,38,52,0.18) 45%, transparent 70%)',
         }}
       />
       {[-38, -26, -16, -8, 0, 8, 16, 26, 38].map((angle, i) => (
@@ -108,7 +108,7 @@ function SpotlightRays() {
           style={{
             width: '2px',
             height: '65vh',
-            background: 'linear-gradient(to bottom, rgba(120,160,255,0.25) 0%, transparent 100%)',
+            background: 'linear-gradient(to bottom, rgba(70,205,219,0.18) 0%, transparent 100%)',
             transform: `translateX(-50%) rotate(${angle}deg)`,
             opacity: 1 - Math.abs(angle) / 55,
           }}
@@ -117,21 +117,21 @@ function SpotlightRays() {
       <div
         className="absolute top-[15%] left-[8%] w-72 h-72 rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(0,212,255,0.10) 0%, transparent 65%)',
+          background: 'radial-gradient(circle, rgba(70,205,219,0.09) 0%, transparent 65%)',
           animation: 'orb-drift 16s ease-in-out infinite',
         }}
       />
       <div
         className="absolute top-[30%] right-[6%] w-56 h-56 rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(48,128,255,0.10) 0%, transparent 65%)',
+          background: 'radial-gradient(circle, rgba(43,156,174,0.09) 0%, transparent 65%)',
           animation: 'orb-drift-b 20s ease-in-out infinite',
         }}
       />
       <div
         className="absolute bottom-[10%] left-[20%] w-40 h-40 rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(200,146,10,0.08) 0%, transparent 65%)',
+          background: 'radial-gradient(circle, rgba(20,117,135,0.07) 0%, transparent 65%)',
           animation: 'orb-drift 24s ease-in-out infinite reverse',
         }}
       />
@@ -163,7 +163,7 @@ function AppMockup({ isRtl }: { isRtl: boolean }) {
       style={{
         background: '#080D18',
         border: '1px solid rgba(255,255,255,0.08)',
-        boxShadow: '0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(0,212,255,0.05), inset 0 1px 0 rgba(255,255,255,0.05)',
+        boxShadow: '0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(70,205,219,0.05), inset 0 1px 0 rgba(255,255,255,0.05)',
       }}
       dir="ltr"
     >
@@ -200,7 +200,7 @@ function AppMockup({ isRtl }: { isRtl: boolean }) {
           <div className="flex items-center gap-2 mb-3 px-1">
             <div
               className="w-5 h-5 rounded-full shrink-0"
-              style={{ background: 'linear-gradient(135deg, #00D4FF, #3060FF)' }}
+              style={{ background: 'linear-gradient(135deg, #46CDDB, #147587)' }}
             />
             <span className="text-white text-[11px] font-bold tracking-wide">OTMA</span>
           </div>
@@ -209,9 +209,9 @@ function AppMockup({ isRtl }: { isRtl: boolean }) {
               key={String(label)}
               className="px-2 py-[5px] rounded-lg text-[10px] transition-colors"
               style={{
-                background: active ? 'rgba(0,212,255,0.08)' : 'transparent',
-                border: active ? '1px solid rgba(0,212,255,0.18)' : '1px solid transparent',
-                color: active ? '#00D4FF' : 'rgba(255,255,255,0.32)',
+                background: active ? 'rgba(70,205,219,0.08)' : 'transparent',
+                border: active ? '1px solid rgba(70,205,219,0.18)' : '1px solid transparent',
+                color: active ? '#46CDDB' : 'rgba(255,255,255,0.32)',
               }}
             >
               {String(label)}
@@ -232,7 +232,7 @@ function AppMockup({ isRtl }: { isRtl: boolean }) {
                   border: '1px solid rgba(255,255,255,0.06)',
                 }}
               >
-                <div className="text-[#00D4FF] font-bold text-sm leading-none">{val}</div>
+                <div className="text-[#46CDDB] font-bold text-sm leading-none">{val}</div>
                 <div className="mt-1 text-[9px] leading-tight" style={{ color: 'rgba(255,255,255,0.35)' }}>
                   {label}
                 </div>
@@ -263,12 +263,12 @@ function AppMockup({ isRtl }: { isRtl: boolean }) {
             <div
               className="rounded-xl px-3 py-2 text-[10px] leading-relaxed max-w-[85%] self-end"
               style={{
-                background: 'rgba(0,212,255,0.07)',
-                border: '1px solid rgba(0,212,255,0.15)',
+                background: 'rgba(70,205,219,0.07)',
+                border: '1px solid rgba(70,205,219,0.15)',
                 color: 'rgba(255,255,255,0.82)',
               }}
             >
-              <span style={{ color: '#00D4FF', fontWeight: 600 }}>OTMA: </span>
+              <span style={{ color: '#46CDDB', fontWeight: 600 }}>OTMA: </span>
               {isRtl
                 ? '٣ حسابات تجاوزت ٩٠ يوماً — السلام للتجارة (٨٤٢ألف ر.س)، الرياض الصناعية (٦١٤ألف ر.س). يُوصى بالتصعيد.'
                 : '3 accounts exceed 90-day overdue — Al Salam Trading (SAR 842K), Riyadh Industrial Corp (SAR 614K). Recommend escalation.'}
@@ -287,7 +287,7 @@ function AppMockup({ isRtl }: { isRtl: boolean }) {
                   key={i}
                   className="w-[5px] h-[5px] rounded-full"
                   style={{
-                    background: 'rgba(0,212,255,0.65)',
+                    background: 'rgba(70,205,219,0.65)',
                     animation: `typing-dot 1.4s ${i * 0.22}s ease-in-out infinite`,
                   }}
                 />
@@ -385,7 +385,7 @@ export function Hero({
           className="relative w-full max-w-3xl rounded-2xl overflow-hidden"
           style={{
             border: '1px solid rgba(255,255,255,0.13)',
-            boxShadow: '0 0 80px rgba(30,60,220,0.18), 0 0 0 1px rgba(255,255,255,0.06)',
+            boxShadow: '0 0 80px rgba(70,205,219,0.12), 0 0 0 1px rgba(255,255,255,0.06)',
           }}
           initial={prefersReduced ? false : { opacity: 0, y: 32, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -423,7 +423,7 @@ export function Hero({
               >
                 <span
                   className="w-[7px] h-[7px] rounded-full shrink-0"
-                  style={{ background: '#00D4FF', boxShadow: '0 0 6px #00D4FF' }}
+                  style={{ background: '#46CDDB', boxShadow: '0 0 6px #46CDDB' }}
                   aria-hidden="true"
                 />
                 {isRtl ? 'منتشر عبر السعودية ودول الخليج' : 'Deployed across Saudi Arabia & GCC'}
@@ -551,7 +551,7 @@ export function Hero({
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-4">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#2b9cae] dark:text-[#46cddb] mb-4">
             {locale === 'ar' ? 'وكلاء ذكاء اصطناعي' : 'AI Agents'}
           </p>
           <h2 className="font-sans font-light text-[#0D1421] dark:text-white text-4xl sm:text-5xl lg:text-6xl max-w-3xl mx-auto leading-[1.1] tracking-normal">

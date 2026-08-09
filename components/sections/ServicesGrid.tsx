@@ -21,11 +21,16 @@ interface ServicesGridProps {
 
 const ICONS = [Bot, Brain, BarChart3, MessageSquare, Map, RefreshCw, Database, Cloud, Shield]
 
-// Accent color per card for visual variety
+const ICON_ANIMS = [
+  'icon-bounce', 'icon-pulse', 'icon-waggle',
+  'icon-bounce', 'icon-pulse', 'icon-spin',
+  'icon-float',  'icon-float', 'icon-pulse',
+]
+
 const CARD_ACCENTS = [
-  '#00D4FF', '#3080FF', '#7C3AED',
+  '#46CDDB', '#3080FF', '#7C3AED',
   '#10A37F', '#F59E0B', '#EF4444',
-  '#00D4FF', '#3080FF', '#7C3AED',
+  '#46CDDB', '#3080FF', '#7C3AED',
 ]
 
 export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridProps) {
@@ -43,7 +48,7 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#0099BB] dark:text-[#00D4FF] mb-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#2b9cae] dark:text-[#46cddb] mb-3">
             {title}
           </p>
           <h2
@@ -58,6 +63,7 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
           {items.map((service, i) => {
             const Icon = ICONS[i % ICONS.length]
             const accent = CARD_ACCENTS[i % CARD_ACCENTS.length]
+            const iconAnim = ICON_ANIMS[i % ICON_ANIMS.length]
 
             return (
               <motion.div
@@ -100,7 +106,7 @@ export function ServicesGrid({ locale, title, subtitle, items }: ServicesGridPro
                         size={20}
                         style={{ color: accent }}
                         aria-hidden="true"
-                        className="transition-all duration-300"
+                        className={iconAnim}
                       />
                     </div>
                     <ArrowRight
